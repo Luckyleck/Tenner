@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^5.3.4",
+    "redux-thunk": "^2.4.2"
+  },
+  "devDependencies": {
+    "logger": "^0.0.1",
+    "redux": "^4.2.1"
+  },
+  "name": "fullstack-project",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ""
+  }
+
+}
