@@ -1,15 +1,14 @@
 class ApplicationController < ActionController::API
 
-    # include ActionController::RequestForgeryProtection
+    include ActionController::RequestForgeryProtection
     
-    # protect_from_forgery with: :exception
+    protect_from_forgery with: :exception
     
     # rescue_from StandardError, with: :unhandled_error
     # rescue_from ActionController::InvalidAuthenticityToken,
     #     with: :invalid_authenticity_token
 
-    before_action :snake_case_params
-    #, :attach_authenticity_token
+    before_action :snake_case_params, :attach_authenticity_token
 
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])
@@ -52,9 +51,9 @@ class ApplicationController < ActionController::API
         params.deep_transform_keys!(&:underscore)
     end
 
-    # def attach_authenticity_token
-    #     headers['X-CSRF-Token'] = masked_authenticity_token(session)
-    # end
+    def attach_authenticity_token
+        headers['X-CSRF-Token'] = masked_authenticity_token(session)
+    end
 
     # def invalid_authenticity_token
     #     render json: { message: 'Invalid authenticity token' },
