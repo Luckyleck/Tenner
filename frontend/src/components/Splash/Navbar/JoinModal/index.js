@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState }from 'react';
 import './JoinModal.css'; // import CSS file for styling
 
-function JoinModal({ ModalToggle }) {
+function JoinModal({ ModalToggle, toggleSecondModal }) {
+
+  const handleContinue = () => {
+    ModalToggle();
+    toggleSecondModal();
+  }
+
   return (
     <>
       <div className='modal-overlay' onClick={ModalToggle}/>
@@ -12,7 +18,7 @@ function JoinModal({ ModalToggle }) {
           className="modal-input"
           placeholder="Enter your email"
         />
-        <button className="modal-button">Continue</button>
+        <button className="modal-button" onClick={handleContinue}>Continue</button>
         <p className="modal-paragraph">
           By joining I agree to receive emails from Tenner.
         </p>
