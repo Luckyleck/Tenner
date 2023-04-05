@@ -14,11 +14,11 @@ function JoinModal({ ModalToggle }) {
         />
         <button className="modal-button">Continue</button>
         <p className="modal-paragraph">
-          By joining I agree to receive emails from Fiverr.
+          By joining I agree to receive emails from Tenner.
         </p>
         <hr className="modal-hr" />
         <p className="modal-signin">
-          Already a member? <a href="/signin">Sign In</a>
+          Already a member? <a href="/login">Sign In</a>
         </p>
       </div>
     </>
