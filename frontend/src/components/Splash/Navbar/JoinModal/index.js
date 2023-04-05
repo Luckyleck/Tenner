@@ -1,17 +1,25 @@
-import React, { useState }from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import * as modalActions from '../../../../store/modals'
 import './JoinModal.css'; // import CSS file for styling
-import { useSelector } from 'react-redux'
 
-function JoinModal({ ModalToggle, toggleSecondModal }) {
+
+function JoinModal() {
+
+  const dispatch = useDispatch();
+
+  function overlayClick() {
+    dispatch(modalActions.hideJoinOne())
+  }
 
   const handleContinue = () => {
-    ModalToggle();
-    toggleSecondModal();
+    dispatch(modalActions.hideJoinOne())
+    dispatch(modalActions.showJoinTwo())
   }
 
   return (
     <>
-      <div className='modal-overlay' onClick={ModalToggle}/>
+      <div className='modal-overlay' onClick={overlayClick}/>
       <div className="modal-container">
         <h2 className="modal-header">Join Tenner</h2>
         <input

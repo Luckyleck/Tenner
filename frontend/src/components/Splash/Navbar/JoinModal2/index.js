@@ -1,17 +1,22 @@
 import React from 'react';
 import './SecondModal.css'
+import { useDispatch } from 'react-redux';
+import * as modalActions from '../../../../store/modals'
 
-function SecondModal({ toggleSecondModal }) {
+function SecondModal() {
+    const dispatch = useDispatch();
 
-    const handleJoin = () => {
-        // fetch
-        toggleSecondModal();
+    function overlayClick() {
+        dispatch(modalActions.hideJoinTwo())
     }
 
+    function handleJoin() {
+        console.log('Joined!')
+    }
 
     return (
         <>
-            <div className='modal-overlay' onClick={toggleSecondModal} />
+            <div className='modal-overlay' onClick={overlayClick} />
             <div className="modal-container">
                 <h2 className="modal-header">Join Tenner</h2>
                 <input
@@ -27,6 +32,9 @@ function SecondModal({ toggleSecondModal }) {
                 <button className="modal-button" onClick={handleJoin}>
                     Join
                 </button>
+                <p className="modal-signin">
+                    Not a member yet? <a href="/login">Join now</a>
+                </p>
             </div>
         </>
     );

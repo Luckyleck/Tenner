@@ -32,24 +32,24 @@ export function hideJoinTwo() {
     });
 }
 
-export function showSignIn() {
+export function showSignin() {
     return ({
         type: SHOW_SIGNIN
     });
 }
 
-export function hideSignIn() {
+export function hideSignin() {
     return ({
         type: HIDE_SIGNIN
     });
 }
 
 const initialState = {
-    modals: {
-        joinModal1: false,
-        joinModal2: false,
-        signinModal: false
-    }
+
+    joinModal1: false,
+    joinModal2: false,
+    signinModal: false
+    
 }
 
 export default function modalReducer(state = initialState, action) {
