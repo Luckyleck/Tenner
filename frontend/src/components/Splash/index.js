@@ -4,8 +4,16 @@ import './styles.css'
 
 function splash() {
     return (
-        <div>
-            <Navbar />
+        <div id='main-wrapper'>
+            
+            <div className='header'>
+                <Navbar />
+            </div>
+
+            <div className='main-content'>
+                
+            </div>
+            
         </div>
     )
 }
