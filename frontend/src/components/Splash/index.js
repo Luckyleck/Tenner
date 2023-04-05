@@ -7,7 +7,7 @@ function splash() {
         <div id='main-wrapper'>
             
             <div className='header'>
-                <Navbar />
+                <Navbar className="nav" />
             </div>
 
             <div className='main-content'>

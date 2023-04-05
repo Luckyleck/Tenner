@@ -1,0 +1,59 @@
+.nav-items {
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    font-size: 40px;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    /* set font to Arial */
+    margin-right: auto;
+    /* push h1 element to the left edge */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    /* add some spacing between the buttons */
+    margin-left: auto;
+    /* push buttons to the right edge */
+}
+
+button {
+    font-family: Arial, sans-serif;
+    /* set font to Arial */
+    background-color: transparent;
+    /* remove background color */
+    border: none;
+    /* remove default button border */
+    outline: none;
+    /* remove outline on focus */
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.button-join {
+    border: 1px solid black;
+    /* add black border */
+    padding: 5px 10px;
+    /* add some padding to make the button more visible */
+}
+
+/* add hover effect for buttons */
+button:hover {
+    cursor: pointer;
+}
+
+/* add hover effect for join button */
+.button-join:hover {
+    background-color: #1dbf73;
+    /* change background color to #1dbf73 when hovering */
+}
+
+.button-join:active {
+    background-color: #188652;
+    /* change background color on click */
+}
