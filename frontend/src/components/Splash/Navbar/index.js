@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 import JoinModal from './JoinModal'; // import the JoinModal component
-import SecondModal from './JoinModal/SecondModal/secondModal';
+import SecondModal from './JoinModal2';
+import { useDispatch, useSelector } from 'react-redux';
+import * as modalActions from '../../../store/modals'
 import './index.css';
 
 function Navbar() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [secondModalOpen, setSecondModalOpen] = useState(false);
+    const dispatch = useDispatch();
+    const joinModal1 = useSelector(state => state.modal.joinModal1)
+    const joinModal2 = useSelector(state => state.modal.joinModal2)
+    const signinModal = useSelector(state => state.modal.signinModal)
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
-
-    const toggleSecondModal = () => {
-        setSecondModalOpen(!secondModalOpen);
-    };
+    if (joinModal1) {
+        console.log('joinModal1')
+    }
 
     return (
         <div className="nav-items">
             <h1>Tenner</h1>
             <div className="buttons">
-                <button onClick={() => console.log('clicked')}>Sign In</button>
-                <button className="button-join" onClick={toggleModal}>
+                <button className="button-signin" onClick={() => dispatch(modalActions.showSignIn())}>
+                    Sign In
+                </button>
+                <button className="button-join" onClick={() => dispatch(modalActions.showJoinOne())}>
                     Join
                 </button>
             </div>
-            {isModalOpen && <JoinModal ModalToggle={toggleModal} toggleSecondModal={toggleSecondModal}/>}
-            {secondModalOpen && <SecondModal toggleSecondModal={toggleSecondModal}/>}
+            {joinModal1 && <JoinModal />}
+            {joinModal2 && <SecondModal />}
         </div>
     );
 }

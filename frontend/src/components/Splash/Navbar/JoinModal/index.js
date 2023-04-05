@@ -1,5 +1,6 @@
 import React, { useState }from 'react';
 import './JoinModal.css'; // import CSS file for styling
+import { useSelector } from 'react-redux'
 
 function JoinModal({ ModalToggle, toggleSecondModal }) {
 
