@@ -4,10 +4,12 @@
 
 h1 {
     color: black;
+
 }
 
 body {
-    background-image: url("https: //live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg");
+    background-image: url("https://live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg");
+    background-size: cover;
 }
 
 .main-text {
@@ -24,4 +26,7 @@ body {
 .italic {
     font-style: italic;
 }
+
+/* padding: 30px;
+background: rgba(255, 255, 255, 0.5); */
 
