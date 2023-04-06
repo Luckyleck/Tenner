@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import * as modalActions from '../../../../store/modals'
 import './JoinModal.css'; // import CSS file for styling
 
@@ -7,7 +7,6 @@ import './JoinModal.css'; // import CSS file for styling
 function JoinModal({ formData, setFormData }) {
 
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
   const [errors, setErrors] = useState([])
 
   function overlayClick() {

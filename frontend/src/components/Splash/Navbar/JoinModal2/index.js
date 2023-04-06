@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './SecondModal.css'
 import { useDispatch } from 'react-redux';
 import * as modalActions from '../../../../store/modals'
@@ -17,11 +17,8 @@ function SecondModal({ formData, setFormData }) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    useEffect(() => {
-        setErrors([]);
-    }, [email, username, password]);
-
     function handleJoin() {
+        setErrors([])
         return dispatch(sessionActions.signup({ email, username, password }))
             .catch(async (res) => {
                 let data;
@@ -31,17 +28,23 @@ function SecondModal({ formData, setFormData }) {
                 } catch {
                     data = await res.text(); // Will hit this case if the server is down
                 }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
+                if (data?.errors) {
+                    debugger
+                    setErrors(data.errors);
+                    console.log(data.errors);
+                } else if (data) {
+                    setErrors([data]);
+                    console.log(errors)
+                }
                 else setErrors([res.statusText]);
-                console.log(errors, email, username, password)
+                console.log(email, username, password)
             })
             .finally(() => {
                 if (errors.length === 0) {
                     dispatch(modalActions.hideJoinTwo());
                 }
             });
-        
+
     }
 
     return (
@@ -65,6 +68,7 @@ function SecondModal({ formData, setFormData }) {
                             </p>
                         )
                     }
+                    return null;
                 })}
                 <input
                     type="password"
@@ -82,6 +86,7 @@ function SecondModal({ formData, setFormData }) {
                             </p>
                         )
                     }
+                    return null;
                 })}
                 <button className="modal-button" onClick={handleJoin}>
                     Join
