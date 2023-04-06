@@ -44,9 +44,7 @@ function Navbar() {
                 {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
                 {signinModal && <SigninModal />}
             </div>
-            <div className="main-text"> 
-                <h1>Find the perfect <i>freelance</i> services for your business</h1>
-            </div>
+            
         </>
     );
 }

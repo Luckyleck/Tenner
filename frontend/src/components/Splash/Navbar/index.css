@@ -60,12 +60,3 @@ button:hover {
     /* change background color on click */
 }
 
-.main-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 48px;
-    font-style: italic;
-    margin-top: 20%;
-}

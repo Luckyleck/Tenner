@@ -11,12 +11,6 @@ function App() {
       <Route exact path="/">
         <Splash />
       </Route>
-      <Route path="/login">
-        <LoginFormPage /> 
-      </Route>
-      <Route path="/signup"> 
-        <SignupFormPage />
-      </Route>
     </Switch>
   );
 }
