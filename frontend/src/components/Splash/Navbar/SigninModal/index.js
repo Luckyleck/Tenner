@@ -3,7 +3,6 @@ import './SigninModal.css';
 import { useDispatch } from 'react-redux';
 import * as modalActions from '../../../../store/modals'
 import * as sessionActions from '../../../../store/session'
-import { Redirect } from 'react-router-dom';
 
 function SigninModal() {
     const dispatch = useDispatch();
@@ -13,6 +12,11 @@ function SigninModal() {
 
     function overlayClick() {
         dispatch(modalActions.hideSignin())
+    }
+
+    function handleJoinNow() {
+        dispatch(modalActions.hideSignin())
+        dispatch(modalActions.showJoinOne())
     }
 
     function handleContinue() {
@@ -76,7 +80,7 @@ function SigninModal() {
                 </button>
                 <hr className="modal-hr" />
                 <p className="modal-signin">
-                    Not a member yet? <a href="/singup">Join Now</a>
+                    Not a member yet? <span onClick={handleJoinNow} className="modal-link">Join Now</span>
                 </p>
             </div>
         </>

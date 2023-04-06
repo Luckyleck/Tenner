@@ -19,7 +19,12 @@ function JoinModal({ formData, setFormData }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  const handleContinue = () => {
+  function handleSignIn () {
+    dispatch(modalActions.hideJoinOne())
+    dispatch(modalActions.showSignin()) 
+  }
+
+  function handleContinue () {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -53,7 +58,7 @@ function JoinModal({ formData, setFormData }) {
         </p>
         <hr className="modal-hr" />
         <p className="modal-signin">
-          Already a member? <a href="/login">Sign In</a>
+          Already a member? <span onClick={handleSignIn} className="modal-link">Sign In</span>
         </p>
       </div>
     </>
