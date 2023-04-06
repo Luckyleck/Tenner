@@ -34,7 +34,7 @@ function SecondModal({ formData, setFormData }) {
                     console.log(data.errors);
                 } else if (data) {
                     setErrors([data]);
-                    console.log(errors)
+                    console.log(data)
                 }
                 else setErrors([res.statusText]);
                 console.log(email, username, password)

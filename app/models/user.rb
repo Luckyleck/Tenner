@@ -12,6 +12,7 @@ class User < ApplicationRecord
     validates :lname, length: { minimum: 1 }, allow_nil: true
 
     before_validation :ensure_session_token
+    has_one_attached :photo
 
     def self.find_by_credentials(credential, password)
 
