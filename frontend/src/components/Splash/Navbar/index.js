@@ -41,7 +41,7 @@ function Navbar() {
             )}
             {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
             {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
-            {signinModal && <SigninModal formData={formData} setFormData={setFormData}/>}
+            {signinModal && <SigninModal />}
         </div>
     );
 }

@@ -6,6 +6,8 @@ import './JoinModal.css'; // import CSS file for styling
 
 function JoinModal({ formData, setFormData }) {
 
+  // to.do Handle email taken error
+
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
 

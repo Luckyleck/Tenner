@@ -5,23 +5,41 @@ import * as modalActions from '../../../../store/modals'
 import * as sessionActions from '../../../../store/session'
 import { Redirect } from 'react-router-dom';
 
-function SigninModal ({formData, setFormData}) {
+function SigninModal() {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
-    // const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
-    const { text, password } = formData
-
-    function handleChange(e) {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
 
     function overlayClick() {
         dispatch(modalActions.hideSignin())
     }
 
     function handleContinue() {
+        setErrors([])
         return dispatch(sessionActions.login({ credential, password }))
+            .then(() => {
+                dispatch(modalActions.hideSignin());
+            })
+            .catch(async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) {
+                    setErrors(data.errors);
+                    setPassword('')
+                    // console.log(data.errors);
+                } else if (data) {
+                    setErrors([data]);
+                    console.log(data);
+                } else {
+                    setErrors([res.statusText]);
+                }
+            });
     }
 
     return (
@@ -32,30 +50,19 @@ function SigninModal ({formData, setFormData}) {
                 <input
                     type="text"
                     className="modal-input"
-                    value={formData.text}
+                    value={credential}
                     placeholder="Email / Username"
-                    onChange={handleChange}
+                    onChange={(e) => setCredential(e.target.value)}
                 />
-                {errors.map((error, index) => {
-                    if (error.includes('Username') || error.includes('Email')) {
-                        return (
-                            <p className="errors" key={index}>
-                                {error}
-                            </p>
-                        )
-                    }
-                    return null;
-                })}
-                {/* render respective errors here*/}
                 <input
-                    type="text"
+                    type="password"
                     className="modal-input"
-                    value={formData.password}
+                    value={password}
                     placeholder="Password"
-                    onChange={handleChange}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.map((error, index) => {
-                    if (error.includes('Password')) {
+                    if (error.includes('Invalid')) {
                         return (
                             <p className="errors" key={index}>
                                 {error}
