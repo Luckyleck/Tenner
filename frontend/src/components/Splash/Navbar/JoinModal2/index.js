@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './SecondModal.css'
 import { useDispatch } from 'react-redux';
 import * as modalActions from '../../../../store/modals'
+import * as sessionActions from '../../../../store/session'
 
-function SecondModal() {
+function SecondModal({ formData, setFormData }) {
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState([])
+    const { email, username, password } = formData
 
     function overlayClick() {
         dispatch(modalActions.hideJoinTwo())
     }
 
+    function handleChange(e) {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+
+    useEffect(() => {
+        setErrors([]);
+    }, [email, username, password]);
+
     function handleJoin() {
-        console.log('Joined!')
+        return dispatch(sessionActions.signup({ email, username, password }))
+            .catch(async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+                console.log(errors, email, username, password)
+            })
+            .finally(() => {
+                if (errors.length === 0) {
+                    dispatch(modalActions.hideJoinTwo());
+                }
+            });
+        
     }
 
     return (
@@ -22,13 +52,37 @@ function SecondModal() {
                 <input
                     type="text"
                     className="modal-input"
+                    name="username"
+                    value={formData.username}
                     placeholder="Choose a username"
+                    onChange={handleChange}
                 />
+                {errors.map((error, index) => {
+                    if (error.includes('Username')) {
+                        return (
+                            <p className="errors" key={index}>
+                                {error}
+                            </p>
+                        )
+                    }
+                })}
                 <input
-                    type="text"
+                    type="password"
                     className="modal-input"
+                    name="password"
+                    value={formData.password}
                     placeholder="Choose a password"
+                    onChange={handleChange}
                 />
+                {errors.map((error, index) => {
+                    if (error.includes('Password')) {
+                        return (
+                            <p className="errors" key={index}>
+                                {error}
+                            </p>
+                        )
+                    }
+                })}
                 <button className="modal-button" onClick={handleJoin}>
                     Join
                 </button>

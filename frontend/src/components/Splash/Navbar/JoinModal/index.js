@@ -4,7 +4,8 @@ import * as modalActions from '../../../../store/modals'
 import './JoinModal.css'; // import CSS file for styling
 
 
-function JoinModal() {
+function JoinModal({ formData, setFormData }) {
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState([])
@@ -13,16 +14,23 @@ function JoinModal() {
     dispatch(modalActions.hideJoinOne())
   }
 
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
   const handleContinue = () => {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(formData.email)) {
+      setErrors(['email']);
+      return;
+    }
 
     dispatch(modalActions.hideJoinOne())
     dispatch(modalActions.showJoinTwo())
+    // console.log(formData.email) 
   }
-
-  // const errorsMap = () => {
-  //   debugger
-  //   return errors.map((error) => <li>{error}</li>)
-  // }
 
   return (
     <>
@@ -32,13 +40,12 @@ function JoinModal() {
         <input
           type="text"
           className="modal-input"
+          name="email"
+          value={formData.email}
           placeholder="Enter your email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
         />
-        {/* <ul>
-          {errorsMap()}
-        </ul> */}
-        {/* {true && <div className='errors'>Looks like this email is incomplete</div>} */}
+        {errors.length > 0 && <div className='errors'>Looks like this email is incomplete.</div>}
         <button className="modal-button" onClick={handleContinue}>Continue</button>
         <p className="modal-paragraph">
           By joining I agree to receive emails from Tenner.

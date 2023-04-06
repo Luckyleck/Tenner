@@ -116,3 +116,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     /* set the background color and opacity of the overlay */
 }
+
+.errors {
+    color: red;
+    font-size: 14px; 
+    margin-top: 5px; 
+    margin-bottom: 10px;
+    margin-left: 5px; 
+    text-align: left;
+}
