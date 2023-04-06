@@ -15,7 +15,7 @@ function Navbar() {
     const signinModal = useSelector(state => state.modal.signinModal)
     const sessionUser = useSelector(state => state.session.user)
     const [formData, setFormData] = useState({
-        email: '', username: '', password: ''
+        email: '', username: '', password: '', text: ''
     });
 
     function handleLogout() {
@@ -41,7 +41,7 @@ function Navbar() {
             )}
             {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
             {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
-            {signinModal && <SigninModal />}
+            {signinModal && <SigninModal formData={formData} setFormData={setFormData}/>}
         </div>
     );
 }

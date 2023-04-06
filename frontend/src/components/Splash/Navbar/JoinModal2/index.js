@@ -18,8 +18,11 @@ function SecondModal({ formData, setFormData }) {
     }
 
     function handleJoin() {
-        setErrors([])
+        setErrors([]);
         return dispatch(sessionActions.signup({ email, username, password }))
+            .then(() => {
+                dispatch(modalActions.hideJoinTwo());
+            })
             .catch(async (res) => {
                 let data;
                 try {
@@ -29,22 +32,16 @@ function SecondModal({ formData, setFormData }) {
                     data = await res.text(); // Will hit this case if the server is down
                 }
                 if (data?.errors) {
-                    debugger
                     setErrors(data.errors);
-                    console.log(data.errors);
+                    setFormData({ ...formData, password: ''})
+                    // console.log(data.errors);
                 } else if (data) {
                     setErrors([data]);
-                    console.log(data)
-                }
-                else setErrors([res.statusText]);
-                console.log(email, username, password)
-            })
-            .finally(() => {
-                if (errors.length === 0) {
-                    dispatch(modalActions.hideJoinTwo());
+                    console.log(data);
+                } else {
+                    setErrors([res.statusText]);
                 }
             });
-
     }
 
     return (
