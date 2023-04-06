@@ -23,26 +23,31 @@ function Navbar() {
     }
 
     return (
-        <div className="nav-items">
-            <h1>Tenner</h1>
-            {sessionUser ? (
-                <button className="button-signin" onClick={handleLogout}>
-                    Logout
-                </button>
-            ) : (
-                <div className="buttons">
-                    <button className="button-signin" onClick={() => dispatch(modalActions.showSignin())}>
-                        Sign In
+        <>
+            <div className="nav-items">
+                <h1>Tenner</h1>
+                {sessionUser ? (
+                    <button className="button-signin" onClick={handleLogout}>
+                        Logout
                     </button>
-                    <button className="button-join" onClick={() => dispatch(modalActions.showJoinOne())}>
-                        Join
-                    </button>
-                </div>
-            )}
-            {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
-            {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
-            {signinModal && <SigninModal />}
-        </div>
+                ) : (
+                    <div className="buttons">
+                        <button className="button-signin" onClick={() => dispatch(modalActions.showSignin())}>
+                            Sign In
+                        </button>
+                        <button className="button-join" onClick={() => dispatch(modalActions.showJoinOne())}>
+                            Join
+                        </button>
+                    </div>
+                )}
+                {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
+                {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
+                {signinModal && <SigninModal />}
+            </div>
+            <div className="main-text"> 
+                <h1>Find the perfect <i>freelance</i> services for your business</h1>
+            </div>
+        </>
     );
 }
 

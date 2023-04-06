@@ -1,10 +1,10 @@
 .nav-items {
     display: flex;
     align-items: center;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
-    font-size: 40px;
+    margin-top: 1.5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 35px;
 }
 
 h1 {
@@ -24,6 +24,8 @@ h1 {
 
 button {
     font-family: Arial, sans-serif;
+    font-size:16px;
+    font-weight:400;
     /* set font to Arial */
     background-color: transparent;
     /* remove background color */
@@ -56,4 +58,14 @@ button:hover {
 .button-join:active {
     background-color: #188652;
     /* change background color on click */
+}
+
+.main-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 48px;
+    font-style: italic;
+    margin-top: 20%;
 }

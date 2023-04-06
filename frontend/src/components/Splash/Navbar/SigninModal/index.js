@@ -5,6 +5,7 @@ import * as modalActions from '../../../../store/modals'
 import * as sessionActions from '../../../../store/session'
 
 function SigninModal() {
+
     const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('')
@@ -14,7 +15,7 @@ function SigninModal() {
         dispatch(modalActions.hideSignin())
     }
 
-    function handleJoinNow() {
+    function handleJoinNow() { //To switch between modals of signin and join
         dispatch(modalActions.hideSignin())
         dispatch(modalActions.showJoinOne())
     }
