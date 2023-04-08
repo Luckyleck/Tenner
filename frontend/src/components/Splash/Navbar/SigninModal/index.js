@@ -20,6 +20,11 @@ function SigninModal() {
         dispatch(modalActions.showJoinOne())
     }
 
+    function handleDemo() {
+        dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password'}))
+        dispatch(modalActions.hideSignin())
+    }
+
     function handleContinue() {
         setErrors([])
         return dispatch(sessionActions.login({ credential, password }))
@@ -79,6 +84,10 @@ function SigninModal() {
                 <button className="modal-button" onClick={handleContinue}>
                     Continue
                 </button>
+                <button className="modal-button" onClick={handleDemo}>
+                    Demo User
+                </button>
+
                 <hr className="modal-hr" />
                 <p className="modal-signin">
                     Not a member yet? <span onClick={handleJoinNow} className="modal-link">Join Now</span>

@@ -27,7 +27,7 @@ function Navbar() {
             <div className="nav-items">
                 <h1>Tenner</h1>
                 {sessionUser ? (
-                    <button className="button-signin" onClick={handleLogout}>
+                    <button className="button-logout" onClick={handleLogout}>
                         Logout
                     </button>
                 ) : (

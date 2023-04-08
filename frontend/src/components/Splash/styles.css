@@ -1,5 +1,5 @@
-.page {
-    background-color: blue;
+:root {
+    --background-color: white;
 }
 
 h1 {
@@ -8,6 +8,7 @@ h1 {
 }
 
 body {
+    background-color: var(--background-color);
     background-image: url("https://live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg");
     background-size: cover;
 }
@@ -29,4 +30,3 @@ body {
 
 /* padding: 30px;
 background: rgba(255, 255, 255, 0.5); */
-
