@@ -1,4 +1,6 @@
 .nav-items {
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     margin-top: 1.5%;
@@ -7,11 +9,12 @@
     font-size: 35px;
 }
 
-h1 {
+.nav-items h1 {
     font-family: Arial, sans-serif;
     /* set font to Arial */
-    margin-right: auto;
+    /* margin-right: auto; */
     /* push h1 element to the left edge */
+    color: white;
 }
 
 .buttons {
@@ -59,4 +62,19 @@ button:hover {
     background-color: #188652;
     /* change background color on click */
 }
+
+.button-profile-icon {
+    position: relative;
+    left: 90%;
+    font-size: 30px;
+    color: white;
+    background-color: #1dbf73;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
