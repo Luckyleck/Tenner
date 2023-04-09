@@ -19,15 +19,16 @@ function Navbar() {
     const [formData, setFormData] = useState({
         email: '', username: '', password: '', text: ''
     });
+    const [showMenu, setShowMenu] = useState(false);
 
-    function handleIcon() {
-        if (iconModal) {
-            console.log('hiding')
-            return dispatch(modalActions.hideIconModal())
-        } else {
-            console.log('showing')
-            return dispatch(modalActions.showIconModal())
+    function handleMenuClick(option) {
+        if (option === 'profile') {
+            // TODO: Handle profile click
+            console.log('Profile clicked');
+        } else if (option === 'logout') {
+            dispatch(sessionActions.logout());
         }
+        setShowMenu(false);
     }
 
     return (
@@ -36,9 +37,24 @@ function Navbar() {
                 <h1>Tenner</h1>
                 {sessionUser ? (
                     <>
-                        <button className="button-profile-icon" onClick={handleIcon}>
-                            {sessionUser.username[0]}
-                        </button>
+                        <div className="button-profile-container">
+                            <button className="button-profile-icon" onClick={() => setShowMenu(!showMenu)}>
+                                {sessionUser.username[0]}
+                            </button>
+                            {showMenu && (
+                                <div className="menu-container">
+                                    <p>{sessionUser.username}</p>
+                                    <p>{sessionUser.email}</p>
+                                    <hr className="dropdown-hr"></hr>
+                                    <button className="menu-option" onClick={() => handleMenuClick('profile')}>
+                                        Profile
+                                    </button>
+                                    <button className="menu-option" onClick={() => handleMenuClick('logout')}>
+                                        Logout
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </>
                 ) : (
                     <div className="buttons">
@@ -53,7 +69,6 @@ function Navbar() {
                 {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
                 {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
                 {signinModal && <SigninModal />}
-                {iconModal && <IconModal />}
             </div>
 
         </>

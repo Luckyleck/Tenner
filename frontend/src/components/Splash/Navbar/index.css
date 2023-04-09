@@ -3,70 +3,58 @@
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin-top: 1.5%;
-    margin-left: 10%;
-    margin-right: 10%;
     font-size: 35px;
 }
 
 .nav-items h1 {
     font-family: Arial, sans-serif;
-    /* set font to Arial */
-    /* margin-right: auto; */
-    /* push h1 element to the left edge */
     color: white;
 }
 
 .buttons {
     display: flex;
     gap: 10px;
-    /* add some spacing between the buttons */
     margin-left: auto;
-    /* push buttons to the right edge */
 }
 
 button {
     font-family: Arial, sans-serif;
-    font-size:16px;
-    font-weight:600;
-    /* set font to Arial */
+    font-size: 16px;
+    font-weight: 600;
     background-color: transparent;
-    /* remove background color */
     border: none;
-    /* remove default button border */
     outline: none;
-    /* remove outline on focus */
     cursor: pointer;
     border-radius: 4px;
 }
 
-.button-join {
-    border: 1px solid black;
-    /* add black border */
-    padding: 5px 10px;
-    /* add some padding to make the button more visible */
+.button-profile-container {
+    position: relative;
 }
 
-/* add hover effect for buttons */
+.button-join {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
 button:hover {
     cursor: pointer;
 }
 
-/* add hover effect for join button */
 .button-join:hover {
     background-color: #1dbf73;
-    /* change background color to #1dbf73 when hovering */
 }
 
 .button-join:active {
     background-color: #188652;
-    /* change background color on click */
 }
 
 .button-profile-icon {
     position: relative;
-    left: 90%;
     font-size: 30px;
+    font-weight: lighter;
     color: white;
     background-color: #1dbf73;
     border-radius: 50%;
@@ -75,6 +63,62 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 1;
 }
 
+.menu-container {
+    position: absolute;
+    width: 150px;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
+.menu-option {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    color: rgb(112, 112, 112);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding-left: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.menu-option:hover {
+    background-color: #d8d8d8;
+    border-radius: 0px;
+}
+
+.menu-option:last-child {
+    margin-bottom: 10px;
+}
+
+.dropdown-hr {
+    width: 90%;
+    color: grey;
+    opacity: 0.3;
+}
+
+.menu-container p:first-child {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: rgb(112, 112, 112);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding-left: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.menu-container p:last-child {
+    font-size: 18px;
+}
