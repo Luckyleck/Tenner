@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Splash from './components/Splash';
+import Profile from './components/Profile';
 import './reset.css'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Splash />
       </Route>
       <Route exact path="/profile">
-        {/* render your profile component here */}
+        <Profile />
       </Route>
     </Switch>
   );

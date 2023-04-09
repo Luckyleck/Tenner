@@ -19,15 +19,20 @@ function Navbar() {
         email: '', username: '', password: '', text: ''
     });
     const [showMenu, setShowMenu] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
     function handleMenuClick(option) {
         if (option === 'profile') {
-            return <Redirect to='/profile'/>
-            console.log('Profile clicked');
+            // return <Redirect to='/profile'/>
+            setRedirect(true);
         } else if (option === 'logout') {
             dispatch(sessionActions.logout());
         }
         setShowMenu(false);
+    }
+
+    if (redirect) {
+        return <Redirect to="/profile" />;
     }
 
     return (
