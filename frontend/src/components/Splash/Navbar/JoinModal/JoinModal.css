@@ -57,7 +57,7 @@
     text-align: center;
 }
 
-.modal-overlay::before {
+.modal-overlay {
     content: "";
     position: fixed;
     z-index: 9998;
