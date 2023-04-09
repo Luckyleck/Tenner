@@ -13,10 +13,10 @@ function Splash() {
 
                 <Navbar className="nav" />
                 {!sessionUser &&
-                 <div className="main-text">
-                    <h1>Find the perfect <span className="italic">freelance</span> services for your business</h1>
-                </div>}
-                
+                    <div className="main-text">
+                        <h1>Find the perfect <span className="italic">freelance</span> services for your business</h1>
+                    </div>}
+
             </div>
 
             <div className='main-content'>

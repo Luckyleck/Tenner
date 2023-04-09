@@ -84,7 +84,7 @@ function SigninModal() {
                 <button className="modal-button" onClick={handleContinue}>
                     Continue
                 </button>
-                <button className="modal-button" onClick={handleDemo}>
+                <button className="modal-button-demo" onClick={handleDemo}>
                     Demo User
                 </button>
 

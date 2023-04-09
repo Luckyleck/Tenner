@@ -88,9 +88,6 @@ function SecondModal({ formData, setFormData }) {
                 <button className="modal-button" onClick={handleJoin}>
                     Join
                 </button>
-                <p className="modal-signin">
-                    Not a member yet? <a href="/login">Join now</a>
-                </p>
             </div>
         </>
     );

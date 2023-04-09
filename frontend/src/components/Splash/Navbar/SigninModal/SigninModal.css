@@ -131,3 +131,15 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.modal-button-demo {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #1dbf73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
