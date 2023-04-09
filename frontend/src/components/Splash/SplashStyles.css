@@ -1,21 +1,17 @@
-:root {
-    --background-color: white;
-}
-
 .header {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 body {
-    background-color: var(--background-color);
-    background-image: url("https://live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg");
+    background-color:peru;
+    /* background-image: url("https://live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg"); */
     background-size: cover;
 }
 
 .main-text {
-    position: relative;
     right: 20%;
     color: rgb(0, 0, 0);
     align-items: center;
@@ -28,7 +24,6 @@ body {
     padding: 30px;
     background: rgba(255, 255, 255, 0.5);
 }
-
 
 .italic {
     font-size:65px;

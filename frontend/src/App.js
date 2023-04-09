@@ -11,6 +11,9 @@ function App() {
       <Route exact path="/">
         <Splash />
       </Route>
+      <Route exact path="/profile">
+        {/* render your profile component here */}
+      </Route>
     </Switch>
   );
 }

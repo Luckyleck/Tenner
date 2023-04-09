@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as modalActions from '../../../store/modals';
 import * as sessionActions from '../../../store/session';
 import './index.css';
+import { Redirect } from 'react-router-dom';
 
 function Navbar() {
 
@@ -21,7 +22,7 @@ function Navbar() {
 
     function handleMenuClick(option) {
         if (option === 'profile') {
-            // TODO: Handle profile click
+            return <Redirect to='/profile'/>
             console.log('Profile clicked');
         } else if (option === 'logout') {
             dispatch(sessionActions.logout());
