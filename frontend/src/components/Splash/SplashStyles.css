@@ -2,9 +2,8 @@
     --background-color: white;
 }
 
-h1 {
+h1 { /* middle text */
     color: black;
-
 }
 
 body {
@@ -26,6 +25,10 @@ body {
 
 .italic {
     font-style: italic;
+}
+
+.signed-in {
+    --background-color: white;
 }
 
 /* padding: 30px;

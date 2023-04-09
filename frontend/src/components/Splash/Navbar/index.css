@@ -28,6 +28,7 @@ button {
     outline: none;
     cursor: pointer;
     border-radius: 4px;
+    color: white;
 }
 
 .button-profile-container {
@@ -35,7 +36,7 @@ button {
 }
 
 .button-join {
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     padding: 5px 10px;
 }
 
@@ -101,22 +102,35 @@ button:hover {
 }
 
 .dropdown-hr {
+    padding: 0;
+    margin: 5px 0;
+    margin-top: 10px;
     width: 90%;
     color: grey;
     opacity: 0.3;
-}
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 .menu-container p:first-child {
     font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: rgb(37, 37, 37);
+    background-color: transparent;
+    padding-top:10px;
+    padding-bottom: 5px;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-container p:nth-child(2) {
+    font-family: Arial, sans-serif;
     font-size: 18px;
     color: rgb(112, 112, 112);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding-left: 10px;
-    width: 100%;
-    text-align: left;
+    text-align: center
 }
 
 .menu-container p:last-child {

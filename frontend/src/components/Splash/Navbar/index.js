@@ -34,7 +34,7 @@ function Navbar() {
     return (
         <>
             <div className="nav-items">
-                <h1>Tenner</h1>
+                <h1>Tenner.</h1>
                 {sessionUser ? (
                     <>
                         <div className="button-profile-container">
