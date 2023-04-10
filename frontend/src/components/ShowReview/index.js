@@ -7,6 +7,7 @@ function ShowReview ({reviews}) {
             
             {reviews.map((review) => (
                 <div key={review.id}>
+                    <h1>{review.reviewer}</h1>
                     <p>{review.body}</p>
                     <p>{review.review_rating}</p>
                     <p>{review.communication_rating}</p>
