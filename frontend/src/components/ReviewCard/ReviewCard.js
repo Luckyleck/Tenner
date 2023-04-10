@@ -11,6 +11,8 @@ function ReviewsCard() {
             .then((data) => setReviews(data.reviews));
     }, []);
 
+    console.log(reviews)
+
     return (
 
         <div className="reviews-container">

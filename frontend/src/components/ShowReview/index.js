@@ -4,9 +4,8 @@ import './ShowReviewStyles.css';
 function ShowReview ({reviews}) {
     return (
         <>
-            
             {reviews.map((review) => (
-                <div key={review.id}>
+                <div key={review.id} className="single-review">
                     <h1>{review.reviewer}</h1>
                     <p>{review.body}</p>
                     <p>{review.review_rating}</p>

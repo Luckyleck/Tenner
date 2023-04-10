@@ -40,12 +40,12 @@ ApplicationRecord.transaction do
 
   Review.create!({
     body: 'Great gig man! Thank you so much',
-    reviewer_id: 2,
+    reviewer_id: 2, # the reviewer
     review_rating: 5,
     communication_rating: 5,
     recommend_rating: 5,
     service_rating: 5,
-    user_id: 1
+    user_id: 1 # the person getting reviewed
   })
 
   10.times do

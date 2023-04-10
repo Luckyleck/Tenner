@@ -19,21 +19,31 @@ function Navbar() {
         email: '', username: '', password: '', text: ''
     });
     const [showMenu, setShowMenu] = useState(false);
-    const [redirect, setRedirect] = useState(false);
+    const [toProfileRedirect, setToProfileRedirect] = useState(false);
+    const [logoutRedirect, setlogoutRedirect] = useState(false);
+
+    let routeTracker;
 
     function handleMenuClick(option) {
         if (option === 'profile') {
             // return <Redirect to='/profile'/>
-            setRedirect(true);
+            routeTracker = '/profile'
+            setToProfileRedirect(true);
+            console.log(routeTracker)
+        } else if (option === 'logout' && routeTracker === '/profile') {
+            console.log('Second else if')
+            setToProfileRedirect(false);
+            setlogoutRedirect(true);
+            dispatch(sessionActions.logout());
         } else if (option === 'logout') {
             dispatch(sessionActions.logout());
         }
         setShowMenu(false);
     }
 
-    if (redirect) {
-        return <Redirect to="/profile" />;
-    }
+    if (toProfileRedirect) return <Redirect to="/profile" />;
+
+    if (logoutRedirect) return <Redirect to="/" />;
 
     return (
         <>
