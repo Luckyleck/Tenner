@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     def index
 
         @users = User.all
-        render json: { @users }
+        render json: { users: @users }
 
     end
 
@@ -30,11 +30,12 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = current_user
-    if @user.update(user_params)
-        render :show
-    else
-        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+            @user = current_user
+        if @user.update(user_params)
+            render :show
+        else
+            render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+        end
     end
   
     private
