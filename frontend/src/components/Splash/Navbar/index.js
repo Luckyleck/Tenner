@@ -3,6 +3,7 @@ import JoinModalOne from './JoinModal';
 import JoinModelTwo from './JoinModal2';
 import SigninModal from './SigninModal';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import * as modalActions from '../../../store/modals';
 import * as sessionActions from '../../../store/session';
 import './index.css';
@@ -11,6 +12,8 @@ import { Redirect } from 'react-router-dom';
 function Navbar() {
 
     const dispatch = useDispatch();
+    const history = useHistory(); // History stack
+
     const joinModal1 = useSelector(state => state.modal.joinModal1)
     const joinModal2 = useSelector(state => state.modal.joinModal2)
     const signinModal = useSelector(state => state.modal.signinModal)
@@ -26,17 +29,10 @@ function Navbar() {
 
     function handleMenuClick(option) {
         if (option === 'profile') {
-            // return <Redirect to='/profile'/>
-            routeTracker = '/profile'
-            setToProfileRedirect(true);
-            console.log(routeTracker)
-        } else if (option === 'logout' && routeTracker === '/profile') {
-            console.log('Second else if')
-            setToProfileRedirect(false);
-            setlogoutRedirect(true);
-            dispatch(sessionActions.logout());
+            history.push('/profile');
         } else if (option === 'logout') {
             dispatch(sessionActions.logout());
+            history.push('/');
         }
         setShowMenu(false);
     }

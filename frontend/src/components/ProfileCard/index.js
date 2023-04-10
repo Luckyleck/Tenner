@@ -42,4 +42,4 @@ function ProfileCard() {
 
 
 
-export default ProfileCard
+export default ProfileCard;

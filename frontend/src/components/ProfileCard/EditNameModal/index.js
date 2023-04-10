@@ -34,28 +34,28 @@ function EditNameModal() {
 
     return (
         <>
-        <div className="modal-overlay" onClick={overlayClick}></div>
-        <div className="modal-container">
-            
-            <h1 className="modal-header">update your display name</h1> 
-            <input
-                className='modal-input'
-                type='text'
-                name='fname'
-                value={fname}
-                placeholder={fname}
-                onChange={handleFnameChange}
-            />
-            <input
-                type='text'
-                className='modal-input'
-                name='lname'
-                value={lname}
-                placeholder={lname}
-                onChange={handleLnameChange}
-            />
-            <button className='modal-button' onClick={handleSave}>Save</button>
-        </div>
+            <div className="modal-overlay" onClick={overlayClick}></div>
+            <div className="modal-container">
+
+                <h1 className="modal-header">update your display name</h1>
+                <input
+                    className='modal-input'
+                    type='text'
+                    name='fname'
+                    value={fname}
+                    placeholder={fname}
+                    onChange={handleFnameChange}
+                />
+                <input
+                    type='text'
+                    className='modal-input'
+                    name='lname'
+                    value={lname}
+                    placeholder={lname}
+                    onChange={handleLnameChange}
+                />
+                <button className='modal-button' onClick={handleSave}>Save</button>
+            </div>
         </>
     )
 }
