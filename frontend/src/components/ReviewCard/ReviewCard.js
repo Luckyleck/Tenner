@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import ShowReview from "../ShowReview";
+import './ReviewCardStyles.css'
 
-function ReviewCard() {
+function ReviewsCard() {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -10,18 +12,12 @@ function ReviewCard() {
     }, []);
 
     return (
-        <div>
-            {reviews.map((review) => (
-                <div key={review.id}>
-                    <p>{review.body}</p>
-                    <p>{review.review_rating}</p>
-                    <p>{review.communication_rating}</p>
-                    <p>{review.recommend_rating}</p>
-                    <p>{review.service_rating}</p>
-                </div>
-            ))}
+
+        <div className="reviews-container">
+            <h1>reviews for this seller</h1>
+            <ShowReview reviews={reviews} />
         </div>
     );
 }
 
-export default ReviewCard;
+export default ReviewsCard;

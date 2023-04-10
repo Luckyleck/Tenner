@@ -1,0 +1,8 @@
+.reviews-container {
+    border: 1px solid #dadbdd;
+    background-color: white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

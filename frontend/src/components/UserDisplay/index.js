@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Navbar from '../Splash/Navbar';
 import ProfileCard from '../ProfileCard';
-import ReviewCard from '../ReviewCard/ReviewCard';
+import ReviewsCard from '../ReviewCard/ReviewCard';
 
 // import ReviewForm from '../Reviews/ReviewForm';
 import './UserDisplay.css';
@@ -19,7 +19,7 @@ function Profile() {
 
                 <div className="card-and-reviews">
                     <ProfileCard />
-                    <ReviewCard /> 
+                    <ReviewsCard /> 
                 </div>
             </div>
         </>
