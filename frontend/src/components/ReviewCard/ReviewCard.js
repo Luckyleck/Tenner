@@ -11,7 +11,7 @@ function ReviewsCard() {
             .then((data) => setReviews(data.reviews));
     }, []);
 
-    console.log(reviews)
+    // console.log(reviews)
 
     return (
 
@@ -19,6 +19,7 @@ function ReviewsCard() {
             <h1>reviews for this seller</h1>
             <ShowReview reviews={reviews} />
         </div>
+
     );
 }
 
