@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session.js'
 import * as modalActions from '../../../store/modals.js'
 
 
 function EditNameModal() {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const [fname, setFname] = useState(sessionUser.fname);
     const [lname, setLname] = useState(sessionUser.lname);
@@ -17,11 +19,25 @@ function EditNameModal() {
     }
 
     function handleSave() {
+        console.log('saved')
+        dispatch(sessionActions.setCurrentUser({
+            ...sessionUser,
+            fname: fname,
+            lname: lname
+        }))
+        dispatch(modalActions.hideEditModal())
+    }
 
+    function overlayClick() {
+        dispatch(modalActions.hideEditModal())
     }
 
     return (
-        <div className="edit-container">
+        <>
+        <div className="modal-overlay" onClick={overlayClick}></div>
+        <div className="modal-container">
+            
+            <h1 className="modal-header">update your display name</h1> 
             <input
                 className='modal-input'
                 type='text'
@@ -40,6 +56,7 @@ function EditNameModal() {
             />
             <button className='modal-button' onClick={handleSave}>Save</button>
         </div>
+        </>
     )
 }
 

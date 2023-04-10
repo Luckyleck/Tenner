@@ -28,10 +28,18 @@ class Api::UsersController < ApplicationController
             render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
         end
     end
+
+    def update
+        @user = current_user
+    if @user.update(user_params)
+        render :show
+    else
+        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+    end
   
     private
   
     def user_params
-        params.require(:user).permit(:email, :username, :password)
+        params.require(:user).permit(:email, :username, :password, :fname, :lname)
     end
 end

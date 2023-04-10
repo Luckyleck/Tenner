@@ -4,7 +4,7 @@ const SET_SESSION_USER = 'session/setSessionUser';
 const REMOVE_SESSION_USER = 'session/removeSessionUser';
 
 
-const setCurrentUser = (user) => {
+export const setCurrentUser = (user) => { //being exported so the editNameModal can use it
     return {
         type: SET_SESSION_USER,
         payload: user,
@@ -83,6 +83,27 @@ export function restoreSession() {
         storeCurrentUser(data.user);
         dispatch(setCurrentUser(data.user));
         return res;
+    })
+}
+
+
+
+export function updateUser(userData) {
+    return (async function (dispatch) {
+        try {
+            const response = await csrfFetch('/api/users', {
+                method: 'PATCH',
+                body: JSON.stringify(userData),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            const data = await response.json();
+
+            storeCurrentUser(data.user);
+            dispatch(setCurrentUser(data.user));
+        } catch (err) {
+            console.error(err);
+        }
     })
 }
 

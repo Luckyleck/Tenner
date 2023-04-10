@@ -1,17 +1,18 @@
 import React from "react";
 import './ProfileCardStyles.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import * as modalActions from '../../store/modals.js'
-import Edit
+import EditNameModal from "./EditNameModal";
 
 
 
 function ProfileCard() {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const editNameModal = useSelector(state => state.modal.editModal)
 
     function handleEdit () {
-        dispatch(modalActions.showEditModal)
+        dispatch(modalActions.showEditModal())
     }
 
     return (
@@ -29,7 +30,7 @@ function ProfileCard() {
                     <h2 style={{ paddingBottom: '10%' }}>{sessionUser.email}</h2>
                 </div>
             </div>
-            {editNameModal && EditNameModal}
+            {editNameModal && <EditNameModal />}
         </>
 
     )
