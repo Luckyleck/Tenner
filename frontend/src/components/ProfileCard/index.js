@@ -14,7 +14,8 @@ function ProfileCard() {
             </div>
             <div className="profile-info-text">
                 <h1>{sessionUser.fname} {sessionUser.lname}</h1>
-                
+                <h2>{sessionUser.username}</h2>
+                <h2 style={{ paddingBottom: '10%' }}>{sessionUser.email}</h2>
 
             </div>
 
