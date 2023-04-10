@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Splash from './components/Splash';
-import Profile from './components/Profile';
+import UserDisplay from './components/UserDisplay';
 import './reset.css'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Splash />
       </Route>
       <Route exact path="/profile">
-        <Profile />
+        <UserDisplay />
       </Route>
     </Switch>
   );
