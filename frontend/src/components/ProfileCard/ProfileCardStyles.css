@@ -49,3 +49,18 @@
     font-size: 900%;
     color: white;
 }
+
+.top-row {
+    display: flex;
+    justify-content: center;
+    gap: 6%;
+}
+
+#edit-icon {
+    position: relative;
+    width: 7%;
+    height: 7%;
+    align-self: flex-end;
+    margin-bottom: 2.5%;
+    cursor: pointer;
+}

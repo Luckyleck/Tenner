@@ -5,8 +5,8 @@ const SHOW_JOIN_2 = 'SHOW_JOIN_2';
 const HIDE_JOIN_2 = 'HIDE_JOIN_2';
 const SHOW_SIGNIN = 'SHOW_SIGNIN';
 const HIDE_SIGNIN = 'HIDE_SIGNIN';
-const SHOW_ICON_1 = 'SHOW_ICON_1'; // profile button icon in top right
-const HIDE_ICON_1 = 'HIDE_ICON_1';
+const SHOW_EDIT_1 = 'SHOW_EDIT_1';
+const HIDE_EDIT_1 = 'HIDE_EDIT_1';
 
 export function showJoinOne() {
     return ({
@@ -44,15 +44,15 @@ export function hideSignin() {
     });
 }
 
-export function showIconModal() {
+export function showEditModal() {
     return ({
-        type: SHOW_ICON_1
+        type: SHOW_EDIT_1
     })
 }
 
-export function hideIconModal() {
+export function hideEditModal() {
     return ({
-        type: HIDE_ICON_1
+        type: HIDE_EDIT_1
     })
 }
 
@@ -61,7 +61,7 @@ const initialState = {
     joinModal1: false,
     joinModal2: false,
     signinModal: false,
-    iconModal: false
+    editModal: false
     
 }
 
@@ -97,15 +97,15 @@ export default function modalReducer(state = initialState, action) {
                 ...state,
                 signinModal: false
             };
-        case SHOW_ICON_1:
+        case SHOW_EDIT_1:
             return {
                 ...state,
-                iconModal: true
+                editModal: true
             };
-        case HIDE_ICON_1:
+        case HIDE_EDIT_1:
             return {
                 ...state,
-                iconModal: false
+                editModal: false
             };
         default:
             return state;
