@@ -26,13 +26,28 @@ function ShowReview({ reviews }) {
     }, [reviewerIds]);
 
     console.log(reviewers);
+
+//     const { listingId } = useParams();
+//     const dispatch = useDispatch();
+//     const listing = useSelector(getListing(listingId));
+//     // const userId = listing ? listing.user_id : null 
+//     // const user = useSelector(state => state.users ? state.users[userId] : null)
+
+//     useEffect(() => {
+//         // debugger
+//         dispatch(fetchListing(listingId))
+//     }, [listingId, dispatch])
+
+//   // useEffect(() => {
+//   //   dispatch(fetchUser(listing.userId))
+//   //   }, [listing, dispatch])
     
 
     return (
         <>
             {reviews.map((review) => (
                 <div key={review.id} className="single-review">
-                    <h1>The Reviewer Username</h1>
+                    <h1>user.username</h1>
                     <p>{review.body}</p>
                     <p>{review.review_rating}</p>
                     <p>{review.communication_rating}</p>
