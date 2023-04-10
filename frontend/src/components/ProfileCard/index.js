@@ -14,9 +14,9 @@ function ProfileCard() {
             </div>
             <div className="profile-info-text">
                 <h1>{sessionUser.fname} {sessionUser.lname}</h1>
-                <h2>{sessionUser.username}</h2>
+                <img src="https://static-00.iconduck.com/assets.00/pencil-emoji-256x256-p2a8xwsk.png"/>
+                <h2>@{sessionUser.username}</h2>
                 <h2 style={{ paddingBottom: '10%' }}>{sessionUser.email}</h2>
-
             </div>
 
         </div>
