@@ -38,5 +38,34 @@ ApplicationRecord.transaction do
     })
   end
 
+  Review.create!({
+    body: 'Great gig man! Thank you so much',
+    reviewer_id: 2,
+    review_rating: 5,
+    communication_rating: 5,
+    recommend_rating: 5,
+    service_rating: 5,
+    user_id: 1
+  })
+
+  10.times do
+    user_id = rand(1..10)
+    reviewer_id = rand(1..10)
+    
+    while reviewer_id == user_id do
+      reviewer_id = rand(1..10)
+    end
+    
+    Review.create!({
+      body: Faker::Quote.fortune_cookie,
+      reviewer_id: reviewer_id,
+      review_rating: rand(1..5),
+      communication_rating: rand(1..5),
+      recommend_rating: rand(1..5),
+      service_rating: rand(1..5),
+      user_id: user_id
+    })
+  end
+
   puts "Done!"
 end
