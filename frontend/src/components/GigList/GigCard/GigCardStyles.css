@@ -8,21 +8,10 @@
     margin-bottom: 2.5%;
 }
 
-.gig-card h3 {
-    font-size: 14px;
-    margin: 0;
-}
-
 .gig-card p {
     font-size: 12px;
     margin: 0;
     text-overflow: ellipsis;
-}
-
-.gig-card-container h2 {
-    font-size: 30px;
-    align-self: flex-start;
-    padding-bottom: 1%;
 }
 
 .seller-profile-bubble {
@@ -44,7 +33,6 @@
 .seller-info {
     display: flex;
     padding: 5%;
-    border-bottom: 1px solid #ccc;
     align-items: center;
 }
 
@@ -60,13 +48,15 @@
 }
 
 .gig-title {
-    height: 5vh;
-    padding: 5% 5% 5% 5%;
+    display: flex;
+    justify-content: flex-start;
+    height: 6vh;
     border-bottom: 1px solid #ccc;
+    padding: 5%;
 }
 
 .gig-title p {
-    font-size: 100%;
+    font-size:100%;
     font-weight: 400rem;
 }
 
@@ -84,7 +74,9 @@
     align-self: center;
 }
 
-.base-price p { 
+.base-price p {
+    top: 7%;
+    position: relative;
     color: #62646a;
     align-self: safe;
 }
