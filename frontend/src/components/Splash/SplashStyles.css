@@ -31,6 +31,10 @@ body {
     font-style: italic;
 }
 
+.main-content {
+    padding: 2% 8% 15% 8%;
+}
+
 /* .signed-in {
     --background-color: white;
 } */
