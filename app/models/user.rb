@@ -14,6 +14,7 @@ class User < ApplicationRecord
     before_validation :ensure_session_token
     has_one_attached :photo
     has_many :reviews, dependent: :destroy
+    has_many :gigs, class_name: :Gig, foreign_key: :seller_id
 
     def self.find_by_credentials(credential, password)
 
