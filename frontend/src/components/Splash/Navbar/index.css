@@ -55,7 +55,7 @@ button:hover {
 .button-profile-icon {
     position: relative;
     font-size: 30px;
-    font-weight: lighter;
+    font-weight: 400;
     color: white;
     background-color: #1dbf73;
     border-radius: 50%;

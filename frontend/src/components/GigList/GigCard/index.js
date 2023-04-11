@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import './GigCardStyles.css'
 
 
@@ -25,13 +26,21 @@ function GigCard({ gig }) {
             });
     }, [gig.seller_id]);
 
+    function handleClick() {
+
+    }
+
+
+
     if (error) {
         return <div>{error}</div>;
     }
 
     return (
-        <div className="gig-card">
-            <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
+        <div className="gig-card" onClick={handleClick}>
+            <Link to={`/gigs/${gig.id}`}>
+                <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
+            </Link>
             <div className="seller-info">
                 <div className="seller-profile-bubble">
                     <h1>{seller && seller.username && seller.username[0]}</h1>
@@ -40,9 +49,11 @@ function GigCard({ gig }) {
                     <p>{seller.username}</p>
                 </div>
             </div>
-            <div className="gig-title">
-                <p>I will be a {gig.title.toLowerCase()}</p>
-            </div>
+            <Link to={`/gigs/${gig.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <div className="gig-title">
+                    <p>I will be a {gig.title.toLowerCase()}</p>
+                </div>
+            </Link>
             <div className="base-price">
                 <p>STARTING AT</p>
                 <h2>${Math.floor(gig.base_price / 5) * 5}</h2>

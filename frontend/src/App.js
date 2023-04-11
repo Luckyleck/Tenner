@@ -13,6 +13,9 @@ function App() {
       <Route exact path="/profile">
         <UserDisplay />
       </Route>
+      <Route path="/gigs/:gigId">
+        {/* gig show */}
+      </Route>
     </Switch>
   );
 }
