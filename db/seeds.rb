@@ -12,6 +12,8 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  Gig.destroy_all
+  Review.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -37,16 +39,8 @@ ApplicationRecord.transaction do
       password: "password",
     })
   end
-
-  Review.create!({
-    body: 'Great gig man! Thank you so much',
-    reviewer_id: 2, # the reviewer
-    review_rating: 5,
-    communication_rating: 5,
-    recommend_rating: 5,
-    service_rating: 5,
-    user_id: 1 # the person getting reviewed
-  })
+  
+  puts "Creating Gigs"
 
   10.times do
     Gig.create!({
@@ -56,23 +50,29 @@ ApplicationRecord.transaction do
       seller_id: rand(1..10)
     })
   end
+  
+  Review.create!({
+    body: 'Great gig man! Thank you so much',
+    reviewer_id: 2, # the reviewer
+    gig_id: 1,
+    review_rating: 5,
+    communication_rating: 5,
+    recommend_rating: 5,
+    service_rating: 5,
+  })
+
+
+  puts "Creating Reviews"
 
   10.times do
-    user_id = rand(1..10)
-    reviewer_id = rand(1..10)
-    
-    while reviewer_id == user_id do
-      reviewer_id = rand(1..10)
-    end
-    
     Review.create!({
       body: Faker::Quote.fortune_cookie,
-      reviewer_id: reviewer_id,
+      reviewer_id: rand(1..10),
+      gig_id: rand(1..10),
       review_rating: rand(1..5),
       communication_rating: rand(1..5),
       recommend_rating: rand(1..5),
-      service_rating: rand(1..5),
-      user_id: user_id
+      service_rating: rand(1..5)
     })
   end
 
