@@ -1,4 +1,3 @@
-
 const SHOW_JOIN_1 = 'SHOW_JOIN_1';
 const HIDE_JOIN_1 = 'HIDE_JOIN_1';
 const SHOW_JOIN_2 = 'SHOW_JOIN_2';

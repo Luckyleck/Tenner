@@ -51,7 +51,7 @@ function GigCard({ gig }) {
             </div>
             <Link to={`/gigs/${gig.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className="gig-title">
-                    <p>I will be a {gig.title.toLowerCase()}</p>
+                    <p>I will be a {gig.title.toLowerCase()} for you</p>
                 </div>
             </Link>
             <div className="base-price">
