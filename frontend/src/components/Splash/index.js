@@ -21,6 +21,7 @@ function Splash() {
             </div>
             {sessionUser &&        
             <div className='main-content'>
+                <h2>Our best gigs</h2>
                 <GigsList />
             </div>
             }   

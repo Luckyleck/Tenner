@@ -35,6 +35,15 @@ body {
     padding: 2% 8% 15% 8%;
 }
 
+.main-content h2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    position: relative;
+    font-size: 24px;
+    padding: 0% 2% 2% 2%;
+    font-weight: 500;
+    left: .8%;
+}
+
 /* .signed-in {
     --background-color: white;
 } */

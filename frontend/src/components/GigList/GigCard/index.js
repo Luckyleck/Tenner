@@ -34,11 +34,18 @@ function GigCard({ gig }) {
             <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
             <div className="seller-info">
                 <div className="seller-profile-bubble">
-                    <h1>{seller.username[0]}</h1>
+                    <h1>{seller && seller.username && seller.username[0]}</h1>
                 </div>
                 <div className="seller-name">
                     <p>{seller.username}</p>
                 </div>
+            </div>
+            <div className="gig-title">
+                <p>I will be a {gig.title.toLowerCase()}</p>
+            </div>
+            <div className="base-price">
+                <p>STARTING AT</p>
+                <h2>${Math.floor(gig.base_price / 5) * 5}</h2>
             </div>
 
         </div>
