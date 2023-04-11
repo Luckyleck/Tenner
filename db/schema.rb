@@ -49,8 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_210327) do
     t.integer "base_price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["base_price"], name: "index_gigs_on_base_price", unique: true
-    t.index ["seller_id"], name: "index_gigs_on_seller_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|

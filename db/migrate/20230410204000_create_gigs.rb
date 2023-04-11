@@ -10,7 +10,5 @@ class CreateGigs < ActiveRecord::Migration[7.0]
     end
 
     add_foreign_key :gigs, :users, column: :seller_id
-    add_index :gigs, :seller_id, unique: true
-    add_index :gigs, :base_price, unique: true
   end
 end

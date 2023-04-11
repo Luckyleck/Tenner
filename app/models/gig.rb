@@ -1,12 +1,11 @@
 class Gig < ApplicationRecord
     
-    validates :title, presence: true, length: { minimum: 5 }
-    validates :description, presence: true, length: { minimum: 5, maximum: 25, message: "5 characters minimum, 25 maximum" }
-    validates :base_price, presence: true, numericality: { greater_than: 1, message: "must be greater than 1"}
+    # validates :title, presence: true, length: { in: 5..25, message: "title must be between 5 and 25 characters long" }
+    validates :base_price, presence: true, numericality: { greater_than: 1, message: "Price must be greater than 1"}
+    validates :description, presence: true
 
-    has_many :reviews,
-        foreign_key: :gig_id,
-        class_name: :Gig, 
-        dependent: :destroy
+    belongs_to :seller, class_name: "User"
+    has_many :reviews
+    has_many :likes
 
 end

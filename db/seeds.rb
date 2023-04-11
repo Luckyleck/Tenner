@@ -49,6 +49,15 @@ ApplicationRecord.transaction do
   })
 
   10.times do
+    Gig.create!({
+      title: Faker::Job.title,
+      description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+      base_price: rand(5..100),
+      seller_id: rand(1..10)
+    })
+  end
+
+  10.times do
     user_id = rand(1..10)
     reviewer_id = rand(1..10)
     
