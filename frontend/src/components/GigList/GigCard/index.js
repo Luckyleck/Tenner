@@ -34,10 +34,10 @@ function GigCard({ gig }) {
             <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
             <div className="seller-info">
                 <div className="seller-profile-bubble">
-
+                    <h1>{seller.username[0]}</h1>
                 </div>
                 <div className="seller-name">
-                    <p>{seller.fname}</p>
+                    <p>{seller.username}</p>
                 </div>
             </div>
 

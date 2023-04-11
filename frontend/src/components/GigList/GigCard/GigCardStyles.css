@@ -26,3 +26,24 @@
     align-self: flex-start;
     padding-bottom: 1%;
 }
+
+.seller-profile-bubble {
+    position: relative;
+    font-size: 30px;
+    font-weight: lighter;
+    color: white;
+    background-color: #1dbf73;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.seller-info {
+    display: flex;
+
+}
