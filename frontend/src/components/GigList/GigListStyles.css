@@ -12,31 +12,3 @@
     gap: 10px;
 }
 
-.gig-card {
-    width: 10%;
-    height: 20%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.gig-card h3 {
-    font-size: 14px;
-    margin: 0;
-}
-
-.gig-card p {
-    font-size: 12px;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.gig-card-container h2 {
-    font-size: 30px;
-    align-self: flex-start;
-    padding-bottom: 1%;
-}

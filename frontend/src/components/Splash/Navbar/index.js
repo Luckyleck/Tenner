@@ -22,10 +22,6 @@ function Navbar() {
         email: '', username: '', password: '', text: ''
     });
     const [showMenu, setShowMenu] = useState(false);
-    const [toProfileRedirect, setToProfileRedirect] = useState(false);
-    const [logoutRedirect, setlogoutRedirect] = useState(false);
-
-    let routeTracker;
 
     function handleMenuClick(option) {
         if (option === 'profile') {
@@ -36,10 +32,6 @@ function Navbar() {
         }
         setShowMenu(false);
     }
-
-    if (toProfileRedirect) return <Redirect to="/profile" />;
-
-    if (logoutRedirect) return <Redirect to="/" />;
 
     return (
         <>

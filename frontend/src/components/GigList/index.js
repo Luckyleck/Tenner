@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import GigCard from "./GigCard";
 import './GigListStyles.css'
 
 function GigsList() {
@@ -15,18 +16,11 @@ function GigsList() {
             <h2>Gigs</h2>
             <div className="gig-card-wrapper">
                 {gigs.map((gig) => (
-                    <div key={gig.id} className="gig-card">
-                        <h3>{gig.title}</h3>
-                        <p>{gig.description}</p>
-                        <p>Base Price: ${gig.base_price}</p>
-                        {/* This will replaced with some gig component*/}
-                    </div>
+                    <GigCard key={gig.id} gig={gig} />
                 ))}
             </div>
         </div>
     );
 }
-
-
 
 export default GigsList;
