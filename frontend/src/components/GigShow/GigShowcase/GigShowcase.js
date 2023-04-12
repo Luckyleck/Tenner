@@ -26,8 +26,6 @@ function GigShowcase({ gig, reviews }) {
     }, [gig.seller_id]);
 
     
-
-
     return (
         <div className="gig-show-container">
             <div className="gig-show-title">
@@ -37,7 +35,8 @@ function GigShowcase({ gig, reviews }) {
                 <div className="seller-profile-bubble">
                     <h1>{seller && seller.username && seller.username[0]}</h1>
                 </div>
-                <p>{seller.username}</p>
+                <h3>{seller.fname} {seller.lname}</h3>
+                <h6>@{seller.username}</h6>
             </div>
             <img id="gig-show-img" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
             <div className="gig-description">
@@ -47,7 +46,9 @@ function GigShowcase({ gig, reviews }) {
             <div className="gig-reviews">
                 <ul>
                 {reviews.map((review) => {
-                    return <li key={review.id}>{review.body}</li>
+                    return (
+                    <li key={review.id}>{review.body} {review.reviewer.username}</li>
+                    )
                 })}
                 </ul>
             </div>

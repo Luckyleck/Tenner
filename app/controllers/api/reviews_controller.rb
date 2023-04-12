@@ -9,7 +9,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show
-        render json: @review
+        render json: @review, include: [:reviewer, :gig]
     end
   
     def create
