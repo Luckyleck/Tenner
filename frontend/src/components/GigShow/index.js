@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchGig } from '../../store/gigs';
 import Navbar from '../Splash/Navbar';
 import './GigShowStyles.css'
-import GigShowcase from './GigShowcase/GigShowcase';
+import GigShowcase from './GigShowcase';
 import PurchaseModal from './PurchaseModal';
 
 function GigShow() {

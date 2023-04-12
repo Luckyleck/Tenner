@@ -29,10 +29,25 @@
     font-weight: 500;
     padding-top: 2%;
     padding-bottom: 2%;
-
 }
 
 .gig-description p {
     color: #404145;
+}
+
+.gig-showcase-bubble-profile {
+    position: relative;
+    font-size: 170%;
+    font-weight: lighter;
+    color: white;
+    background-color: #1dbf73;
+    border-radius: 50%;
+    width: 1vw;
+    height: 3%;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './GigShowcaseStyles.css'
+import ShowReview from './ShowReview';
 
 function GigShowcase({ gig, reviews }) {
     const [seller, setSeller] = useState({});
@@ -25,14 +26,14 @@ function GigShowcase({ gig, reviews }) {
             });
     }, [gig.seller_id]);
 
-    
+
     return (
         <div className="gig-show-container">
             <div className="gig-show-title">
                 <h1>I will be your {gig.title}</h1>
             </div>
             <div className="gig-show-top-user-info">
-                <div className="seller-profile-bubble">
+                <div className="gig-showcase-bubble-profile">
                     <h1>{seller && seller.username && seller.username[0]}</h1>
                 </div>
                 <h3>{seller.fname} {seller.lname}</h3>
@@ -43,16 +44,32 @@ function GigShowcase({ gig, reviews }) {
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>
             </div>
+
+            <h2>About the seller</h2>
+            <div className="about-seller">
+                <div className="about-seller-profile-icon">
+                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                </div>
+                <div className="about-seller-profile-right-column">
+                    <div className="about-seller-name-username">
+                        <h1>{seller.fname} {seller.lname}</h1>
+                        <h1>{seller.username}</h1>
+                    </div>
+                </div>
+            </div>
+            <div className="more-seller-info">
+                {/* MAKE SELLER BOX*/}
+            </div>
+            <div className="more-seller-info">
+                {/* MAKE REVIEW STAR BOX*/}
+            </div>
             <div className="gig-reviews">
-                <ul>
                 {reviews.map((review) => {
-                    return (
-                    <li key={review.id}>{review.body} {review.reviewer.username}</li>
-                    )
+                    return <ShowReview review={review} />
                 })}
-                </ul>
             </div>
         </div>
+
     )
 }
 
