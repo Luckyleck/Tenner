@@ -33,7 +33,7 @@ function GigCard({ gig }) {
     return (
         <div className="gig-card">
             <Link to={`/gigs/${gig.id}`}>
-                <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
+                <img id="gig-image" src="https://picsum.photos/630/428" />
             </Link>
             <div className="seller-info">
                 <div className="seller-profile-bubble">
@@ -58,3 +58,6 @@ function GigCard({ gig }) {
 }
 
 export default GigCard;
+
+
+// https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1

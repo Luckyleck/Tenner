@@ -4,12 +4,15 @@
 }
 
 .gig-show-main-content {
-    padding: 2% 8% 1000% 8%; 
+    padding-top: 2%;
+    padding-right: 8%;
+    padding-left: 8%;
+    padding-bottom: 2%;
 }
 
 .gig-showcase {
     display: flex;
-    gap: 10%;
+    gap: 8%;
 }
 
 .purchase-modal {
