@@ -1,0 +1,8 @@
+.purchase-modal-container {
+    margin-top: 2%;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    width: 42%;
+    height: 20%;
+}

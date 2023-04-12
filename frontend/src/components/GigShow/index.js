@@ -8,7 +8,6 @@ import GigShowcase from './GigShowcase/GigShowcase';
 import PurchaseModal from './PurchaseModal';
 
 function GigShow() {
-    debugger
     const dispatch = useDispatch();
     const { gigId } = useParams();
     const gig = useSelector((state) => state.gigs[gigId]);
@@ -58,9 +57,9 @@ function GigShow() {
             <div className='gig-show-main-content'>
                 <div className='gig-showcase'>
                     <GigShowcase gig={gig} reviews={reviews} />
-                </div>
-                <div className='purchase-modal'>
-                    {purchaseModal && <PurchaseModal price={gig.price}/>}
+                    <div className="purchase-modal">
+                        {purchaseModal && <PurchaseModal price={gig.price} />}
+                    </div>
                 </div>
             </div>
         </div>
