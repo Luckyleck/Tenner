@@ -7,6 +7,7 @@ import './GigShowStyles.css'
 import GigShowcase from './GigShowcase/GigShowcase';
 
 function GigShow() {
+    debugger
     const dispatch = useDispatch();
     const { gigId } = useParams();
     const gig = useSelector((state) => state.gigs[gigId]);
@@ -23,7 +24,8 @@ function GigShow() {
         for (const reviewId of reviewIds) {
             const response = await fetch(`/api/reviews/${reviewId}`);
             const data = await response.json();
-            reviews.push(data.review);
+            console.log(data) // Already coming back as object
+            reviews.push(data);
         }
 
         return reviews;
@@ -39,8 +41,10 @@ function GigShow() {
     }, [gig]);
 
     if (!gig) {
-        return <div></div>;
+        return <div></div>; 
     }
+
+    console.log(reviews)
 
     return (
         <div className="all-page">

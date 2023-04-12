@@ -44,9 +44,13 @@ function GigShowcase({ gig, reviews }) {
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>
             </div>
-            {/* <div className="gig-reviews">
-                <h1>{gig.reviews.body}</h1>
-            </div> */}
+            <div className="gig-reviews">
+                <ul>
+                {reviews.map((review) => {
+                    return <li key={review.id}>{review.body}</li>
+                })}
+                </ul>
+            </div>
         </div>
     )
 }
