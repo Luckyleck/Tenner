@@ -15,7 +15,7 @@ function GigsList() {
     return (
         <div className="gig-card-container">
             {gigs.map((gig) => (
-                <GigCard key={gig.id} gig={gig} />
+                <GigCard key={gig.title} gig={gig} />
             ))}
         </div>
     );

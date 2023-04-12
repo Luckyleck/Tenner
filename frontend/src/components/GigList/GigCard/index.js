@@ -17,6 +17,8 @@ function GigCard({ gig }) {
                 return response.json();
             })
             .then((data) => {
+                console.log("i'm in data")
+                console.log(data)
                 console.log("seller data:", data);
                 setSeller(data.user);
             })
@@ -26,18 +28,13 @@ function GigCard({ gig }) {
             });
     }, [gig.seller_id]);
 
-    function handleClick() {
-
-    }
-
-
 
     if (error) {
         return <div>{error}</div>;
     }
 
     return (
-        <div className="gig-card" onClick={handleClick}>
+        <div className="gig-card">
             <Link to={`/gigs/${gig.id}`}>
                 <img id="gig-image" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
             </Link>

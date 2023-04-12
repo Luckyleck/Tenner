@@ -8,7 +8,7 @@ class Api::GigsController < ApplicationController
     end
 
     def show
-        render json: @gig 
+        render json: @gig.as_json(include: :reviews)
     end
 
     def create
@@ -40,7 +40,7 @@ class Api::GigsController < ApplicationController
     end
 
     def gig_params
-        params.require(:gig).permit(:title, :description, :base_price).merge(seller: current_user)
+        params.require(:gig).permit(:title, :description, :base_price, :seller_id)
     end
 
 end
