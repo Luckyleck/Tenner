@@ -7,7 +7,7 @@ import gigReducer from "./gigs";
 export const rootReducer = combineReducers({
     session: sessionReducer,
     modal: modalReducer,
-    gig: gigReducer
+    gigs: gigReducer
 })
 
 let enhancer;
