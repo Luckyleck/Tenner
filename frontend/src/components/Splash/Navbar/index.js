@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom';
 import * as modalActions from '../../../store/modals';
 import * as sessionActions from '../../../store/session';
 import './index.css';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
 
@@ -36,7 +37,9 @@ function Navbar() {
     return (
         <>
             <div className="nav-items">
-                <h1>Tenner.</h1>
+                <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
+                    <h1 id="logo">Tenner.</h1>
+                </Link>
                 {sessionUser ? (
                     <>
                         <div className="button-profile-container">

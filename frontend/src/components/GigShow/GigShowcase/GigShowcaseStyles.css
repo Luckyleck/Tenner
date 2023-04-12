@@ -1,0 +1,38 @@
+.gig-show-container {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 55%;
+}
+
+.gig-show-title {
+    color: #404145;
+    font-size: 170%;
+    font-weight: 500;
+    padding-bottom: 2%;
+}
+
+.gig-show-top-user-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5%;
+    padding-bottom: 2%;
+}
+
+#gig-show-img {
+    width: 100%;
+    height: 90%;
+}
+
+.gig-description h1 {
+    color: #404145;
+    font-size: 150%;
+    font-weight: 500;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}
+
+.gig-description p {
+    color: #404145;
+}
+

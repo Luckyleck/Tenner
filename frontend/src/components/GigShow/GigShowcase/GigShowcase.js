@@ -7,15 +7,6 @@ function GigShowcase({ gig }) {
     const [reviews, setReviews] = useState({})
     console.log(gig)
 
-    // useEffect(() => { CHECK GIGS CONTROLLER!
-    //     fetch(`/api/gigs/${gig.id}`)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             setReviews(data.reviews);
-    //         })
-    //         .catch((error) => console.error(error));
-    // }, [gig.id]);
-
     useEffect(() => {
         fetch(`/api/users/${gig.seller_id}`)
             .then((response) => {
@@ -25,8 +16,6 @@ function GigShowcase({ gig }) {
                 return response.json();
             })
             .then((data) => {
-                console.log("i'm in data")
-                console.log(data)
                 console.log("seller data:", data);
                 setSeller(data.user);
             })
@@ -36,26 +25,33 @@ function GigShowcase({ gig }) {
             });
     }, [gig.seller_id]);
 
-    // const {
-    //     body, 
-    //     review_rating, 
-    //     communication_rating, 
-    //     recommend_rating, service_rating, 
-    //     reviewer_id
-    // } = reviews
-
-    // console.log(reviews)
-    // console.log(body,review_rating, communication_rating)
-
 
     return (
-        <>
-            <h1>{gig.title}</h1>
-            <h1>{seller.username}</h1>
-            <h1>{body}</h1>
-            <h1>{review_rating}</h1>
-        </>
+        <div className="gig-show-container">
+            <div className="gig-show-title">
+                <h1>I will be your {gig.title}</h1>
+            </div>
+            <div className="gig-show-top-user-info">
+                <div className="seller-profile-bubble">
+                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                </div>
+                <p>{seller.username}</p>
+            </div>
+            <img id="gig-show-img" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
+            <div className="gig-description">
+                <h1>About this gig</h1>
+                <p>{gig.description}</p>
+            </div>
+            {/* <div className="gig-reviews">
+                <h1>{gig.reviews.body}</h1>
+            </div> */}
+        </div>
     )
 }
 
 export default GigShowcase;
+
+
+// json.gig do
+//     json.extract! @gig, : title, : description, : seller_id, : base_price, : created_at, : updated_at
+// end

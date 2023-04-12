@@ -8,7 +8,7 @@ class Api::GigsController < ApplicationController
     end
 
     def show
-        render json: @gig.as_json(include: :reviews)
+        render json: @gig
     end
 
     def create

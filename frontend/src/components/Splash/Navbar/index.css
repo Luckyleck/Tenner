@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin-top: 1.5%;
     font-size: 45px;
-    width: 80%;
+    width: 90%;
 }
 
 .nav-items h1 {
@@ -33,6 +33,14 @@ button {
 
 .button-profile-container {
     position: relative;
+}
+
+#logo {
+    cursor: pointer;
+}
+
+Link {
+    text-decoration: none;
 }
 
 .button-join {
@@ -65,7 +73,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     line-height: 1;
-    right:30%;
+    right:70%;
 }
 
 .menu-container {

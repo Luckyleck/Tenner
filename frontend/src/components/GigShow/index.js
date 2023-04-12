@@ -7,8 +7,8 @@ import './GigShowStyles.css'
 import GigShowcase from './GigShowcase/GigShowcase';
 
 function GigShow() {
-    const { gigId } = useParams();
     const dispatch = useDispatch();
+    const { gigId } = useParams();
     const gig = useSelector((state) => state.gigs[gigId]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function GigShow() {
     }, [dispatch, gigId]);
 
     if (!gig) {
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     return (
