@@ -19,7 +19,7 @@ function Profile() {
 
                 <div className="card-and-reviews">
                     <ProfileCard />
-                    <ReviewsCard /> 
+                    {/* <ReviewsCard />  */}
                 </div>
             </div>
         </>

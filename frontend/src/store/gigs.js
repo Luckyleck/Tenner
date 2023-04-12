@@ -61,48 +61,48 @@ export function fetchGig(gigId) {
     })
 }
 
-export function createGig(gig) {
-    return (async (dispatch) => {
-        const response = await csrfFetch(`/api/gigs`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(gig)
-        })
+// export function createGig(gig) {
+//     return (async (dispatch) => {
+//         const response = await csrfFetch(`/api/gigs`, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json'},
+//             body: JSON.stringify(gig)
+//         })
 
-        if (response.ok) {
-            const data = await response.json()
-            dispatch(receiveGig(data))
-        }
-    })
-}
+//         if (response.ok) {
+//             const data = await response.json()
+//             dispatch(receiveGig(data))
+//         }
+//     })
+// }
 
-export function updateGig(gig) {
-    return (async (dispatch) => {
-        const response = await csrfFetch(`/api/gigs/${gig.id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(gig)
-        })
+// export function updateGig(gig) {
+//     return (async (dispatch) => {
+//         const response = await csrfFetch(`/api/gigs/${gig.id}`, {
+//             method: 'PATCH',
+//             headers: { 'Content-Type': 'application/json'},
+//             body: JSON.stringify(gig)
+//         })
 
-        if (response.ok) {
-            const data = await response.json()
-            dispatch(receiveGig(data))
-        }
-    })
+//         if (response.ok) {
+//             const data = await response.json()
+//             dispatch(receiveGig(data))
+//         }
+//     })
 
-}
+// }
 
-export function deleteGig(gigId) {
-    return (async (dispatch) => {
-        const response = await csrfFetch(`/api/gigs/${gigId}`, {
-            method: 'DELETE'
-        })
+// export function deleteGig(gigId) {
+//     return (async (dispatch) => {
+//         const response = await csrfFetch(`/api/gigs/${gigId}`, {
+//             method: 'DELETE'
+//         })
 
-        if (response.ok) {
-            dispatch(removeGig(gigId))
-        }
-    })
-}
+//         if (response.ok) {
+//             dispatch(removeGig(gigId))
+//         }
+//     })
+// }
 
 function gigReducer (state = {}, action) {
     switch (action.type) {

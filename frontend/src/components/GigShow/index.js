@@ -5,13 +5,17 @@ import { fetchGig } from '../../store/gigs';
 import Navbar from '../Splash/Navbar';
 import './GigShowStyles.css'
 import GigShowcase from './GigShowcase/GigShowcase';
+import PurchaseModal from './PurchaseModal';
 
 function GigShow() {
     debugger
     const dispatch = useDispatch();
     const { gigId } = useParams();
     const gig = useSelector((state) => state.gigs[gigId]);
+    let purchaseModal = useSelector((state) => state.modal.purchaseModal);
     const [reviews, setReviews] = useState([]);
+
+    if (gig) purchaseModal = true
 
     useEffect(() => {
         dispatch(fetchGig(gigId));
@@ -41,7 +45,7 @@ function GigShow() {
     }, [gig]);
 
     if (!gig) {
-        return <div></div>; 
+        return <div></div>;
     }
 
     console.log(reviews)
@@ -51,9 +55,13 @@ function GigShow() {
             <div className="header">
                 <Navbar />
             </div>
-            <div className='main-content'>
-                <GigShowcase gig={gig} reviews={reviews} />
-                {/* <GigReview review={review}/> */}
+            <div className='gig-show-main-content'>
+                <div className='gig-showcase'>
+                    <GigShowcase gig={gig} reviews={reviews} />
+                </div>
+                <div className='purchase-modal'>
+                    {purchaseModal && <PurchaseModal price={gig.price}/>}
+                </div>
             </div>
         </div>
     );

@@ -3,8 +3,9 @@
     flex-direction: column;
 }
 
-.main-content {
-    height:100%;
+.gig-show-main-content {
+    padding: 2% 8% 15% 8%;
+    display: flex
 }
 
 

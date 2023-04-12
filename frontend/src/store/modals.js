@@ -6,6 +6,8 @@ const SHOW_SIGNIN = 'SHOW_SIGNIN';
 const HIDE_SIGNIN = 'HIDE_SIGNIN';
 const SHOW_EDIT_1 = 'SHOW_EDIT_1';
 const HIDE_EDIT_1 = 'HIDE_EDIT_1';
+const SHOW_PURCHASE_MODAL = 'SHOW_PURCHASE_1';
+const HIDE_PURCHASE_MODAL = 'HIDE_PURCHASE_1';
 
 export function showJoinOne() {
     return ({
@@ -55,12 +57,25 @@ export function hideEditModal() {
     })
 }
 
+export function showPurchaseModal() {
+    return ({
+        type: SHOW_PURCHASE_MODAL
+    })
+}
+
+export function hidePurchaseModal() {
+    return ({
+        type: HIDE_PURCHASE_MODAL
+    })
+}
+
 const initialState = {
 
     joinModal1: false,
     joinModal2: false,
     signinModal: false,
-    editModal: false
+    editModal: false,
+    purchaseModal: false
     
 }
 
@@ -106,6 +121,16 @@ export default function modalReducer(state = initialState, action) {
                 ...state,
                 editModal: false
             };
+        case SHOW_PURCHASE_MODAL:
+            return {
+                ...state,
+                purchaseModal: true
+            }
+        case HIDE_PURCHASE_MODAL:
+            return {
+                ...state,
+                purchaseModal: false
+            }
         default:
             return state;
     }
