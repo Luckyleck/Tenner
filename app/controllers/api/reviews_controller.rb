@@ -1,13 +1,19 @@
 class Api::ReviewsController < ApplicationController
     skip_before_action :verify_authenticity_token
+
+    before_action :set_review, only: [:show]
   
     def index
-        reviews = current_user.reviews
-        render json: { reviews: reviews }
+        @reviews = Review.all
+        render json: @reviews
+    end
+
+    def show
+        render json: @review
     end
   
     def create
-        review = Review.new(review_params)
+        @review = Review.new(review_params)
   
         if review.save
             render json: { status: 'success', review: review }
@@ -17,6 +23,10 @@ class Api::ReviewsController < ApplicationController
     end
   
     private
+
+    def set_review
+        @review = Review.find(params[:id])
+    end
   
     def review_params
         params.require(:review).permit!

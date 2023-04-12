@@ -6,7 +6,7 @@ import './GigCardStyles.css'
 function GigCard({ gig }) {
     const [seller, setSeller] = useState({});
     const [error, setError] = useState(null);
-    console.log(gig)
+    // console.log(gig)
 
     useEffect(() => {
         fetch(`api/users/${gig.seller_id}`)
@@ -17,9 +17,6 @@ function GigCard({ gig }) {
                 return response.json();
             })
             .then((data) => {
-                console.log("i'm in data")
-                console.log(data)
-                console.log("seller data:", data);
                 setSeller(data.user);
             })
             .catch((error) => {

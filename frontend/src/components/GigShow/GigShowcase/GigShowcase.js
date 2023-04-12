@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './GigShowcaseStyles.css'
 
-function GigShowcase({ gig }) {
+function GigShowcase({ gig, reviews }) {
     const [seller, setSeller] = useState({});
     const [error, setError] = useState(null);
-    const [reviews, setReviews] = useState({})
+    console.log(reviews)
     console.log(gig)
 
     useEffect(() => {
@@ -24,6 +24,8 @@ function GigShowcase({ gig }) {
                 setError(error);
             });
     }, [gig.seller_id]);
+
+    
 
 
     return (
