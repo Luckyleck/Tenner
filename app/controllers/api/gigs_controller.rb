@@ -8,7 +8,7 @@ class Api::GigsController < ApplicationController
     end
 
     def show
-        render json: @gig
+        render json: @gig 
     end
 
     def create

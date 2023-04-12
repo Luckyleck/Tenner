@@ -9,9 +9,8 @@ function Splash() {
 
 
     return (
-        <div id='main-wrapper'>
+        <div id='all-page'>
             <div className='header'>
-
                 <Navbar className="nav" />
                 {!sessionUser &&
                     <div className="main-text">

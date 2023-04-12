@@ -14,7 +14,7 @@
 }
 
 .buttons-container {
-    display: inline-block;
+    display: flex;
     gap: 10px;
     margin-left: 0px;
 }
