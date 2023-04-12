@@ -38,7 +38,7 @@ function GigShowcase({ gig, reviews }) {
                 <h3>{seller.fname} {seller.lname}</h3>
                 <h6>@{seller.username}</h6>
             </div>
-            <img id="gig-show-img" src="https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1" />
+            <img id="gig-show-img" src={gig.image} />
             <div className="gig-description">
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>

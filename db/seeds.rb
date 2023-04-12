@@ -45,11 +45,14 @@ ApplicationRecord.transaction do
   puts "Creating Gigs"
 
   10.times do
+
+    random_string = Faker::Alphanumeric.alphanumeric(number: 5)
+
     Gig.create!({
       title: Faker::Job.title,
       description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
       base_price: rand(5..100),
-      image: "https://picsum.photos/630/430",
+      image: "https://picsum.photos/seed/#{random_string}/630/430",
       seller_id: rand(1..10),
     })
   end
