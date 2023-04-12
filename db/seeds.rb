@@ -21,7 +21,6 @@ ApplicationRecord.transaction do
   ApplicationRecord.connection.reset_pk_sequence!("gigs")
   ApplicationRecord.connection.reset_pk_sequence!("reviews")
 
-
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
@@ -42,7 +41,7 @@ ApplicationRecord.transaction do
       password: "password",
     })
   end
-  
+
   puts "Creating Gigs"
 
   10.times do
@@ -50,12 +49,13 @@ ApplicationRecord.transaction do
       title: Faker::Job.title,
       description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
       base_price: rand(5..100),
-      seller_id: rand(1..10)
+      image: "https://picsum.photos/630/430",
+      seller_id: rand(1..10),
     })
   end
-  
+
   Review.create!({
-    body: 'Great gig man! Thank you so much',
+    body: "Great gig man! Thank you so much",
     reviewer_id: 2, # the reviewer
     gig_id: 1,
     review_rating: 5,
@@ -63,7 +63,6 @@ ApplicationRecord.transaction do
     recommend_rating: 5,
     service_rating: 5,
   })
-
 
   puts "Creating Reviews"
 
@@ -75,7 +74,7 @@ ApplicationRecord.transaction do
       review_rating: rand(1..5),
       communication_rating: rand(1..5),
       recommend_rating: rand(1..5),
-      service_rating: rand(1..5)
+      service_rating: rand(1..5),
     })
   end
 

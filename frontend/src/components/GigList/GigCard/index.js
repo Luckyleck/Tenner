@@ -33,7 +33,7 @@ function GigCard({ gig }) {
     return (
         <div className="gig-card">
             <Link to={`/gigs/${gig.id}`}>
-                <img id="gig-image" src="https://picsum.photos/630/428" />
+                <img id="gig-image" src={gig.image} />
             </Link>
             <div className="seller-info">
                 <div className="seller-profile-bubble">
