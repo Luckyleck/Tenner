@@ -17,8 +17,9 @@ function ShowReview({ review }) {
                 <h3>{review.reviewer.username}</h3>
                 <p>{review.body}</p>
                 {review.reviewer.id === sessionUser.id && (
-                    <div className="edit-review">
+                    <div className="edit-delete-review">
                         <button id="edit-review-button">Edit Review</button>
+                        <button id="delete-review-button">Delete Review</button>
                     </div>
                 )}
             </div>

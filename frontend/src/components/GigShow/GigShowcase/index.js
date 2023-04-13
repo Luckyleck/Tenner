@@ -60,6 +60,7 @@ function GigShowcase({ gig }) {
                 })}
             </div>
             {createReviewModal && <CreateReview gig={gig} />}
+            {editReviewModal && <EditReview gig={gig} />}
             {/* <footer>
                 <hr id="last-hr"/>
             </footer> */}

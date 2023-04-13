@@ -10,6 +10,8 @@ const SHOW_PURCHASE_MODAL = 'SHOW_PURCHASE_1';
 const HIDE_PURCHASE_MODAL = 'HIDE_PURCHASE_1';
 const SHOW_CREATE_REVIEW = 'SHOW_CREATE_REVIEW';
 const HIDE_CREATE_REVIEW = 'HIDE_CREATE_REIVEW';
+const SHOW_EDIT_REVIEW = 'SHOW_EDIT_REVIEW';
+const HIDE_EDIT_REVIEW = 'HIDE_EDIT_REIVEW';
 
 export function showJoinOne() {
     return ({
@@ -80,6 +82,18 @@ export function showCreateReview() {
 export function hideCreateReview() {
     return ({
         type: HIDE_CREATE_REVIEW
+    })
+}
+
+export function showEditReview() {
+    return ({
+        type: SHOW_EDIT_REVIEW
+    })
+}
+
+export function hideEditReview() {
+    return ({
+        type: HIDE_EDIT_REVIEW
     })
 }
 

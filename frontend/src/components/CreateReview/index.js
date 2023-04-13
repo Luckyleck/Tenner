@@ -4,7 +4,7 @@ import './CreateReviewStyles.css'
 import * as modalActions from '../../store/modals'
 import { createReview } from '../../store/reviews';
 
-function CreateReview({ gig }) {
+function CreateReview({ gig, forceUpdate}) {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
     const [error, setError] = useState('');
@@ -14,7 +14,7 @@ function CreateReview({ gig }) {
         dispatch(modalActions.hideCreateReview())
     }
 
-    function handleBodyChange (e) {
+    function handleBodyChange(e) {
         setBody(e.target.value)
     }
 
@@ -28,7 +28,7 @@ function CreateReview({ gig }) {
                 gig_id: gig.id
             }
             dispatch(createReview(review));
-            dispatch(modalActions.hideCreateReview())
+            dispatch(modalActions.hideCreateReview());
         }
     }
 
