@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    before_action :set_review, only: [:show]
+    before_action :set_review, only: [:show, :update, :destroy]
   
     def index
         @reviews = Review.all
@@ -20,6 +20,19 @@ class Api::ReviewsController < ApplicationController
         else
             render json: { success: false }
         end
+    end
+
+    def update
+        if @review.update(review_params)
+            render json: { status: 'success', review: @review }
+        else
+            render json: { success: false }
+        end
+    end
+    
+    def destroy
+        @review.destroy
+        render json: { status: 'destroyed!'}
     end
   
     private
