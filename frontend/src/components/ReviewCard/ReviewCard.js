@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ShowReview from "../ShowReview";
+// import ShowReview from "../ShowReview";
 import './ReviewCardStyles.css'
 
 function ReviewsCard() {
@@ -17,7 +17,7 @@ function ReviewsCard() {
 
         <div className="reviews-container">
             <h1>reviews for this seller</h1>
-            <ShowReview reviews={reviews} />
+            {/* <ShowReview reviews={reviews} /> */}
         </div>
 
     );

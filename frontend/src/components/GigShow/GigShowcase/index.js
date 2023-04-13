@@ -4,6 +4,7 @@ import ShowReview from './ShowReview';
 
 function GigShowcase({ gig }) {
     console.log(gig)
+    console.log(gig.reviews)
 
     return (
         <div className="gig-show-container">
@@ -41,11 +42,11 @@ function GigShowcase({ gig }) {
             <div className="more-seller-info">
                 {/* MAKE REVIEW STAR BOX*/}
             </div>
-            {/* <div className="gig-reviews">
-                {reviews.map((review) => {
+            <div className="gig-reviews">
+                {gig.reviews.map((review) => {
                     return <ShowReview review={review} />
                 })}
-            </div> */}
+            </div>
         </div>
 
     )

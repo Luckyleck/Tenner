@@ -6,7 +6,12 @@ class Api::GigsController < ApplicationController
         @gigs = Gig.all.map do |gig|
             gig.as_json(include: {
                 reviews: {
-                only: [:id, :body, :gig_id]
+                only: [:id, :body, :gig_id, :reviewer_id],
+                include: {
+                    reviewer: {
+                        only: [:id, :username, :fname, :lname, :email]
+                    }
+                }
             },
             seller: {
                 except: [:password_digest, :session_token]
@@ -20,7 +25,12 @@ class Api::GigsController < ApplicationController
     def show
         render json: @gig, include: {
             reviews: {
-                only: [:id, :body, :gig_id]
+                only: [:id, :body, :gig_id, :reviewer_id],
+                include: {
+                    reviewer: {
+                        only: [:id, :username, :fname, :lname, :email]
+                    }
+                }
             },
             seller: {
                 except: [:password_digest, :session_token]
