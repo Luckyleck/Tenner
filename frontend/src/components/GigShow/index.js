@@ -33,7 +33,7 @@ function GigShow() {
     return (
         <div className="all-page">
             <div className="header">
-                <Navbar />
+                <Navbar />  
             </div>
             <div className='gig-show-main-content'>
                 <div className='gig-showcase'>

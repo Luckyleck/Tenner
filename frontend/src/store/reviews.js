@@ -14,10 +14,7 @@ function receiveReviews(reviews) {
 function receiveReview(review) {
     return ({
         type: RECEIVE_REVIEW,
-        review: {
-            ...review,
-            reviews: review.reviews.map((review) => review.id),
-        }
+        review: review
     })
 }
 

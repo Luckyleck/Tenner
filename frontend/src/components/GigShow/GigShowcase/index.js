@@ -2,30 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './GigShowcaseStyles.css'
 import ShowReview from './ShowReview';
 
-function GigShowcase({ gig, reviews }) {
-    const [seller, setSeller] = useState({});
-    const [error, setError] = useState(null);
-    console.log(reviews)
+function GigShowcase({ gig }) {
     console.log(gig)
-
-    useEffect(() => {
-        fetch(`/api/users/${gig.seller_id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                // console.log("seller data:", data);
-                setSeller(data.user);
-            })
-            .catch((error) => {
-                console.error("Error fetching seller:", error);
-                setError(error);
-            });
-    }, [gig.seller_id]);
-
 
     return (
         <div className="gig-show-container">
@@ -34,10 +12,10 @@ function GigShowcase({ gig, reviews }) {
             </div>
             <div className="gig-show-top-user-info">
                 <div className="gig-showcase-bubble-profile">
-                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                    <h1>{gig.seller.username[0]}</h1>
                 </div>
-                <h3>{seller.fname} {seller.lname}</h3>
-                <h6>@{seller.username}</h6>
+                <h3>{gig.seller.fname} {gig.seller.lname}</h3>
+                <h6>@{gig.seller.username}</h6>
             </div>
             <img id="gig-show-img" src={gig.image} />
             <div className="gig-description">
@@ -48,12 +26,12 @@ function GigShowcase({ gig, reviews }) {
             <h2>About the seller</h2>
             <div className="about-seller">
                 <div className="about-seller-profile-icon">
-                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                    <h1>{gig.seller.username[0]}</h1>
                 </div>
                 <div className="about-seller-profile-right-column">
                     <div className="about-seller-name-username">
-                        <h1>{seller.fname} {seller.lname}</h1>
-                        <h1>{seller.username}</h1>
+                        <h1>{gig.seller.fname} {gig.seller.lname}</h1>
+                        <h1>{gig.seller.username}</h1>
                     </div>
                 </div>
             </div>

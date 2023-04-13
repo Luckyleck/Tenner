@@ -8,7 +8,14 @@ class Api::GigsController < ApplicationController
     end
 
     def show
-        render json: @gig, include: :reviews
+        render json: @gig, include: {
+            reviews: {
+                only: [:id, :body, :gig_id]
+            },
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+        }
     end
 
     def create
