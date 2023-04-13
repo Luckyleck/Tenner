@@ -49,9 +49,9 @@ function GigShowcase({ gig }) {
                     return <ShowReview review={review} />
                 })}
             </div>
-            <footer>
+            {/* <footer>
                 <hr id="last-hr"/>
-            </footer>
+            </footer> */}
         </div>
 
     )
