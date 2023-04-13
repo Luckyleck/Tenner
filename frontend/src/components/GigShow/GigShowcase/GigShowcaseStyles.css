@@ -117,5 +117,31 @@
     border-width: 1px 0 0 0;
 }
 
+.create-review-button p {
+    margin-top: 3%;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews-header p {
+    padding: 1%;
+    align-self: flex-start;
+    background-color: #cdcecd;
+    font-weight: 500;
+    cursor: pointer;
+    color: #404145
+}
+
+.reviews-header p:hover {
+    background-color: #1dbf73;
+}
+
+.reviews-header h2 {
+    align-self: center;
+}
+
 
 

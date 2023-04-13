@@ -79,7 +79,7 @@ button:hover {
 .menu-container {
     position: absolute;
     width: 150px;
-    top: 50px;
+    top: 115%px;
     right: 0;
     background-color: white;
     z-index: 1;
@@ -102,8 +102,7 @@ button:hover {
 }
 
 .menu-option:hover {
-    background-color: #d8d8d8;
-    border-radius: 0px;
+    color: #1dbf73;
 }
 
 .menu-option:last-child {
@@ -111,15 +110,10 @@ button:hover {
 }
 
 .dropdown-hr {
-    padding: 0;
-    margin: 5px 0;
-    margin-top: 10px;
     width: 90%;
     color: grey;
     opacity: 0.3;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: -10%;
 }
 
 .menu-container p:first-child {
@@ -144,4 +138,9 @@ button:hover {
 
 .menu-container p:last-child {
     font-size: 18px;
+}
+
+.menu-container-links {
+    display: flex;
+    flex-direction: column;
 }

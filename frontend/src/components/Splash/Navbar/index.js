@@ -47,16 +47,14 @@ function Navbar() {
                                 {sessionUser.username[0]}
                             </button>
                             {showMenu && (
-                                <div className="menu-container">
-                                    <p>{sessionUser.username}</p>
-                                    <p>{sessionUser.email}</p>
-                                    <hr className="dropdown-hr"></hr>
-                                    <button className="menu-option" onClick={() => handleMenuClick('profile')}>
-                                        Profile
-                                    </button>
-                                    <button className="menu-option" onClick={() => handleMenuClick('logout')}>
-                                        Logout
-                                    </button>
+                                <div className="menu-container">     
+                                        <button className="menu-option" onClick={() => handleMenuClick('profile')}>
+                                            Profile
+                                        </button>
+                                        <hr className="dropdown-hr"></hr>
+                                        <button className="menu-option" onClick={() => handleMenuClick('logout')}>
+                                            Logout
+                                        </button>
                                 </div>
                             )}
                         </div>

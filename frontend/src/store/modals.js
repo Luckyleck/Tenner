@@ -8,6 +8,8 @@ const SHOW_EDIT_1 = 'SHOW_EDIT_1';
 const HIDE_EDIT_1 = 'HIDE_EDIT_1';
 const SHOW_PURCHASE_MODAL = 'SHOW_PURCHASE_1';
 const HIDE_PURCHASE_MODAL = 'HIDE_PURCHASE_1';
+const SHOW_CREATE_REVIEW = 'SHOW_CREATE_REVIEW';
+const HIDE_CREATE_REVIEW = 'HIDE_CREATE_REIVEW';
 
 export function showJoinOne() {
     return ({
@@ -69,13 +71,26 @@ export function hidePurchaseModal() {
     })
 }
 
+export function showCreateReview() {
+    return ({
+        type: SHOW_CREATE_REVIEW
+    })
+}
+
+export function hideCreateReview() {
+    return ({
+        type: HIDE_CREATE_REVIEW
+    })
+}
+
 const initialState = {
 
     joinModal1: false,
     joinModal2: false,
     signinModal: false,
     editModal: false,
-    purchaseModal: false
+    purchaseModal: false,
+    createReivewModal: false
     
 }
 
@@ -133,5 +148,15 @@ export default function modalReducer(state = initialState, action) {
             }
         default:
             return state;
+        case SHOW_CREATE_REVIEW:
+            return {
+                ...state,
+                createReviewModal: true
+            }
+        case HIDE_CREATE_REVIEW:
+            return {
+                ...state,
+                createReviewModal: true
+            }
     }
 }

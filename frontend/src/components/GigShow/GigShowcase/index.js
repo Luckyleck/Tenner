@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import './GigShowcaseStyles.css'
 import ShowReview from './ShowReview';
+import CreateReview from '../../CreateReview';
+import * as modalActions from '../../../store/modals';
 
 function GigShowcase({ gig }) {
+    const dispatch = useDispatch();
+    const createReviewModal = useSelector(state => state.modal.createReivewModal)
     console.log(gig)
     console.log(gig.reviews)
+
+    function handleReviewCreate() {
+        console.log('hello')
+    }
 
     return (
         <div className="gig-show-container">
@@ -43,12 +52,16 @@ function GigShowcase({ gig }) {
                 {/* MAKE REVIEW STAR BOX*/}
             </div>
             <hr id="gig-showcase-hr"/>
-            <h2>Reviews</h2>
+            <div className="reviews-header">
+                <h2>Reviews</h2>
+                <p onClick={() => dispatch(modalActions.showCreateReview())}>Create Review</p>
+            </div>
             <div className="gig-reviews">
                 {gig.reviews.map((review) => {
                     return <ShowReview review={review} />
                 })}
             </div>
+            {createReviewModal && <CreateReview />}
             {/* <footer>
                 <hr id="last-hr"/>
             </footer> */}
