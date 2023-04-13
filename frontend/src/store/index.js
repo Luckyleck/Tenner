@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import modalReducer from "./modals";
 import gigReducer from "./gigs";
+import reviewReducer from "./reviews";
 
 export const rootReducer = combineReducers({
     session: sessionReducer,
     modal: modalReducer,
-    gigs: gigReducer
+    gigs: gigReducer,
+    reviews: reviewReducer
 })
 
 let enhancer;
