@@ -1,0 +1,36 @@
+.review-container {
+    display: flex;
+    gap: 3%;
+}
+
+.reviewer-profile-bubble {
+    position: relative;
+    font-size: 200%;
+    /* increase the font size */
+    font-weight: lighter;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    /* change to a fixed width */
+    height: 30px;
+    /* change to a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: self-end;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-content h3 {
+    font-size: 90%;
+    font-weight: 500;
+    color: #404145;
+}
+
+.review-content p {
+    font-size: 90%;
+}

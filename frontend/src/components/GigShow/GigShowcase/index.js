@@ -16,14 +16,14 @@ function GigShowcase({ gig }) {
                     <h1>{gig.seller.username[0]}</h1>
                 </div>
                 <h3>{gig.seller.fname} {gig.seller.lname}</h3>
-                <h6>@{gig.seller.username}</h6>
+                <p>@{gig.seller.username}</p>
             </div>
             <img id="gig-show-img" src={gig.image} />
             <div className="gig-description">
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>
             </div>
-
+            <hr id="gig-showcase-hr"/>
             <h2>About the seller</h2>
             <div className="about-seller">
                 <div className="about-seller-profile-icon">
@@ -32,7 +32,7 @@ function GigShowcase({ gig }) {
                 <div className="about-seller-profile-right-column">
                     <div className="about-seller-name-username">
                         <h1>{gig.seller.fname} {gig.seller.lname}</h1>
-                        <h1>{gig.seller.username}</h1>
+                        <p>@{gig.seller.username}</p>
                     </div>
                 </div>
             </div>
@@ -42,11 +42,16 @@ function GigShowcase({ gig }) {
             <div className="more-seller-info">
                 {/* MAKE REVIEW STAR BOX*/}
             </div>
+            <hr id="gig-showcase-hr"/>
+            <h2>Reviews</h2>
             <div className="gig-reviews">
                 {gig.reviews.map((review) => {
                     return <ShowReview review={review} />
                 })}
             </div>
+            <footer>
+                <hr id="last-hr"/>
+            </footer>
         </div>
 
     )

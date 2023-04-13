@@ -19,13 +19,20 @@
     padding-bottom: 2%;
 }
 
+.gig-show-top-user-info p {
+    position: relative;
+    top: 2px;
+    font-size: 85%;
+    align-self: flex-start;
+}
+
 #gig-show-img {
     width: 100%;
 }
 
 .gig-description h1 {
     color: #404145;
-    font-size: 150%;
+    font-size: 120%;
     font-weight: 500;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -50,4 +57,65 @@
     align-items: center;
     line-height: 1;
 }
+
+#gig-showcase-hr {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
+
+.gig-show-container h2 {
+    font-size: 120%;
+    font-weight: 500;
+    color: #404145
+}
+
+.about-seller {
+    display: flex;
+    margin-top: 6%;
+    gap: 5%;
+    margin-bottom: 6%;
+}
+
+.about-seller-profile-icon {
+    position: relative;
+    font-size: 800%; /* increase the font size */
+    font-weight: lighter;
+    color: white;
+    background-color: #1dbf73;
+    border-radius: 50%;
+    width: 100px; /* change to a fixed width */
+    height: 100px; /* change to a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: self-end;
+}
+
+.about-seller-name-username {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+.about-seller-name-username h1{
+    font-weight: 500;
+    padding-bottom: 2%;
+}
+
+.gig-reviews {
+    margin-top: 5%;
+}
+
+#last-hr {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
+
+
 

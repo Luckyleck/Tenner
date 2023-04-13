@@ -32,7 +32,9 @@ body {
 }
 
 .main-content {
+    border-top: 1px solid lightgrey;
     padding: 2% 8% 15% 8%;
+    margin-top: 10px; /* adjust this value to move the border further down */
 }
 
 .main-content h2 {
