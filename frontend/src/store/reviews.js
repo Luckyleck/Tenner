@@ -60,48 +60,48 @@ export function fetchReview(reviewId) {
     })
 }
 
-// export function createReview(review) {
-//     return (async (dispatch) => {
-//         const response = await csrfFetch(`/api/reviews`, {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json'},
-//             body: JSON.stringify(review)
-//         })
+export function createReview(review) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/reviews`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(review)
+        })
 
-//         if (response.ok) {
-//             const data = await response.json()
-//             dispatch(receiveReview(data))
-//         }
-//     })
-// }
+        if (response.ok) {
+            const data = await response.json()
+            dispatch(receiveReview(data))
+        }
+    })
+}
 
-// export function updateReview(review) {
-//     return (async (dispatch) => {
-//         const response = await csrfFetch(`/api/reviews/${review.id}`, {
-//             method: 'PATCH',
-//             headers: { 'Content-Type': 'application/json'},
-//             body: JSON.stringify(review)
-//         })
+export function updateReview(review) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/reviews/${review.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(review)
+        })
 
-//         if (response.ok) {
-//             const data = await response.json()
-//             dispatch(receiveReview(data))
-//         }
-//     })
+        if (response.ok) {
+            const data = await response.json()
+            dispatch(receiveReview(data))
+        }
+    })
 
-// }
+}
 
-// export function deleteReview(reviewId) {
-//     return (async (dispatch) => {
-//         const response = await csrfFetch(`/api/reviews/${reviewId}`, {
-//             method: 'DELETE'
-//         })
+export function deleteReview(reviewId) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+            method: 'DELETE'
+        })
 
-//         if (response.ok) {
-//             dispatch(removeReview(reviewId))
-//         }
-//     })
-// }
+        if (response.ok) {
+            dispatch(removeReview(reviewId))
+        }
+    })
+}
 
 function reviewReducer (state = {}, action) {
     switch (action.type) {

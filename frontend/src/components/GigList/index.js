@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GigCard from "./GigCard";
 import { fetchGigs } from "../../store/gigs";
+import { fetchReviews } from "../../store/reviews";
 import './GigListStyles.css'
 
 function GigsList() {
@@ -10,12 +11,13 @@ function GigsList() {
 
     useEffect(() => {
         dispatch(fetchGigs());
+        dispatch(fetchReviews())
     }, [dispatch]);
 
     return (
         <div className="gig-card-container">
             {gigs.map((gig) => (
-                <GigCard key={gig.title} gig={gig} />
+                <GigCard key={gig.id} gig={gig} />
             ))}
         </div>
     );

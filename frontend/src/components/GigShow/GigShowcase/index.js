@@ -17,7 +17,7 @@ function GigShowcase({ gig, reviews }) {
                 return response.json();
             })
             .then((data) => {
-                console.log("seller data:", data);
+                // console.log("seller data:", data);
                 setSeller(data.user);
             })
             .catch((error) => {
@@ -63,11 +63,11 @@ function GigShowcase({ gig, reviews }) {
             <div className="more-seller-info">
                 {/* MAKE REVIEW STAR BOX*/}
             </div>
-            <div className="gig-reviews">
+            {/* <div className="gig-reviews">
                 {reviews.map((review) => {
                     return <ShowReview review={review} />
                 })}
-            </div>
+            </div> */}
         </div>
 
     )
