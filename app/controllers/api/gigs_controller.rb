@@ -3,7 +3,17 @@ class Api::GigsController < ApplicationController
     before_action :set_gig, only: [:show, :update, :destroy]
 
     def index
-        @gigs = Gig.all
+        @gigs = Gig.all.map do |gig|
+            gig.as_json(include: {
+                reviews: {
+                only: [:id, :body, :gig_id]
+            },
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+            })
+        end
+      
         render json: @gigs
     end
 
