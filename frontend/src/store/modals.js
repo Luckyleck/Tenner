@@ -103,7 +103,8 @@ const initialState = {
     signinModal: false,
     editModal: false,
     purchaseModal: false,
-    createReviewModal: false
+    createReviewModal: false,
+    editReviewModal: false
 }
 
 export default function modalReducer(state = initialState, action) {
@@ -167,6 +168,16 @@ export default function modalReducer(state = initialState, action) {
             return {
                 ...state,
                 createReviewModal: false
+            }
+        case SHOW_EDIT_REVIEW:
+            return {
+                ...state,
+                editReviewModal: true
+            }
+        case HIDE_EDIT_REVIEW:
+            return {
+                ...state,
+                editReviewModal: false
             }
         default:
             return state;

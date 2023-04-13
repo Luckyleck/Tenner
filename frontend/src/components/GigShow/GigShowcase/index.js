@@ -56,11 +56,10 @@ function GigShowcase({ gig }) {
             </div>
             <div className="gig-reviews">
                 {gig.reviews.map((review) => {
-                    return <ShowReview review={review} />
+                    return <ShowReview review={review} gig={gig} />
                 })}
             </div>
             {createReviewModal && <CreateReview gig={gig} />}
-            {editReviewModal && <EditReview gig={gig} />}
             {/* <footer>
                 <hr id="last-hr"/>
             </footer> */}

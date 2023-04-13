@@ -1,6 +1,8 @@
 .review-container {
     display: flex;
     gap: 3%;
+    width: 100%;
+    margin-bottom: -2%;
 }
 
 .reviewer-profile-bubble {
@@ -22,6 +24,7 @@
 .review-content {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 10px;
 }
 
@@ -42,3 +45,30 @@
     border-style: solid;
     border-width: 1px 0 0 0;
 }
+
+.edit-delete-review {
+    padding-top: 1%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    font-size: small;
+}
+
+.edit-delete-review p{
+    color: #404145;
+    padding: .5%;
+    cursor: pointer;
+    background-color: #cdcecd;
+    font-size: 110%;
+}
+
+.edit-delete-review p:hover {
+    background-color: #1dbf73;
+}
+
+/* padding: 1%;
+align-self: flex-start;
+background-color: #cdcecd;
+font-weight: 500;
+cursor: pointer;
+color: #404145; */

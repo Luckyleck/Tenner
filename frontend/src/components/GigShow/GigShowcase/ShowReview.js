@@ -1,11 +1,21 @@
 import React from 'react';
 import './ShowReviewStyles.css'
 import { useSelector } from 'react-redux';
+import EditReview from '../../EditReview';
+import { useDispatch } from 'react-redux';
+import * as modalActions from '../../../store/modals'
 
-function ShowReview({ review }) {
+function ShowReview({ review, gig }) {
+    const dispatch = useDispatch();
     const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb']
+    const editReviewModal = useSelector(state => state.modal.editReviewModal);
+    // const deleteReviewModal = useSelector(state => state.modal.deleteReviewModal);
     const randomColor = colors[Math.floor(Math.random() * colors.length)]
     const sessionUser = useSelector(state => state.session.user)
+
+    function handleEditReview() {
+        dispatch(modalActions.showEditReview())
+    }
 
     return (
         <>
@@ -18,12 +28,14 @@ function ShowReview({ review }) {
                 <p>{review.body}</p>
                 {review.reviewer.id === sessionUser.id && (
                     <div className="edit-delete-review">
-                        <button id="edit-review-button">Edit Review</button>
-                        <button id="delete-review-button">Delete Review</button>
+                        <p id="edit-review-button" onClick={handleEditReview}>Edit Review</p>
+                        <p id="delete-review-button">Delete Review</p>
                     </div>
                 )}
             </div>
         </div>
+        {editReviewModal && <EditReview gig={gig} review={review}/>}
+        {/* {deleteReviewModal && <DeleteReviewModal gig={gig} review={review}/>} */}
         <hr id="review-showcase-hr" />
         </>
     )

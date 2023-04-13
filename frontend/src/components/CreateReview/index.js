@@ -4,7 +4,7 @@ import './CreateReviewStyles.css'
 import * as modalActions from '../../store/modals'
 import { createReview } from '../../store/reviews';
 
-function CreateReview({ gig, forceUpdate}) {
+function CreateReview({ gig }) {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
     const [error, setError] = useState('');
@@ -37,7 +37,7 @@ function CreateReview({ gig, forceUpdate}) {
             <div className="modal-overlay" onClick={overlayClick}></div>
             <div className="review-modal-container">
 
-                <h1 className="review-modal-header">Leave a review</h1>
+                <h1 className="review-modal-header">leave a review</h1>
                 <textarea
                     className='review-modal-textarea'
                     type='text'
