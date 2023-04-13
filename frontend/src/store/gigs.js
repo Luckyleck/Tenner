@@ -17,7 +17,7 @@ function receiveGig(gig) {
         type: RECEIVE_GIG,
         gig: {
             ...gig,
-            reviews: gig
+            reviews: gig.reviews
         }
     })
 }
