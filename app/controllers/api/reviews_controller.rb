@@ -15,8 +15,8 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
   
-        if review.save
-            render json: { status: 'success', review: review }
+        if @review.save
+            render json: { status: 'success', review: @review }
         else
             render json: { success: false }
         end
@@ -29,6 +29,6 @@ class Api::ReviewsController < ApplicationController
     end
   
     def review_params
-        params.require(:review).permit!
+        params.require(:review).permit(:body, :reviewer_id, :gig_id)
     end
 end

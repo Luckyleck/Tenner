@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './CreateReviewStyles.css'
 import * as modalActions from '../../store/modals'
+import { createReview } from '../../store/reviews';
 
-function CreateReview() {
+function CreateReview({ gig }) {
     const dispatch = useDispatch();
-    const [body, setBody] = useState
+    const [body, setBody] = useState('');
+    const [error, setError] = useState('');
+    const sessionUser = useSelector(state => state.session.user);
 
     function overlayClick() {
         dispatch(modalActions.hideCreateReview())
@@ -16,24 +19,35 @@ function CreateReview() {
     }
 
     function handleSave() {
-        console.log('review saved')
+        if (body.trim() === '') {
+            setError('Please write something')
+        } else {
+            const review = {
+                body,
+                reviewer_id: sessionUser.id,
+                gig_id: gig.id
+            }
+            dispatch(createReview(review));
+            dispatch(modalActions.hideCreateReview())
+        }
     }
 
     return (
         <>
             <div className="modal-overlay" onClick={overlayClick}></div>
-            <div className="modal-container">
+            <div className="review-modal-container">
 
-                <h1 className="modal-header">Leave a review</h1>
-                <input
-                    className='modal-input'
+                <h1 className="review-modal-header">Leave a review</h1>
+                <textarea
+                    className='review-modal-textarea'
                     type='text'
-                    name='fname'
+                    name='body'
                     value={body}
-                    placeholder={'Type here'}
+                    placeholder={'Type here...'}
                     onChange={handleBodyChange}
                 />
-                <button className='modal-button' onClick={handleSave}>Save</button>
+                {error && <p className="review-errors">{error}</p>}
+                <button className='review-modal-button' onClick={handleSave}>Save</button>
             </div>
         </>
     )

@@ -7,12 +7,10 @@ import * as modalActions from '../../../store/modals';
 
 function GigShowcase({ gig }) {
     const dispatch = useDispatch();
-    const createReviewModal = useSelector(state => state.modal.createReivewModal)
-    console.log(gig)
-    console.log(gig.reviews)
+    const createReviewModal = useSelector(state => state.modal.createReviewModal)
 
-    function handleReviewCreate() {
-        console.log('hello')
+    function handleCreateReview() {
+        dispatch(modalActions.showCreateReview())
     }
 
     return (
@@ -54,14 +52,14 @@ function GigShowcase({ gig }) {
             <hr id="gig-showcase-hr"/>
             <div className="reviews-header">
                 <h2>Reviews</h2>
-                <p onClick={() => dispatch(modalActions.showCreateReview())}>Create Review</p>
+                <p onClick={handleCreateReview}>Create Review</p>
             </div>
             <div className="gig-reviews">
                 {gig.reviews.map((review) => {
                     return <ShowReview review={review} />
                 })}
             </div>
-            {createReviewModal && <CreateReview />}
+            {createReviewModal && <CreateReview gig={gig} />}
             {/* <footer>
                 <hr id="last-hr"/>
             </footer> */}

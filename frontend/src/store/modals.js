@@ -84,14 +84,12 @@ export function hideCreateReview() {
 }
 
 const initialState = {
-
     joinModal1: false,
     joinModal2: false,
     signinModal: false,
     editModal: false,
     purchaseModal: false,
-    createReivewModal: false
-    
+    createReviewModal: false
 }
 
 export default function modalReducer(state = initialState, action) {
@@ -146,8 +144,6 @@ export default function modalReducer(state = initialState, action) {
                 ...state,
                 purchaseModal: false
             }
-        default:
-            return state;
         case SHOW_CREATE_REVIEW:
             return {
                 ...state,
@@ -156,7 +152,9 @@ export default function modalReducer(state = initialState, action) {
         case HIDE_CREATE_REVIEW:
             return {
                 ...state,
-                createReviewModal: true
+                createReviewModal: false
             }
+        default:
+            return state;
     }
 }
