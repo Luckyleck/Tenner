@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchGig } from '../../store/gigs';
-import { fetchReviews } from '../../store/reviews'
 import Navbar from '../Splash/Navbar';
 import './GigShowStyles.css'
 import GigShowcase from './GigShowcase';
@@ -12,23 +11,17 @@ function GigShow() {
     const dispatch = useDispatch();
     const { gigId } = useParams();
     const gig = useSelector((state) => state.gigs[gigId]);
-    const reviews = useSelector((state) => Object.values(state.reviews));
-    const reviewsForGig = reviews.filter((review) => review.gig_id === Number(gigId));
     let purchaseModal = useSelector((state) => state.modal.purchaseModal);
 
     if (gig) purchaseModal = true
 
     useEffect(() => {
         dispatch(fetchGig(gigId));
-        dispatch(fetchReviews())
     }, [dispatch, gigId]);
 
     if (!gig) {
         return <div></div>;
     }
-
-    console.log(reviews)
-    console.log(reviewsForGig)
 
     return (
         <div className="all-page">
@@ -37,7 +30,7 @@ function GigShow() {
             </div>
             <div className='gig-show-main-content'>
                 <div className='gig-showcase'>
-                    <GigShowcase gig={gig} reviews={reviewsForGig} />
+                    <GigShowcase gig={gig} />
                     <div className="purchase-modal">
                         {purchaseModal && <PurchaseModal price={gig.price} />}
                     </div>

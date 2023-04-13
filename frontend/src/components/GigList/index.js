@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GigCard from "./GigCard";
 import { fetchGigs } from "../../store/gigs";
-import { fetchReviews } from "../../store/reviews";
 import './GigListStyles.css'
 
 function GigsList() {
@@ -11,7 +10,6 @@ function GigsList() {
 
     useEffect(() => {
         dispatch(fetchGigs());
-        dispatch(fetchReviews())
     }, [dispatch]);
 
     return (
