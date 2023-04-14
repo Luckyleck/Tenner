@@ -30,7 +30,9 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-            @user = current_user
+        
+        @user = current_user
+
         if @user.update(user_params)
             render :show
         else
