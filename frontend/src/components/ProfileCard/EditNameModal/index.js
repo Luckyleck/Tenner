@@ -48,7 +48,7 @@ function EditNameModal() {
             <div className="modal-overlay" onClick={overlayClick}></div>
             <div className="useredit-modal-container">
 
-                <h1 className="modal-header">update your display name</h1>
+                <h1 className="modal-header">update your user info</h1>
                 <p className="userinfo-p">first name</p>
                 <input
                     className='modal-input'
