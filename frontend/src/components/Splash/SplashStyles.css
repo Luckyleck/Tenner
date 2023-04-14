@@ -11,6 +11,8 @@ body {
 }
 
 .main-text {
+    display: flex;
+    justify-content: space-between;
     right: 20%;
     color: rgb(0, 0, 0);
     align-self: flex-start;
@@ -45,6 +47,16 @@ body {
     left: .8%;
     width: fit-content;
 }
+
+/* #ten-pound {
+    position: absolute;
+    bottom: 43%;
+    height: 30vh;
+    width: auto;
+    border: 2px solid #ccc;
+    left: 65%;
+    top: 60%;
+} */
 
 /* .signed-in {
     --background-color: white;

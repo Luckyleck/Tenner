@@ -15,6 +15,8 @@ function Splash() {
                 {!sessionUser &&
                     <div className="main-text">
                         <h1>Find the perfect <span className="italic">freelance</span> services for your business</h1>
+
+                        {/* <img id="ten-pound" src="https://gcdnb.pbrd.co/images/AZpADIf24z6w.png?o=1" alt="10pound"/> */}
                     </div>}
             </div>
             {sessionUser &&        
