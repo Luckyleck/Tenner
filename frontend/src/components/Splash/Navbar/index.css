@@ -77,14 +77,19 @@ button:hover {
 }
 
 .menu-container {
+    margin-top: 50%;
+    margin-right: 90%;
     position: absolute;
     width: 150px;
-    top: 115%px;
     right: 0;
     background-color: white;
-    z-index: 1;
+    z-index: 600;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-option:first-child {
+    
 }
 
 .menu-option {
