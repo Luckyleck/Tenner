@@ -32,7 +32,7 @@ function GigShow() {
                 <div className='gig-showcase'>
                     <GigShowcase gig={gig} />
                     <div className="purchase-modal">
-                        {purchaseModal && <PurchaseModal price={gig.price} />}
+                        {purchaseModal && <PurchaseModal price={gig.base_price} />}
                     </div>
                 </div>
             </div>

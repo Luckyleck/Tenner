@@ -18,12 +18,15 @@
 }
 
 .purchase-modal {
-    position: sticky;
-    border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
-    width: 42%;
-    z-index: -1000;
+    width: 50vh;
+    background-color: white;
+}
+
+#easterEgg {
+    margin-top: 10%;
+    color: red
 }
 
 

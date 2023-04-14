@@ -1,9 +1,50 @@
-.purchase-modal-container {
-    margin-top: 2%;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    width: 42%;
-    height: 20%;
-    z-index: -1000
+.price-selector {
+    text-align: center;
+    width:30%;
+    padding: 8%;
+    background-color: white;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-bottom: 3px solid #1dbf73;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: x-large;
+    color:#1dbf73;
 }
+
+.purchase-modal-main-contents {
+    border: 1px solid #ccc;
+    display:flex;
+    flex-direction: column;
+    padding:6%;
+    font-size: x-large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.purchase-modal-main-contents h1 {
+    font-size: 150%;
+    font-weight: 500;
+    color: #404145
+}
+
+.purchase-modal-main-contents h3 {
+    position: relative;
+    font-size: 100%;
+    margin-top: 8%;
+}
+
+#purchase-gig-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8%;
+    background-color: #1dbf73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+
