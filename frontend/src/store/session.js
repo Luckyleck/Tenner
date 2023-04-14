@@ -65,14 +65,16 @@ export function signup(user) {
 
 export function logout() {
     return (async (dispatch) => {
-        const res = await csrfFetch('api/session', {
+        const res = await csrfFetch('/api/session', {
             method: 'DELETE'
         })
+        debugger
         storeCurrentUser(null)
         dispatch(removeCurrentUser())
         return res
     })
 }
+
 
 export function restoreSession() {
     return (async (dispatch) => {

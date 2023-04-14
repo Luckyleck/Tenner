@@ -43,6 +43,7 @@ body {
     padding: 0% 2% 2% 2%;
     font-weight: 500;
     left: .8%;
+    width: fit-content;
 }
 
 /* .signed-in {
