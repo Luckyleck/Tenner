@@ -8,7 +8,7 @@ import { deleteReview } from '../../../store/reviews';
 
 function ShowReview({ review, gig }) {
     const dispatch = useDispatch();
-    const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb']
+    const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb', '#ff9f43', '#6ab04c'];
     const editReviewModal = useSelector(state => state.modal.editReviewModal);
     // const deleteReviewModal = useSelector(state => state.modal.deleteReviewModal);
     const randomColor = colors[Math.floor(Math.random() * colors.length)]

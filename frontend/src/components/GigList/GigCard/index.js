@@ -6,6 +6,8 @@ import './GigCardStyles.css'
 function GigCard({ gig }) {
     const [seller, setSeller] = useState({});
     const [error, setError] = useState(null);
+    const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb', '#ff9f43', '#6ab04c'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
     // console.log(gig)
 
     useEffect(() => {
@@ -36,8 +38,8 @@ function GigCard({ gig }) {
                 <img id="gig-image" src={gig.image} />
             </Link>
             <div className="seller-info">
-                <div className="seller-profile-bubble">
-                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                <div className="seller-profile-bubble" style={{ backgroundColor: randomColor }}>
+                    <h1>{gig.seller.username[0]}</h1>
                 </div>
                 <div className="seller-name">
                     <p>{seller.username}</p>

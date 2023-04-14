@@ -44,18 +44,17 @@
 
 .gig-showcase-bubble-profile {
     position: relative;
-    font-size: 170%;
+    font-size: 20px;
     font-weight: lighter;
     color: white;
     background-color: #1dbf73;
     border-radius: 50%;
-    width: 1vw;
-    height: 3%;
+    width: 30px;
+    height: 30px;
     min-width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1;
 }
 
 #gig-showcase-hr {
@@ -80,27 +79,27 @@
 }
 
 .about-seller-profile-icon {
-    position: relative;
-    font-size: 800%; /* increase the font size */
-    font-weight: lighter;
-    color: white;
-    background-color: #1dbf73;
-    border-radius: 50%;
-    width: 100px; /* change to a fixed width */
-    height: 100px; /* change to a fixed height */
     display: flex;
     justify-content: center;
-    align-items: self-end;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1dbf73;
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .about-seller-name-username {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    
+
 }
 
-.about-seller-name-username h1{
+.about-seller-name-username h1 {
     font-weight: 500;
     padding-bottom: 2%;
 }
@@ -142,6 +141,3 @@
 .reviews-header h2 {
     align-self: center;
 }
-
-
-

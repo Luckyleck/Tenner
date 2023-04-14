@@ -63,17 +63,16 @@ button:hover {
 .button-profile-icon {
     position: relative;
     font-size: 30px;
-    font-weight: 400;
+    font-weight: lighter;
     color: white;
     background-color: #1dbf73;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 45px;
+    min-width: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1;
-    right:70%;
 }
 
 .menu-container {

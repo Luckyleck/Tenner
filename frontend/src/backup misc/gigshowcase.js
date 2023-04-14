@@ -14,7 +14,7 @@ function GigShowcase({ gig, reviews }) {
             </div>
             <div className="gig-show-top-user-info">
                 <div className="seller-profile-bubble">
-                    <h1>{seller && seller.username && seller.username[0]}</h1>
+                    <h1>{gig.seller.username[0]}</h1>
                 </div>
                 <h3>{seller.fname} {seller.lname}</h3>
                 <h6>@{seller.username}</h6>

@@ -8,6 +8,8 @@ function PurchaseModal ({ price }) {
     function handlePurchase() {
         setClicked(!clicked);
     }
+
+    
     return (<>
             <div className="price-selector">
                 <h2>Basic</h2>
