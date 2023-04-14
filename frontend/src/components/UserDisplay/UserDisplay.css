@@ -1,35 +1,10 @@
-/* .main-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-} */
-/* 
-.main-wrapper {
-    display: grid;
-} */
-
-/* #root {
-    display: flex;
-    justify-content: space-around;
-} */
-
-/* .card-and-reviews {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    background-color: lightblue;
-    height: 90vh;
-    width: 80%;
-} */
-
 .header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: white;
 }
 
 .main-wrapper {
@@ -39,11 +14,19 @@
   background-color: #f7f7f7;
 }
 
-.header {
-  flex: 0 0 auto;
+.user-display-header {
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: .7%;
+  background-color: white;
+
 }
 
 .card-and-reviews {
+  border-top: 1px solid lightgrey;
   flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
@@ -62,5 +45,5 @@
 }
 
 .nav-items h1 {
-    color: black;
+  color: black;
 }

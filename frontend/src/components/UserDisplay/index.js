@@ -13,13 +13,13 @@ function Profile() {
         <>
             <div className="main-wrapper">
 
-                <div className="header">
+                <div className="user-display-header">
                     <Navbar />
                 </div>
 
                 <div className="card-and-reviews">
                     <ProfileCard />
-                    {/* <ReviewsCard />  */}
+                    <ReviewsCard /> 
                 </div>
             </div>
         </>

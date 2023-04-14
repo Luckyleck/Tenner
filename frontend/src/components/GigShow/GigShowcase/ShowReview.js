@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import EditReview from '../../EditReview';
 import { useDispatch } from 'react-redux';
 import * as modalActions from '../../../store/modals'
+import { deleteReview } from '../../../store/reviews';
 
 function ShowReview({ review, gig }) {
     const dispatch = useDispatch();
@@ -15,6 +16,10 @@ function ShowReview({ review, gig }) {
 
     function handleEditReview() {
         dispatch(modalActions.showEditReview())
+    }
+
+    function handleDeleteReview() {
+        dispatch(deleteReview(review.id));
     }
 
     return (
@@ -29,7 +34,7 @@ function ShowReview({ review, gig }) {
                 {review.reviewer.id === sessionUser.id && (
                     <div className="edit-delete-review">
                         <p id="edit-review-button" onClick={handleEditReview}>Edit Review</p>
-                        <p id="delete-review-button">Delete Review</p>
+                        <p id="delete-review-button" onClick={handleDeleteReview}>Delete Review</p>
                     </div>
                 )}
             </div>

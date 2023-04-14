@@ -7,25 +7,6 @@ function GigShowcase({ gig, reviews }) {
     console.log(reviews)
     console.log(gig)
 
-    useEffect(() => {
-        fetch(`/api/users/${gig.seller_id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                console.log("seller data:", data);
-                setSeller(data.user);
-            })
-            .catch((error) => {
-                console.error("Error fetching seller:", error);
-                setError(error);
-            });
-    }, [gig.seller_id]);
-
-
     return (
         <div className="gig-show-container">
             <div className="gig-show-title">

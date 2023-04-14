@@ -7,7 +7,6 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    /* background-image: url("https://live.staticflickr.com/833/41781543850_d281ae8bd9_b.jpg"); */
     background-size: cover;
 }
 
@@ -34,7 +33,7 @@ body {
 .main-content {
     border-top: 1px solid lightgrey;
     padding: 2% 8% 15% 8%;
-    margin-top: 10px; /* adjust this value to move the border further down */
+    margin-top: 10px;
 }
 
 .main-content h2 {
