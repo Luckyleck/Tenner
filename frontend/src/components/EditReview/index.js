@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import './EditReviewStyles.css'
 import * as modalActions from '../../store/modals'
 import { updateReview } from '../../store/reviews'
@@ -9,7 +9,6 @@ function EditReview({ gig, review }) {
     const dispatch = useDispatch();
     const [body, setBody] = useState(review.body);
     const [error, setError] = useState('');
-    // const sessionUser = useSelector(state => state.session.user);
 
     function overlayClick() {
         dispatch(modalActions.hideEditReview())

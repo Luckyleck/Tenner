@@ -11,7 +11,7 @@ function ProfileCard() {
     const sessionUser = useSelector(state => state.session.user)
     const editNameModal = useSelector(state => state.modal.editModal)
 
-    function handleEdit () {
+    function handleEdit() {
         dispatch(modalActions.showEditModal())
     }
 
@@ -35,11 +35,5 @@ function ProfileCard() {
 
     )
 }
-
-// frontend / src / components / ProfileCard / index.js
-
-// frontend / img / pencil - bw - removebg - preview.png
-
-
 
 export default ProfileCard;
