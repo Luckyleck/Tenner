@@ -35,7 +35,7 @@ ApplicationRecord.transaction do
   )
 
   # More users
-  10.times do
+  20.times do
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
       email: Faker::Internet.unique.email,
@@ -47,7 +47,7 @@ ApplicationRecord.transaction do
 
   puts "Creating Gigs"
 
-  10.times do
+  20.times do
 
     random_string = Faker::Alphanumeric.alphanumeric(number: 5)
 
@@ -72,9 +72,9 @@ ApplicationRecord.transaction do
 
   puts "Creating Reviews"
 
-  10.times do
+  25.times do
     Review.create!({
-      body: Faker::Quote.fortune_cookie,
+      body: Faker::Quote.famous_last_words,
       reviewer_id: rand(1..10),
       gig_id: rand(1..10),
       review_rating: rand(1..5),
