@@ -53,7 +53,7 @@
     font-size: small;
 }
 
-.edit-delete-review p{
+.edit-delete-review p {
     color: #404145;
     padding: .5%;
     cursor: pointer;
@@ -64,10 +64,3 @@
 .edit-delete-review p:hover {
     background-color: #1dbf73;
 }
-
-/* padding: 1%;
-align-self: flex-start;
-background-color: #cdcecd;
-font-weight: 500;
-cursor: pointer;
-color: #404145; */

@@ -31,13 +31,13 @@ function EditNameModal() {
 
     function handleSave() {
         dispatch(sessionActions.updateUser(sessionUser.id, {
-          fname: fname,
-          lname: lname,
-          username: username,
-          email: email,
+            fname: fname,
+            lname: lname,
+            username: username,
+            email: email,
         }));
         dispatch(modalActions.hideEditModal());
-      }
+    }
 
     function overlayClick() {
         dispatch(modalActions.hideEditModal())

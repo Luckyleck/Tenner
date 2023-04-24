@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import './GigShowcaseStyles.css'
 import ShowReview from './ShowReview';
@@ -30,7 +30,7 @@ function GigShowcase({ gig }) {
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>
             </div>
-            <hr id="gig-showcase-hr"/>
+            <hr id="gig-showcase-hr" />
             <h2>About the seller</h2>
             <div className="about-seller">
                 <div className="about-seller-profile-icon">
@@ -49,7 +49,7 @@ function GigShowcase({ gig }) {
             <div className="more-seller-info">
                 {/* MAKE REVIEW STAR BOX*/}
             </div>
-            <hr id="gig-showcase-hr"/>
+            <hr id="gig-showcase-hr" />
             <div className="reviews-header">
                 <h2>Reviews</h2>
                 <p onClick={handleCreateReview}>Create Review</p>
@@ -60,17 +60,9 @@ function GigShowcase({ gig }) {
                 })}
             </div>
             {createReviewModal && <CreateReview gig={gig} />}
-            {/* <footer>
-                <hr id="last-hr"/>
-            </footer> */}
         </div>
 
     )
 }
 
 export default GigShowcase;
-
-
-// json.gig do
-//     json.extract! @gig, : title, : description, : seller_id, : base_price, : created_at, : updated_at
-// end
