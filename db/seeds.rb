@@ -11,9 +11,9 @@
 ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
-  User.destroy_all
-  Gig.destroy_all
   Review.destroy_all
+  Gig.destroy_all
+  User.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -45,7 +45,6 @@ ApplicationRecord.transaction do
   puts "Creating Gigs"
 
   20.times do
-
     random_string = Faker::Alphanumeric.alphanumeric(number: 5)
 
     Gig.create!({
