@@ -1,14 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Navbar from '../Splash/Navbar';
 import ProfileCard from '../ProfileCard';
 import ReviewsCard from '../ReviewCard/ReviewCard';
-
-// import ReviewForm from '../Reviews/ReviewForm';
 import './UserDisplay.css';
 
 function Profile() {
-    const sessionUser = useSelector(state => state.session.user)
     return (
         <>
             <div className="main-wrapper">

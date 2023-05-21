@@ -10,21 +10,18 @@
 
 ApplicationRecord.transaction do
   puts "Destroying tables..."
-
-
-  User.destroy_all
-  Gig.destroy_all
+  # Unnecessary if using `rails db:seed:replant`
   Review.destroy_all
+  Gig.destroy_all
+  User.destroy_all
 
   puts "Resetting primary keys..."
-
 
   ApplicationRecord.connection.reset_pk_sequence!("users")
   ApplicationRecord.connection.reset_pk_sequence!("gigs")
   ApplicationRecord.connection.reset_pk_sequence!("reviews")
 
   puts "Creating users..."
-
 
   User.create!(
     username: "Demo-lition",
@@ -48,7 +45,6 @@ ApplicationRecord.transaction do
   puts "Creating Gigs"
 
   20.times do
-
     random_string = Faker::Alphanumeric.alphanumeric(number: 5)
 
     Gig.create!({
