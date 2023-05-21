@@ -1,8 +1,7 @@
 import React from 'react';
 import './ShowReviewStyles.css'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import EditReview from '../../EditReview';
-import { useDispatch } from 'react-redux';
 import * as modalActions from '../../../store/modals'
 import { deleteReview } from '../../../store/reviews';
 

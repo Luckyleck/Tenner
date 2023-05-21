@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import './GigShowcaseStyles.css'
 import ShowReview from './ShowReview';
@@ -8,9 +8,11 @@ import * as modalActions from '../../../store/modals';
 function GigShowcase({ gig }) {
     const dispatch = useDispatch();
     const createReviewModal = useSelector(state => state.modal.createReviewModal)
+    const [reviews, setReviews] = useState(gig.reviews);
 
-    function handleCreateReview() {
-        dispatch(modalActions.showCreateReview())
+    function handleCreateReview(review) {
+        setReviews(prevReviews => [...prevReviews, review]);
+        dispatch(modalActions.showCreateReview());
     }
 
     return (
@@ -55,11 +57,11 @@ function GigShowcase({ gig }) {
                 <p onClick={handleCreateReview}>Create Review</p>
             </div>
             <div className="gig-reviews">
-                {gig.reviews.map((review) => {
-                    return <ShowReview review={review} gig={gig} />
+                {reviews.map((review) => {
+                    return <ShowReview review={review} gig={gig} />;
                 })}
             </div>
-            {createReviewModal && <CreateReview gig={gig} />}
+            {createReviewModal && <CreateReview gig={gig} onCreateReview={handleCreateReview} />}
         </div>
 
     )
