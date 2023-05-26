@@ -1,0 +1,127 @@
+.modal-container {
+    position: fixed;
+    z-index: 9999;
+    /* set a high z-index to ensure the modal appears above other elements */
+    top: 50%;
+    /* vertically center the modal */
+    left: 50%;
+    /* horizontally center the modal */
+    transform: translate(-50%, -50%);
+    /* center the modal precisely */
+    background-color: white;
+    /* set the background color of the modal */
+    padding: 20px;
+    /* add padding to the modal content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* add a box shadow to the modal */
+    max-width: 600px;
+    /* set the maximum width of the modal */
+    width: 90%;
+    /* set the width of the modal */
+    text-align: center;
+    /* align text in the center */
+    border-radius: 4px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+.modal-input {
+    width: calc(100% - 20px);
+    /* subtract padding from the width to align with the continue button */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1dbf73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-paragraph {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.modal-signin {
+    font-size: 12px;
+    text-align: center;
+}
+
+.modal-container {
+    position: fixed;
+    z-index: 9999;
+    /* set a high z-index to ensure the modal appears above other elements */
+    top: 50%;
+    /* vertically center the modal */
+    left: 50%;
+    /* horizontally center the modal */
+    transform: translate(-50%, -50%);
+    /* center the modal precisely */
+    background-color: white;
+    /* set the background color of the modal */
+    padding: 20px;
+    /* add padding to the modal content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* add a box shadow to the modal */
+    max-width: 600px;
+    /* set the maximum width of the modal */
+    width: 90%;
+    /* set the width of the modal */
+}
+
+
+.modal-overlay::before {
+    content: "";
+    position: fixed;
+    z-index: 9998;
+    /* set a z-index that is lower than the modal container, but higher than other elements */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* set the background color and opacity of the overlay */
+}
+
+.modal-overlay::before {
+    content: "";
+    position: fixed;
+    z-index: 9998;
+    /* set a z-index that is lower than the modal container, but higher than other elements */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* set the background color and opacity of the overlay */
+}
+
+.errors {
+    color: red;
+    font-size: 14px; 
+    margin-top: 5px; 
+    margin-bottom: 10px;
+    margin-left: 5px; 
+    text-align: left;
+}
