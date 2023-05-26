@@ -14,30 +14,42 @@ import TennerIcon from '../../snippets/TennerIcon';
 function NewNav (sessionUser) {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
+    const [showDropDownMenu, setShowDropDownMenu] = useState(false)
+    
+    function handleDropDownClick(option) {
+
+        if (option === 'profile') {
+            history.push('/profile')
+        } else {
+            dispatch(sessionActions.logout());
+            history.push('/')
+        }
+
+        setShowDropDownMenu(false)
+            
+    }
+
+    console.log(sessionUser)
 
     if (sessionUser) {
         return (
             <div className="signed-in-nav">
                 <TennerIcon />
-                <button>Hello</button>
+                <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
+                    sessionUser{/* {sessionUser.username} */}
+                </button>
+                {showDropDownMenu && (
+                    <div className="dropdown-container">
+                        <button onClick={() => handleDropDownClick('profile')}>
+                            Profile
+                        </button>
+                        <button onClick={() => handleDropDownClick('logout')}>
+                            Logout
+                        </button>
+        
+                    </div>
+                )}
             </div>
-    
-            // <div className="button-profile-container">
-            //     <button className="button-profile-icon" /*onClick={() => setShowDropDownMenu(!showDropDownMenu)}*/>
-            //         {sessionUser.username[0]}
-            //     </button>
-            //     {showDropDownMenu && (
-            //         <div className="menu-container">
-            //             <button className="menu-option" onClick={() => handleMenuClick('profile')}>
-            //                 Profile
-            //             </button>
-            //             <hr className="dropdown-hr"></hr>
-            //             <button className="menu-option" onClick={() => handleMenuClick('logout')}>
-            //                 Logout
-            //             </button>
-            //         </div>
-            //     )}
-            // </div>
         )
     } else {
         return (
