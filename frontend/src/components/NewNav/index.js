@@ -8,10 +8,10 @@ import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
 import './newNavStyles.css';
 import { Link } from 'react-router-dom';
-import TennerIcon from '../../snippets/TennerIcon';
+import TennerIcon from '../../static code/TennerIcon';
 
 
-function NewNav (sessionUser) {
+function NewNav ({ sessionUser }) {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
     const [showDropDownMenu, setShowDropDownMenu] = useState(false)
@@ -28,8 +28,6 @@ function NewNav (sessionUser) {
         setShowDropDownMenu(false)
             
     }
-
-    console.log(sessionUser)
 
     if (sessionUser) {
         return (
