@@ -8,30 +8,63 @@ import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
 import './newNavStyles.css';
 import { Link } from 'react-router-dom';
+import TennerIcon from '../../snippets/TennerIcon';
 
 
-function NewNav () {
+function NewNav (sessionUser) {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
 
-    const joinModal1 = useSelector(state => state.modal.joinModal1)
-    const joinModal2 = useSelector(state => state.modal.joinModal2)
-    const signinModal = useSelector(state => state.modal.signinModal)
-    const sessionUser = useSelector(state => state.session.user)
-    const [formData, setFormData] = useState({
-        email: '', username: '', password: '', text: ''
-    });
-    const [showDropDownMenu, setShowDropDownMenu] = useState(false);
-
-    function handleMenuClick(option) {
-        if (option === 'profile') {
-            history.push('/profile');
-        } else if (option === 'logout') {
-            dispatch(sessionActions.logout());
-            history.push('/');
-        }
-        setShowDropDownMenu(false);
+    if (sessionUser) {
+        return (
+            <div className="signed-in-nav">
+                <TennerIcon />
+                <button>Hello</button>
+            </div>
+    
+            // <div className="button-profile-container">
+            //     <button className="button-profile-icon" /*onClick={() => setShowDropDownMenu(!showDropDownMenu)}*/>
+            //         {sessionUser.username[0]}
+            //     </button>
+            //     {showDropDownMenu && (
+            //         <div className="menu-container">
+            //             <button className="menu-option" onClick={() => handleMenuClick('profile')}>
+            //                 Profile
+            //             </button>
+            //             <hr className="dropdown-hr"></hr>
+            //             <button className="menu-option" onClick={() => handleMenuClick('logout')}>
+            //                 Logout
+            //             </button>
+            //         </div>
+            //     )}
+            // </div>
+        )
+    } else {
+        return (
+            <div className="signed-out-nav">
+                <TennerIcon />
+            </div>
+        )
     }
+
+    // const joinModal1 = useSelector(state => state.modal.joinModal1)
+    // const joinModal2 = useSelector(state => state.modal.joinModal2)
+    // const signinModal = useSelector(state => state.modal.signinModal)
+    // // const sessionUser = useSelector(state => state.session.user)
+    // const [formData, setFormData] = useState({
+    //     email: '', username: '', password: '', text: ''
+    // });
+    // const [showDropDownMenu, setShowDropDownMenu] = useState(false);
+
+    // function handleMenuClick(option) {
+    //     if (option === 'profile') {
+    //         history.push('/profile');
+    //     } else if (option === 'logout') {
+    //         dispatch(sessionActions.logout());
+    //         history.push('/');
+    //     }
+    //     setShowDropDownMenu(false);
+    // }
 
     return (
         <>
@@ -39,7 +72,7 @@ function NewNav () {
                 <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
                     <h1 id="logo">Tenner.</h1>
                 </Link>
-                {sessionUser ? (
+                {/* {sessionUser ? (
                     <>
                         <div className="button-profile-container">
                             <button className="button-profile-icon" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
@@ -67,7 +100,7 @@ function NewNav () {
                             Join
                         </button>
                     </div>
-                )}
+                )} */}
                 {/* {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
                 {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
                 {signinModal && <SigninModal />} */}
