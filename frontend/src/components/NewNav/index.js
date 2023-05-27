@@ -15,6 +15,7 @@ function NewNav ({ sessionUser }) {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
     const [showDropDownMenu, setShowDropDownMenu] = useState(false)
+    const modals = useSelector(state => state.modal)
     
     function handleDropDownClick(option) {
 
@@ -29,6 +30,8 @@ function NewNav ({ sessionUser }) {
             
     }
 
+    modals.createReviewModal = true
+
     if (sessionUser) {
         return (
             <div className="signed-in-nav">
@@ -38,6 +41,7 @@ function NewNav ({ sessionUser }) {
                 </button>
                 {showDropDownMenu && (
                     <div className="dropdown-container">
+
                         <button onClick={() => handleDropDownClick('profile')}>
                             Profile
                         </button>
@@ -53,6 +57,17 @@ function NewNav ({ sessionUser }) {
         return (
             <div className="signed-out-nav">
                 <TennerIcon />
+                <div className="signed-out-buttons">
+
+                    <button onClick={() => dispatch(modalActions.showSignin())}>
+                        Sign In
+                    </button>
+
+                    <button onClick={() => dispatch(modalActions.showJoinOne())}>
+                        Join
+                    </button>
+
+                </div>
             </div>
         )
     }
