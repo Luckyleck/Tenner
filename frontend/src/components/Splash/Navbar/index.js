@@ -69,9 +69,9 @@ function Navbar() {
                         </button>
                     </div>
                 )}
-                {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
+                {/* {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
                 {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
-                {signinModal && <SigninModal />}
+                {signinModal && <SigninModal />} */}
             </div>
 
         </>

@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-// import JoinModalOne from './JoinModal';
-// import JoinModelTwo from './JoinModal2';
-// import SigninModal from './SigninModal';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
-import './newNavStyles.css';
-import { Link } from 'react-router-dom';
+
 import TennerIcon from '../../static code/TennerIcon';
+import SigninModal from '../Splash/Navbar/SigninModal';
+import JoinModalOne from '../Splash/Navbar/JoinModal';
+import JoinModalTwo from '../Splash/Navbar/JoinModal2';
 
+import './newNavStyles.css';
 
-function NewNav ({ sessionUser }) {
+function NewNav({ sessionUser }) {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
-    const [showDropDownMenu, setShowDropDownMenu] = useState(false)
     const modals = useSelector(state => state.modal)
-    
+
+    const [showDropDownMenu, setShowDropDownMenu] = useState(false)
+
+    const [formData, setFormData] = useState({
+        email: '',
+        username: '',
+        password: '',
+        text: ''
+    });
+
     function handleDropDownClick(option) {
 
         if (option === 'profile') {
@@ -27,112 +36,68 @@ function NewNav ({ sessionUser }) {
         }
 
         setShowDropDownMenu(false)
-            
+
     }
 
     modals.createReviewModal = true
 
-    if (sessionUser) {
-        return (
-            <div className="signed-in-nav">
-                <TennerIcon />
-                <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                    sessionUser{/* {sessionUser.username} */}
-                </button>
-                {showDropDownMenu && (
-                    <div className="dropdown-container">
-
-                        <button onClick={() => handleDropDownClick('profile')}>
-                            Profile
-                        </button>
-                        <button onClick={() => handleDropDownClick('logout')}>
-                            Logout
-                        </button>
-        
-                    </div>
-                )}
-            </div>
-        )
-    } else {
-        return (
-            <div className="signed-out-nav">
-                <TennerIcon />
-                <div className="signed-out-buttons">
-
-                    <button onClick={() => dispatch(modalActions.showSignin())}>
-                        Sign In
-                    </button>
-
-                    <button onClick={() => dispatch(modalActions.showJoinOne())}>
-                        Join
-                    </button>
-
-                </div>
-            </div>
-        )
-    }
-
-    // const joinModal1 = useSelector(state => state.modal.joinModal1)
-    // const joinModal2 = useSelector(state => state.modal.joinModal2)
-    // const signinModal = useSelector(state => state.modal.signinModal)
-    // // const sessionUser = useSelector(state => state.session.user)
-    // const [formData, setFormData] = useState({
-    //     email: '', username: '', password: '', text: ''
-    // });
-    // const [showDropDownMenu, setShowDropDownMenu] = useState(false);
-
-    // function handleMenuClick(option) {
-    //     if (option === 'profile') {
-    //         history.push('/profile');
-    //     } else if (option === 'logout') {
-    //         dispatch(sessionActions.logout());
-    //         history.push('/');
-    //     }
-    //     setShowDropDownMenu(false);
-    // }
-
     return (
         <>
-            <div className="nav-items">
-                <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-                    <h1 id="logo">Tenner.</h1>
-                </Link>
-                {/* {sessionUser ? (
-                    <>
-                        <div className="button-profile-container">
-                            <button className="button-profile-icon" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                                {sessionUser.username[0]}
+            {sessionUser ?
+                <div className="signed-in-nav">
+                    <TennerIcon />
+                    <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
+                        {sessionUser.username[0]}
+                    </button>
+                    {showDropDownMenu && (
+                        <div className="dropdown-container">
+
+                            <button onClick={() => handleDropDownClick('profile')}>
+                                Profile
                             </button>
-                            {showDropDownMenu && (
-                                <div className="menu-container">
-                                    <button className="menu-option" onClick={() => handleMenuClick('profile')}>
-                                        Profile
-                                    </button>
-                                    <hr className="dropdown-hr"></hr>
-                                    <button className="menu-option" onClick={() => handleMenuClick('logout')}>
-                                        Logout
-                                    </button>
-                                </div>
-                            )}
+                            <button onClick={() => handleDropDownClick('logout')}>
+                                Logout
+                            </button>
+
                         </div>
-                    </>
-                ) : (
-                    <div className="buttons-container">
-                        <button className="button-signin" onClick={() => dispatch(modalActions.showSignin())}>
+                    )}
+                </div>
+                :
+                <div className="signed-out-nav">
+                    <TennerIcon />
+                    <div className="signed-out-buttons">
+
+                        <button onClick={() => dispatch(modalActions.showSignin())}>
                             Sign In
                         </button>
-                        <button className="button-join" onClick={() => dispatch(modalActions.showJoinOne())}>
+
+                        <button onClick={() => dispatch(modalActions.showJoinOne())}>
                             Join
                         </button>
-                    </div>
-                )} */}
-                {/* {joinModal1 && <JoinModalOne formData={formData} setFormData={setFormData} />}
-                {joinModal2 && <JoinModelTwo formData={formData} setFormData={setFormData} />}
-                {signinModal && <SigninModal />} */}
-            </div>
 
+                    </div>
+                </div>
+            }
+
+            {/* Render active modals (true)*/}
+
+            {modals.signinModal && <SigninModal />}
+            {modals.joinModal1 &&
+                <JoinModalOne
+                    formData={formData}
+                    setFormData={setFormData}
+                />
+            }
+            {modals.joinModal2 &&
+                <JoinModalTwo
+                    formData={formData}
+                    setFormData={setFormData}
+                />
+            }
         </>
-    );
+    )
+
+
 }
 
 export default NewNav;
