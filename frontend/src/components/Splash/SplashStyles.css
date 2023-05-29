@@ -32,11 +32,11 @@ body {
     font-style: italic;
 }
 
-.main-content {
+/* .main-content {
     border-top: 1px solid lightgrey;
     padding: 2% 8% 15% 8%;
     margin-top: 10px;
-}
+} */
 
 .main-content h2 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont;
@@ -57,3 +57,12 @@ body {
     left: 65%;
     top: 60%;
 } */
+
+/* signed-out-main video {
+    width: 100vw;
+    height: 100vh;
+} */
+
+#videoBG {
+    width: 99.1vw;
+}

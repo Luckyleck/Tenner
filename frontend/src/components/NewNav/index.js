@@ -43,40 +43,41 @@ function NewNav({ sessionUser }) {
 
     return (
         <>
-            {sessionUser ?
-                <div className="signed-in-nav">
-                    <TennerIcon />
-                    <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                        {sessionUser.username[0]}
-                    </button>
-                    {showDropDownMenu && (
-                        <div className="dropdown-container">
+            {
+                sessionUser ?
+                    <div className="signed-in-nav">
+                        <TennerIcon />
+                        <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
+                            {sessionUser.username[0]}
+                        </button>
+                        {showDropDownMenu && (
+                            <div className="dropdown-container">
 
-                            <button onClick={() => handleDropDownClick('profile')}>
-                                Profile
+                                <button onClick={() => handleDropDownClick('profile')}>
+                                    Profile
+                                </button>
+                                <button onClick={() => handleDropDownClick('logout')}>
+                                    Logout
+                                </button>
+
+                            </div>
+                        )}
+                    </div>
+                    :
+                    <div className="signed-out-nav">
+                        <TennerIcon />
+                        <div className="signed-out-buttons">
+
+                            <button onClick={() => dispatch(modalActions.showSignin())}>
+                                Sign In
                             </button>
-                            <button onClick={() => handleDropDownClick('logout')}>
-                                Logout
+
+                            <button onClick={() => dispatch(modalActions.showJoinOne())}>
+                                Join
                             </button>
 
                         </div>
-                    )}
-                </div>
-                :
-                <div className="signed-out-nav">
-                    <TennerIcon />
-                    <div className="signed-out-buttons">
-
-                        <button onClick={() => dispatch(modalActions.showSignin())}>
-                            Sign In
-                        </button>
-
-                        <button onClick={() => dispatch(modalActions.showJoinOne())}>
-                            Join
-                        </button>
-
                     </div>
-                </div>
             }
 
             {/* Render active modals (true)*/}

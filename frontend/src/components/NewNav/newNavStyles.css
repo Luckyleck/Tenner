@@ -1,0 +1,6 @@
+.signed-in-nav, .signed-out-nav {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    background-color: rgba(0,0,0,0);
+}
