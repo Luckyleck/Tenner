@@ -21,9 +21,7 @@
     height: 70%;
 }
 
-/* logo */
-
-a {
+#logo-clicked {
     position: relative;
     left: 2.5%;
 }
