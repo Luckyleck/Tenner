@@ -1,4 +1,11 @@
-.signed-in-nav,
+.signed-in-nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 2%;
+}
+
 .signed-out-nav {
     position: fixed;
     z-index: 9999;
@@ -13,6 +20,8 @@
     width: 35%;
     height: 70%;
 }
+
+/* logo */
 
 a {
     position: relative;
@@ -42,10 +51,15 @@ button {
 
 }
 
+/* sign in button */
+
 .signed-out-buttons button:first-child {
     position: relative;
     left: 1em;
 }
+
+
+/* join button */
 
 .signed-out-buttons button:last-child {
     border: 2px solid black;
@@ -53,7 +67,7 @@ button {
     height: 2.2em;
 }
 
-.signed-out-buttons button:last-child:hover { 
+.signed-out-buttons button:last-child:hover {
     background-color: #1dbf73;
-    border:none;
+    border: none;
 }

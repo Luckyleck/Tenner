@@ -64,7 +64,7 @@ function NewNav({ sessionUser }) {
                         )}
                     </div>
                     :
-                    <div className="signed-out-nav">
+                    <div className="signed-out-nav z-index">
                         <TennerIcon />
                         <div className="signed-out-buttons">
 
