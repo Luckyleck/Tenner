@@ -8,6 +8,24 @@
 body {
     background-color: rgb(255, 255, 255);
     background-size: cover;
+    overflow: hidden;
+}
+
+.slogan-text {
+    position: fixed;
+    bottom: 47vh;
+    width: 42vw;
+    height: 18vh;
+    left: 2.5vw;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: #1dbf73;
+}
+
+.slogan-text h1 {
+    font-family: system-ui, -apple-system;
+    font-size: 4.3rem;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .main-text {
@@ -46,25 +64,13 @@ body {
     font-weight: 500;
     left: .8%;
     width: fit-content;
+    overflow: hidden;
 }
 
-/* #ten-pound {
-    position: absolute;
-    bottom: 43%;
-    height: 30vh;
-    width: auto;
-    border: 2px solid #ccc;
-    left: 65%;
-    top: 60%;
-} */
-
-/* signed-out-main video {
+#videoBG {
     width: 100vw;
     height: 100vh;
-} */
-
-#videoBG {
-    width: 99.1vw;
+    object-fit: cover;
 }
 
 

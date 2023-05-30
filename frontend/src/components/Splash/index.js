@@ -20,14 +20,20 @@ function Splash() {
                     :
                     <>
                         <video id="videoBG" src={GTAvideo} autoPlay loop muted />
-                        <div className="main-text">
+                        <div className="slogan-text">
                             <h1>
                                 Find the perfect
-                                <span className="italic">freelance</span>
+                                <span className="italic"> freelance </span>
                                 services for your business
                             </h1>
                         </div>
-                        {/* <img id="ten-pound" src="https://gcdnb.pbrd.co/images/AZpADIf24z6w.png?o=1" alt="10pound"/> */}
+                        {/* <div className="main-text">
+                            <h1>
+                                Find the perfect 
+                                <span className="italic"> freelance </span>
+                                 services for your business
+                            </h1>
+                        </div> */}
                     </>
             }
         </div>
