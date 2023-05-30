@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './SecondModal.css'
+import './JoinModal2.css'
 import { useDispatch } from 'react-redux';
-import * as modalActions from '../../../../store/modals'
-import * as sessionActions from '../../../../store/session'
+import * as modalActions from '../../../store/modals'
+import * as sessionActions from '../../../store/session'
 
 function SecondModal({ formData, setFormData }) {
     const dispatch = useDispatch();

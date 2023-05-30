@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import * as modalActions from '../../../../store/modals'
+import { useDispatch } from 'react-redux';
+import * as modalActions from '../../../store/modals';
 import './JoinModal.css'; // import CSS file for styling
 
 

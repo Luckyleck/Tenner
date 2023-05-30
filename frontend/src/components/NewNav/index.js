@@ -6,15 +6,16 @@ import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
 
 import TennerIcon from '../../static code/TennerIcon';
-import SigninModal from '../Splash/Navbar/SigninModal';
-import JoinModalOne from '../Splash/Navbar/JoinModal';
-import JoinModalTwo from '../Splash/Navbar/JoinModal2';
+import SigninModal from '../Modals/SigninModal'
+import JoinModalOne from '../Modals/JoinModal';
+import JoinModalTwo from '../Modals/JoinModal2';
 
 import './newNavStyles.css';
 
-function NewNav({ sessionUser }) {
+function NewNav() {
     const dispatch = useDispatch();
     const history = useHistory(); // History stack
+    const sessionUser = useSelector(state => state.session.user)
     const modals = useSelector(state => state.modal)
 
     const [showDropDownMenu, setShowDropDownMenu] = useState(false)

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import './SplashStyles.css';
 import { useSelector } from 'react-redux';
 import GigsList from '../GigList';

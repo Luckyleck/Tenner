@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Splash/Navbar';
+// import Navbar from '../Splash/Navbar';
 import ProfileCard from '../ProfileCard';
 import ReviewsCard from '../ReviewCard/ReviewCard';
 import './UserDisplay.css';
@@ -9,9 +9,9 @@ function Profile() {
         <>
             <div className="main-wrapper">
 
-                <div className="user-display-header">
+                {/* <div className="user-display-header">
                     <Navbar />
-                </div>
+                </div> */}
 
                 <div className="card-and-reviews">
                     <ProfileCard />

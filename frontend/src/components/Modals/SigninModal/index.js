@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './SigninModal.css';
 import { useDispatch } from 'react-redux';
-import * as modalActions from '../../../../store/modals'
-import * as sessionActions from '../../../../store/session'
+import * as modalActions from '../../../store/modals'
+import * as sessionActions from '../../../store/session'
 
 function SigninModal() {
 

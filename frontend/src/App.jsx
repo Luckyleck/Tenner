@@ -5,15 +5,14 @@ import UserDisplay from './components/UserDisplay';
 import GigShow from './components/GigShow';
 import './reset.css'
 import NewNav from './components/NewNav';
-import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
-  const sessionUser = useSelector(state => state.session.user)
+  
 
   return (
     <>
-    <NewNav sessionUser={sessionUser}/>
+    <NewNav />
     <Switch>
       <Route exact path="/" component={Splash}/>
       <Route exact path="/profile" component={UserDisplay}/>

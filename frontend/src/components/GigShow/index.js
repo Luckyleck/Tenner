@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchGig } from '../../store/gigs';
-import Navbar from '../Splash/Navbar';
 import './GigShowStyles.css'
 import GigShowcase from './GigShowcase';
 import PurchaseModal from './PurchaseModal';
@@ -25,9 +24,9 @@ function GigShow() {
 
     return (
         <div className="all-page">
-            <div className="header">
+            {/* <div className="header">
                 <Navbar />
-            </div>
+            </div> */}
             <div className='gig-show-main-content'>
                 <div className='gig-showcase'>
                     <GigShowcase gig={gig} />
