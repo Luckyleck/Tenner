@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import modalReducer from "./modals";
 import gigReducer from "./gigs";
 import reviewReducer from "./reviews";
+import searchReducer from "./search"
 
 export const rootReducer = combineReducers({
     session: sessionReducer,
     modal: modalReducer,
     gigs: gigReducer,
-    reviews: reviewReducer
+    reviews: reviewReducer,
+    search: searchReducer
 })
 
 let enhancer;
