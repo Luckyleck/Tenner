@@ -7,6 +7,7 @@ import './GigListStyles.css'
 function GigsList() {
     const dispatch = useDispatch();
     const gigs = useSelector((state) => Object.values(state.gigs));
+    const searchedTerm = useSelector((state) => state.search)
 
     useEffect(() => {
         dispatch(fetchGigs());

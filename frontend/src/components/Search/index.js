@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as searchActions from '../../store/search'
 
 function SearchBar() {
-    const [searchValue, setSearchValue] = useState('');
+    const dispatch = useDispatch();
+    const searchValue = useSelector((state) => state.search.search);
+    const [inputValue, setInputValue] = useState(searchValue);
 
     const handleInputChange = (event) => {
-        setSearchValue(event.target.value);
+        setInputValue(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Perform search or any other action with the search value
-        console.log('Search:', searchValue);
+        dispatch(setSearch(inputValue));
     };
 
     return (
@@ -19,7 +22,7 @@ function SearchBar() {
                 <input
                     type="text"
                     placeholder="Search"
-                    value={searchValue}
+                    value={inputValue}
                     onChange={handleInputChange}
                 />
             </label>
