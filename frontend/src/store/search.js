@@ -23,7 +23,7 @@ function searchReducer(state = initialState, action) {
     switch (action.type) {
         case SET_SEARCH:
             return {
-                search: action.term
+                search: action.payload
             }
         case REMOVE_SEARCH:
             return {
