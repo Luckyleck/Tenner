@@ -1,14 +1,14 @@
 export const SET_SEARCH = "SET_SEARCH"
 export const REMOVE_SEARCH = "REMOVE_SEARCH"
 
-function setSearch(term) {
+export function setSearch(term) {
     return ({
         type: SET_SEARCH,
         payload: term
     })
 }
 
-function removeSearch(term) {
+export function removeSearch(term) {
     return ({
         type: REMOVE_SEARCH,
         payload: term

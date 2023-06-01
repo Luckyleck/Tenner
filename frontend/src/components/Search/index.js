@@ -13,7 +13,7 @@ function SearchBar() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(setSearch(inputValue));
+        dispatch(searchActions.setSearch(inputValue));
     };
 
     return (
