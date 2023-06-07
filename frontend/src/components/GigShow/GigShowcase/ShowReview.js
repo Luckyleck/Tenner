@@ -19,8 +19,9 @@ function ShowReview({ review, gig }) {
     function handleDeleteReview() {
         dispatch(deleteReview(review.id));
     }
-
+    
     return (
+        
         <>
             <div className="review-container">
                 <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
