@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as searchActions from '../../store/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-import './searchStyles.css'
 // faSearch is imported alone
+// styles in navbar
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -21,19 +21,21 @@ function SearchBar() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                <input
-                    type="text"
-                    placeholder="What service are you looking for today?"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                />
-            </label>
-            <button type="submit" className="search-button">
-                <FontAwesomeIcon icon={faSearch} />
-            </button>
-        </form>
+        <div className="search-bar-container">
+            <form onSubmit={handleSubmit} className="search-form">
+                <label>
+                    <input
+                        type="text"
+                        placeholder="What service are you looking for today?"
+                        value={inputValue}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <button type="submit" id="search-icon">
+                    <FontAwesomeIcon icon={faSearch} />
+                </button>
+            </form>
+        </div>
     );
 }
 
