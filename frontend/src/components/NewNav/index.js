@@ -41,8 +41,6 @@ function NewNav() {
 
     }
 
-    modals.createReviewModal = true
-
     return (
         <>
             {

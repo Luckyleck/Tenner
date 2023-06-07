@@ -5,6 +5,8 @@ import * as modalActions from '../../store/modals'
 import { createReview } from '../../store/reviews';
 
 function CreateReview({ gig }) {
+    debugger
+
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
     const [error, setError] = useState('');

@@ -7,9 +7,6 @@ import './reset.css'
 import NewNav from './components/NewNav';
 
 function App() {
-
-  
-
   return (
     <>
     <NewNav />
