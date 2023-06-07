@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as searchActions from '../../store/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import './searchStyles.css'
 // faSearch is imported alone
 
 function SearchBar() {

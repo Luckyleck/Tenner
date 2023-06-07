@@ -14,8 +14,8 @@ function Splash() {
             {
                 sessionUser ?
                     <>
-                        <h2>Our best gigs</h2>
-                        <GigsList />
+                        {/* <h2>Our best gigs</h2> */}
+                        {/* <GigsList /> */}
                     </>
                     :
                     <>

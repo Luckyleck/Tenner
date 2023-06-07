@@ -65,7 +65,7 @@ function NewNav() {
                         )}
                     </div>
                     :
-                    <div className="signed-out-nav z-index">
+                    <div className="signed-out-nav">
                         <TennerIcon />
                         <div className="signed-out-buttons">
 
