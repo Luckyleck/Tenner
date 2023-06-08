@@ -24,9 +24,6 @@ function GigShow() {
 
     return (
         <div className="all-page">
-            {/* <div className="header">
-                <Navbar />
-            </div> */}
             <div className='gig-show-main-content'>
                 <div className='gig-showcase'>
                     <GigShowcase gig={gig} />

@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_GIG = "RECEIVE_GIG"
 export const RECEIVE_GIGS = "RECEIVE_GIGS"
 export const REMOVE_GIG = "REMOVE_GIG"
+export const UPDATE_SEARCHED_GIGS = "UPDATE_SEARCHED_GIGS";
 
 function receiveGigs(gigs) {
     return ({
@@ -27,6 +28,13 @@ function removeGig(gigId) {
         type: REMOVE_GIG,
         gigId: gigId
     })
+}
+
+function updateSearchedGigs(gigs) {
+    return {
+        type: UPDATE_SEARCHED_GIGS,
+        gigs: gigs,
+    };
 }
 
 
@@ -59,6 +67,24 @@ export function fetchGig(gigId) {
             dispatch(receiveGig(data))
         }
     })
+}
+
+
+export function searchGigs(searchTerm) {
+    return async (dispatch) => {
+        const response = await csrfFetch(`/api/gigs`);
+
+        if (response.ok) {
+            const data = await response.json();
+            const filteredGigs = data.filter((gig) => {
+                const title = gig.title.toLowerCase();
+                const description = gig.description.toLowerCase();
+                const search = searchTerm.toLowerCase();
+                return title.includes(search) || description.includes(search);
+            });
+            dispatch(updateSearchedGigs(filteredGigs));
+        }
+    };
 }
 
 // export function createGig(gig) {
@@ -114,6 +140,8 @@ function gigReducer (state = {}, action) {
             const newGig = { ...state }
             delete newGig[action.gigId]
             return { ...newGig };
+        case UPDATE_SEARCHED_GIGS:
+            return { ...action.gigs };
         default: 
             return state
     }

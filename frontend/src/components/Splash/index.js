@@ -2,6 +2,7 @@ import React from 'react';
 import './SplashStyles.css';
 import { useSelector } from 'react-redux';
 import GigsList from '../GigList';
+import NewGigsList from '../NewGigList';
 import GTAvideo from '../../assets/GTA_loading_screens.mp4'
 
 function Splash() {
@@ -13,10 +14,12 @@ function Splash() {
         <div className={`main-content ${shouldHideOverflow ? 'overflow-hidden' : ''}`}>
             {
                 sessionUser ?
-                    <>
-                        {/* <h2>Our best gigs</h2> */}
-                        {/* <GigsList /> */}
-                    </>
+                    <div className="gig-list-container">
+                        <h2>Our best gigs</h2>
+                        <NewGigsList />
+                        <hr/>
+                        <GigsList />
+                    </div>
                     :
                     <>
                         <video id="videoBG" src={GTAvideo} autoPlay loop muted />
