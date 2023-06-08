@@ -58,7 +58,7 @@ function GigShowcase({ gig }) {
             </div>
             <div className="gig-reviews">
                 {reviews.map((review) => {
-                    return <ShowReview review={review} gig={gig} />;
+                    return <ShowReview key={review.id} review={review} gig={gig} />;
                 })}
             </div>
             {createReviewModal && <CreateReview gig={gig} onCreateReview={handleCreateReview} />}

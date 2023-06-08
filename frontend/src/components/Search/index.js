@@ -8,7 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 function SearchBar() {
     const dispatch = useDispatch();
-    const searchValue = useSelector((state) => state.search.search);
+    const searchValue = useSelector((state) => state.search.search) || '';
     const [inputValue, setInputValue] = useState(searchValue);
 
     const handleInputChange = (event) => {
