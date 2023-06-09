@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './GigReviewsStyles.css'
 import ShowReview from '../../GigShow/GigShowcase/ShowReview';
 import CreateReview from '../../CreateReview';
+import NewCreateReview from '../NewCreateReview';
 
 function GigReviews({ gig }) {
     const [reviews, setReviews] = useState(gig.reviews)
@@ -22,6 +23,7 @@ function GigReviews({ gig }) {
                     <p>Review: {review.body}</p>
                 </div>
             ))} */}
+            <NewCreateReview gig={gig}/>
             <div className="gig-reviews">
                 {reviews.map((review) => {
                     return <ShowReview
