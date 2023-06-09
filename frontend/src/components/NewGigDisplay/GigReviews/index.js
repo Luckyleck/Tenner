@@ -4,7 +4,7 @@ import ShowReview from '../../GigShow/GigShowcase/ShowReview';
 import CreateReview from '../../CreateReview';
 
 function GigReviews({ gig }) {
-    const [reviews, setReviews] = useState(gig?.reviews || [])
+    const [reviews, setReviews] = useState(gig?.reviews)
 
     if (!gig) {
         return <div>Loading...</div>;

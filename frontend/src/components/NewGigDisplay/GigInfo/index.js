@@ -29,7 +29,6 @@ function GigInfo({ gig }) {
                 <li>{gig?.description}</li>
                 <li>{gig?.base_price}</li>
             </ul>
-                
         </div>
     )
 }
