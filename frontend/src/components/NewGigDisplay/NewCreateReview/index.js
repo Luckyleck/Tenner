@@ -6,16 +6,15 @@ import * as modalActions from '../../../store/modals';
 
 import './NewCreateReviewStyles.css'
 
-function NewCreateReview({ gig }) {
+function NewCreateReview({ gig, updateReviews }) {
+
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
     const [error, setError] = useState('');
     const sessionUser = useSelector(state => state.session.user);
-    // const showSwitch = useSelector(state => state.modal.createReviewModal)
     const [showCreate, setShowCreate] = useState(false);
 
     function overlayClick() {
-        // dispatch(modalActions.hideCreateReview())
         setShowCreate(!showCreate)
     }
 
@@ -33,8 +32,10 @@ function NewCreateReview({ gig }) {
                 gig_id: gig.id
             }
             dispatch(createReview(review));
-            // dispatch(modalActions.hideCreateReview());
-            setShowCreate(!showCreate)
+            updateReviews(review);
+            setShowCreate(!showCreate);
+            setBody('');
+            // setReviews((prevReviews) => [...prevReviews, review]);
         }
     }
 

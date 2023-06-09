@@ -7,6 +7,10 @@ import NewCreateReview from '../NewCreateReview';
 function GigReviews({ gig }) {
     const [reviews, setReviews] = useState(gig.reviews)
 
+    function updateReviews(newReview) {
+        setReviews((prevReviews) => [...prevReviews, newReview]);
+    };
+
     // if (!gig) {
     //     return <div>Loading...</div>;
     // }
@@ -23,7 +27,10 @@ function GigReviews({ gig }) {
                     <p>Review: {review.body}</p>
                 </div>
             ))} */}
-            <NewCreateReview gig={gig}/>
+            <NewCreateReview
+                gig={gig}
+                updateReviews={updateReviews}
+            />
             <div className="gig-reviews">
                 {reviews.map((review) => {
                     return <ShowReview
