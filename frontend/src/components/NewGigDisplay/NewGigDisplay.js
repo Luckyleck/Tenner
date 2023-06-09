@@ -7,13 +7,7 @@ import GigInfo from './GigInfo';
 import GigReviews from './GigReviews';
 import PurchaseBox from './PurchaseBox';
 
-
-function NewGigDisplay() {
-    const dispatch = useDispatch();
-    const { gigId } = useParams();
-    const { gig } = useSelector(state => state.gigs)
-
-    /* 
+/* 
 
     Gigs slice
     {
@@ -21,17 +15,34 @@ function NewGigDisplay() {
             gig: ...selectedGig
     } 
 
-    */
-    
+*/
+
+
+function NewGigDisplay() {
+
+    const dispatch = useDispatch();
+    const { gigId } = useParams();
+    const { gig } = useSelector(state => state.gigs)
+
     useEffect(() => {
         dispatch(fetchGig(gigId));
     }, [dispatch, gigId]);
+
+    const dependencies = [
+        gig,
+        gig?.reviews,
+        gig?.base_price
+    ]
+
+    if ((dependencies.some(dependency => !dependency))) {
+        return <div>Loading...</div>;
+    };
 
     return (
         <div>
             <GigInfo gig={gig} />
             <PurchaseBox price={gig?.base_price} />
-            <GigReviews gig={gig} />
+            <GigReviews reviews={gig.reviews} gig={gig} />
         </div>
     )
 }

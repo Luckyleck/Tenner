@@ -19,7 +19,7 @@ function GigInfo({ gig }) {
         return null;
     }
 
-    console.log(gig?.reviews)
+    // console.log(gig?.reviews)
 
     return (
         <div>
@@ -27,7 +27,7 @@ function GigInfo({ gig }) {
             <ul>
                 <li>{gig?.title}</li>
                 <li>{gig?.description}</li>
-                <li>{gig?.base_price}</li>
+                <li>${gig?.base_price}</li>
             </ul>
         </div>
     )
