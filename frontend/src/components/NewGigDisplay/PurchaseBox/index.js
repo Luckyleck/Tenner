@@ -1,7 +1,7 @@
 import React from 'react'
 import './PurchaseBoxStyles.css'
 
-function PurchaseBox() {
+function PurchaseBox({ price }) {
     return (
         <div>
             <h1> New Purchase Box </h1>

@@ -19,6 +19,8 @@ function GigInfo({ gig }) {
         return null;
     }
 
+    console.log(gig?.reviews)
+
     return (
         <div>
             <h1>Gig Info</h1>

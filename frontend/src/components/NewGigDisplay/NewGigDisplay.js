@@ -20,11 +20,9 @@ function NewGigDisplay() {
         gigs:
             gig: ...selectedGig
     } 
-    
+
     */
     
-
-
     useEffect(() => {
         dispatch(fetchGig(gigId));
     }, [dispatch, gigId]);
@@ -32,7 +30,7 @@ function NewGigDisplay() {
     return (
         <div>
             <GigInfo gig={gig} />
-            <PurchaseBox gig={gig} />
+            <PurchaseBox price={gig?.base_price} />
             <GigReviews gig={gig} />
         </div>
     )
