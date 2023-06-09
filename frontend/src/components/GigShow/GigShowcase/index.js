@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import './GigShowcaseStyles.css'
+
 import ShowReview from './ShowReview';
 import CreateReview from '../../CreateReview';
+
 import * as modalActions from '../../../store/modals';
+
+import './GigShowcaseStyles.css'
 
 function GigShowcase({ gig }) {
     const dispatch = useDispatch();
@@ -54,7 +57,7 @@ function GigShowcase({ gig }) {
             <hr id="gig-showcase-hr" />
             <div className="reviews-header">
                 <h2>Reviews</h2>
-                <p onClick={handleCreateReview}>Create Review</p>
+                <button onClick={handleCreateReview}>Create Review</button>
             </div>
             <div className="gig-reviews">
                 {reviews.map((review) => {

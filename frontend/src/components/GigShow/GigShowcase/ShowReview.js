@@ -17,7 +17,7 @@ function ShowReview({ review, gig }) {
     }
 
     function handleDeleteReview() {
-        dispatch(deleteReview(review.id));
+        dispatch(deleteReview(review?.id));
     }
     
     return (
@@ -25,12 +25,12 @@ function ShowReview({ review, gig }) {
         <>
             <div className="review-container">
                 <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                    <h1>{review.reviewer.username[0]}</h1>
+                    <h1>{review?.reviewer?.username[0]}</h1>
                 </div>
                 <div className="review-content">
-                    <h3>{review.reviewer.username}</h3>
-                    <p>{review.body}</p>
-                    {review.reviewer.id === sessionUser.id && (
+                    <h3>{review?.reviewer?.username}</h3>
+                    <p>{review?.body}</p>
+                    {review?.reviewer?.id === sessionUser.id && (
                         <div className="edit-delete-review">
                             <p id="edit-review-button" onClick={handleEditReview}>Edit Review</p>
                             <p id="delete-review-button" onClick={handleDeleteReview}>Delete Review</p>
