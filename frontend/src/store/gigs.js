@@ -136,7 +136,7 @@ function gigReducer (state = {}, action) {
             return { ...action.gigs };
         case RECEIVE_GIG: 
             // return { ...state, [action.gig.id]: action.gig }
-            return { [action.gig.id] : action.gig } 
+            return { gig: action.gig } 
         case REMOVE_GIG:
             const newGig = { ...state }
             delete newGig[action.gigId]

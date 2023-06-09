@@ -11,7 +11,7 @@ import PurchaseBox from './PurchaseBox';
 function NewGigDisplay() {
     const dispatch = useDispatch();
     const { gigId } = useParams();
-    const gig = useSelector(state => state.gigs)
+    const { gig } = useSelector(state => state.gigs)
 
     useEffect(() => {
         dispatch(fetchGig(gigId));
