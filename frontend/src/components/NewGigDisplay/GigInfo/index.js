@@ -1,7 +1,16 @@
-import React from 'react'
-import './GigInfoStyles'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 
-function GigInfo() {
+import GigReviews from '../GigReviews';
+
+import * as modalActions from '../../../store/modals';
+
+import './GigInfoStyles.css'
+
+function GigInfo({ gig }) {
+    const dispatch = useDispatch();
+    const createReviewModal = useSelector(state => state.modal.createReviewModal)
+
     return (
         <div>
             <h1>Gig Info</h1>

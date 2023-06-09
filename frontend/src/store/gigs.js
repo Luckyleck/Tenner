@@ -38,9 +38,9 @@ function updateSearchedGigs(gigs) {
 }
 
 
-export function getGig(gigId) {
-    return (state) => state?.gigs ? state.gigs[gigId] : null
-}
+// export function getGig(gigId) {
+//     return (state) => state?.gigs ? state.gigs[gigId] : null
+// }
 
 export function getGigs(state) {
     return state?.gigs ? Object.values(state.gigs) : []
@@ -135,7 +135,8 @@ function gigReducer (state = {}, action) {
         case RECEIVE_GIGS:
             return { ...action.gigs };
         case RECEIVE_GIG: 
-            return { ...state, [action.gig.id]: action.gig }
+            // return { ...state, [action.gig.id]: action.gig }
+            return { [action.gig.id] : action.gig } 
         case REMOVE_GIG:
             const newGig = { ...state }
             delete newGig[action.gigId]

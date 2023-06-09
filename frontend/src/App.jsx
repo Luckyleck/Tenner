@@ -14,9 +14,12 @@ function App() {
       <Switch>
         <Route exact path="/" component={Splash} />
         <Route exact path="/profile" component={UserDisplay} />
-        <Route path="/gigs/:gigId" component={GigShow} />
-        <hr/>
-        <Route path="/gigs/:gigId" component={NewGigDisplay} />
+        {/* <Route path="/gigs/:gigId" component={GigShow} /> */}
+        <Route path="/gigs/:gigId">
+          <GigShow />
+          <hr />
+          <NewGigDisplay />
+        </Route> 
       </Switch>
     </>
   );
