@@ -13,6 +13,18 @@ function NewGigDisplay() {
     const { gigId } = useParams();
     const { gig } = useSelector(state => state.gigs)
 
+    /* 
+
+    Gigs slice
+    {
+        gigs:
+            gig: ...selectedGig
+    } 
+    
+    */
+    
+
+
     useEffect(() => {
         dispatch(fetchGig(gigId));
     }, [dispatch, gigId]);
