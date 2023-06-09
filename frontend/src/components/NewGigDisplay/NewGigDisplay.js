@@ -7,17 +7,6 @@ import GigInfo from './GigInfo';
 import GigReviews from './GigReviews';
 import PurchaseBox from './PurchaseBox';
 
-/* 
-
-    Gigs slice
-    {
-        gigs:
-            gig: ...selectedGig
-    } 
-
-*/
-
-
 function NewGigDisplay() {
 
     const dispatch = useDispatch();
@@ -28,23 +17,27 @@ function NewGigDisplay() {
         dispatch(fetchGig(gigId));
     }, [dispatch, gigId]);
 
-    const dependencies = [
-        gig,
-        gig?.reviews,
-        gig?.base_price
-    ]
-
-    if ((dependencies.some(dependency => !dependency))) {
-        return <div>Loading...</div>;
-    };
+    if (!gig) {
+        return null
+    }
 
     return (
         <div>
             <GigInfo gig={gig} />
-            <PurchaseBox price={gig?.base_price} />
-            <GigReviews reviews={gig.reviews} gig={gig} />
+            <PurchaseBox price={gig.base_price} />
+            <GigReviews gig={gig} />
         </div>
     )
 }
 
 export default NewGigDisplay;
+
+/* 
+
+    Gigs slice
+    {
+        gigs:
+            gig: ...selectedGig
+    } 
+
+*/
