@@ -5,7 +5,7 @@ export const RECEIVE_GIG = "RECEIVE_GIG";
 export const RECEIVE_GIGS = "RECEIVE_GIGS";
 export const REMOVE_GIG = "REMOVE_GIG";
 export const UPDATE_SEARCHED_GIGS = "UPDATE_SEARCHED_GIGS";
-export const GET_USER_GIGS = "GET_USER_GIGS";
+export const RECEIVE_USER_GIGS = "RECEIVE_USER_GIGS";
 
 function receiveGigs(gigs) {
     return ({
@@ -38,6 +38,13 @@ function updateSearchedGigs(gigs) {
     };
 }
 
+function receiveUserGigs(gigs) {
+    return {
+        type: RECEIVE_USER_GIGS,
+        gigs: gigs
+    }
+}
+
 export function fetchGigs() {
     return (async (dispatch) => {
         const response = await csrfFetch(`/api/gigs`)
@@ -56,6 +63,18 @@ export function fetchGig(gigId) {
         if (response.ok) {
             const data = await response.json();
             dispatch(receiveGig(data))
+        }
+    })
+}
+
+export function fetchUserGigs(userId) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/users/${userId}`)
+        
+        if (response.ok) {
+            const data = await response.json();
+            const { gigs } = data;
+            dispatch(receiveUserGigs(gigs))
         }
     })
 }
@@ -133,6 +152,8 @@ function gigReducer (state = {}, action) {
             delete newGig[action.gigId]
             return { ...newGig };
         case UPDATE_SEARCHED_GIGS:
+            return { ...action.gigs };
+        case RECEIVE_USER_GIGS:
             return { ...action.gigs };
         default: 
             return state
