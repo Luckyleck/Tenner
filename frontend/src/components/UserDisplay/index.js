@@ -11,11 +11,11 @@ import { fetchUserGigs } from '../../store/gigs';
 
 function UserDisplay() {
     const dispatch = useDispatch();
-    const userGigs = useSelector(state => state.gigs);
+    const sessionUserId = useSelector(state => state.session.user.id)
 
     useEffect(() => {
-        dispatch(fetchUserGigs);
-    }, [])
+        dispatch(fetchUserGigs(sessionUserId));
+    }, [dispatch, sessionUserId])
 
     return (
         <>

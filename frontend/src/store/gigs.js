@@ -154,7 +154,7 @@ function gigReducer (state = {}, action) {
         case UPDATE_SEARCHED_GIGS:
             return { ...action.gigs };
         case RECEIVE_USER_GIGS:
-            return { ...action.gigs };
+            return [...action.gigs ];
         default: 
             return state
     }
