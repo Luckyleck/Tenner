@@ -1,10 +1,11 @@
 import csrfFetch from "./csrf";
 
 
-export const RECEIVE_GIG = "RECEIVE_GIG"
-export const RECEIVE_GIGS = "RECEIVE_GIGS"
-export const REMOVE_GIG = "REMOVE_GIG"
+export const RECEIVE_GIG = "RECEIVE_GIG";
+export const RECEIVE_GIGS = "RECEIVE_GIGS";
+export const REMOVE_GIG = "REMOVE_GIG";
 export const UPDATE_SEARCHED_GIGS = "UPDATE_SEARCHED_GIGS";
+export const GET_USER_GIGS = "GET_USER_GIGS";
 
 function receiveGigs(gigs) {
     return ({
@@ -36,16 +37,6 @@ function updateSearchedGigs(gigs) {
         gigs: gigs,
     };
 }
-
-
-// export function getGig(gigId) {
-//     return (state) => state?.gigs ? state.gigs[gigId] : null
-// }
-
-export function getGigs(state) {
-    return state?.gigs ? Object.values(state.gigs) : []
-}
-
 
 export function fetchGigs() {
     return (async (dispatch) => {
@@ -87,20 +78,20 @@ export function searchGigs(searchTerm) {
     };
 }
 
-// export function createGig(gig) {
-//     return (async (dispatch) => {
-//         const response = await csrfFetch(`/api/gigs`, {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json'},
-//             body: JSON.stringify(gig)
-//         })
+export function createGig(gig) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/gigs`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(gig)
+        })
 
-//         if (response.ok) {
-//             const data = await response.json()
-//             dispatch(receiveGig(data))
-//         }
-//     })
-// }
+        if (response.ok) {
+            const data = await response.json()
+            dispatch(receiveGig(data))
+        }
+    })
+}
 
 // export function updateGig(gig) {
 //     return (async (dispatch) => {

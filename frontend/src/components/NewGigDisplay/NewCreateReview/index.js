@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReview } from '../../../store/reviews';
 
-import * as modalActions from '../../../store/modals';
-
 import './NewCreateReviewStyles.css'
 
 function NewCreateReview({ gig, updateReviews }) {
