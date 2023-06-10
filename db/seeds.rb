@@ -44,6 +44,14 @@ ApplicationRecord.transaction do
 
   puts "Creating Gigs"
 
+  Gig.create!(
+    title: "Design a stylish website for you",
+    description: "I am a web developer with 45+ years of experience. I've been coding since before I was born. I'm passionate about creating websites and I'm sure I could bring your dream website to fruition.",
+    base_price: 6000,
+    image: "https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/6/2020_6$largeimg_2106819729.jpg",
+    seller_id: 1
+  )
+
   20.times do
     random_string = Faker::Alphanumeric.alphanumeric(number: 5)
 
