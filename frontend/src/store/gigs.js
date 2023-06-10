@@ -128,17 +128,17 @@ export function createGig(gig) {
 
 // }
 
-// export function deleteGig(gigId) {
-//     return (async (dispatch) => {
-//         const response = await csrfFetch(`/api/gigs/${gigId}`, {
-//             method: 'DELETE'
-//         })
+export function deleteGig(gigId) {
+    return (async (dispatch) => {
+        const response = await csrfFetch(`/api/gigs/${gigId}`, {
+            method: 'DELETE'
+        })
 
-//         if (response.ok) {
-//             dispatch(removeGig(gigId))
-//         }
-//     })
-// }
+        if (response.ok) {
+            dispatch(removeGig(gigId))
+        }
+    })
+}
 
 function gigReducer (state = {}, action) {
     switch (action.type) {
@@ -148,13 +148,13 @@ function gigReducer (state = {}, action) {
             // return { ...state, [action.gig.id]: action.gig }
             return { gig: action.gig } 
         case REMOVE_GIG:
-            const newGig = { ...state }
-            delete newGig[action.gigId]
-            return { ...newGig };
+            const newGigsSlice = { ...state }
+            delete newGigsSlice[action.gigId]
+            return { ...newGigsSlice };
         case UPDATE_SEARCHED_GIGS:
             return { ...action.gigs };
         case RECEIVE_USER_GIGS:
-            return [...action.gigs ];
+            return { ...action.gigs };
         default: 
             return state
     }
