@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import CreateGig from './CreateGig';
 
 
 import ReviewsCard from '../ReviewCard/ReviewCard';
@@ -23,6 +24,7 @@ function UserDisplay() {
 
     function handleDeleteGig(gigId) {
         dispatch(deleteGig(gigId))
+        dispatch(fetchUserGigs(sessionUserId))
     }
 
     console.log(userGigs)
@@ -38,6 +40,7 @@ function UserDisplay() {
             </div>
             <hr />
             <div className="gig-list">
+            <CreateGig />
             {Object.values(userGigs).map(gig => (
                 <div key={gig.id}>
                     <h2>{gig.title}</h2>

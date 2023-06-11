@@ -68,7 +68,7 @@ class Api::GigsController < ApplicationController
     end
 
     def gig_params
-        params.require(:gig).permit(:title, :description, :base_price, :seller_id)
+        params.require(:gig).permit(:title, :description, :base_price, :seller_id, :image)
     end
 
 end
