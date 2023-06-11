@@ -14,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Splash} />
         <Route exact path="/profile" component={UserDisplay} />
+        <Route exact path="/users/:id" component={UserDisplay} />
         {/* <Route path="/gigs/:gigId" component={GigShow} /> */}
         <Route path="/gigs/:gigId">
           <GigShow />

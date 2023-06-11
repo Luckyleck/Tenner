@@ -21,7 +21,13 @@ function GigCard({ gig }) {
                     <h1>{gig.seller.username[0]}</h1>
                 </div>
                 <div className="seller-name">
-                    <p>{gig.seller.username}</p>
+                    <Link
+                        to={`/users/${gig.seller.id}`}
+                        className="seller-profile-link"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                        <p>{gig.seller.username}</p>
+                    </Link>
                 </div>
             </div>
 
@@ -42,5 +48,3 @@ function GigCard({ gig }) {
 
 export default GigCard;
 
-
-// https://gcdnb.pbrd.co/images/K9dVb0qOWWI2.jpg?o=1
