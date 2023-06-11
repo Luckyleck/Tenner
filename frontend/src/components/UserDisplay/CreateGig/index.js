@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { createGig } from '../../../store/gigs'
+import './CreateGigStyles.css'
 
 
 function CreateGig() {
@@ -37,18 +38,19 @@ function CreateGig() {
     }
 
 
-    if (showCreateGig === false) {
+    if (!showCreateGig) {
         return (
             <button onClick={() => setShowCreateGig(!showCreateGig)}>Create Gig</button>
         )
     } else {
         return (
             <>
+                <button onClick={() => setShowCreateGig(!showCreateGig)}>Create Gig</button>
                 <div className="modal-overlay" onClick={overlayClick}></div>
-                <div className="useredit-modal-container">
+                <div className="gig-create-modal-container">
 
-                    <h1 className="modal-header">update your user info</h1>
-                    <p className="userinfo-p">title</p>
+                    <h1 className="modal-header">Create a gig</h1>
+                    <p className="giginfo-p">title</p>
                     <input
                         className='modal-input'
                         type='text'
@@ -57,8 +59,8 @@ function CreateGig() {
                         placeholder={gigData.title}
                         onChange={handleChange}
                     />
-                    <p className="userinfo-p">description</p>
-                    <input
+                    <p className="giginfo-p">description</p>
+                    <textarea
                         type='text'
                         className='modal-input'
                         name='description'
@@ -66,7 +68,7 @@ function CreateGig() {
                         placeholder={gigData.description}
                         onChange={handleChange}
                     />
-                    <p className="userinfo-p">The price of your gig</p>
+                    <p className="giginfo-p">price of your gig</p>
                     <input
                         type='text'
                         className='modal-input'
@@ -75,7 +77,7 @@ function CreateGig() {
                         placeholder={gigData.base_price}
                         onChange={handleChange}
                     />
-                    <p className="userinfo-p">url to image of your gig</p>
+                    <p className="giginfo-p">url to image of your gig</p>
                     <input
                         type='text'
                         className='modal-input'
