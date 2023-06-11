@@ -106,8 +106,9 @@ export function createGig(gig) {
         })
 
         if (response.ok) {
-            const data = await response.json()
-            dispatch(receiveGig(data))
+            // const data = await response.json()
+            // dispatch(receiveGig(data))
+            console.log('Gig created')
         }
     })
 }

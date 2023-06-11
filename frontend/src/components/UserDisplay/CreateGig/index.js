@@ -8,7 +8,6 @@ function CreateGig() {
     const dispatch = useDispatch();
     const sessionUserId = useSelector(state => state.session.user.id)
     const [error, setError] = useState('');
-    const sessionUser = useSelector(state => state.session.user);
     const [showCreateGig, setShowCreateGig] = useState(false);
     const [gigData, setGigData] = useState({
         title: '',
