@@ -47,7 +47,7 @@ function usersReducer(state = {}, action) {
         case RECEIVE_USERS:
             return { ...action.users };
         case RECEIVE_USER:
-            return { ...action.use }
+            return { ...action.user }
         default: 
             return state;
     }
