@@ -17,10 +17,7 @@ function receiveGigs(gigs) {
 function receiveGig(gig) {
     return ({
         type: RECEIVE_GIG,
-        gig: {
-            ...gig,
-            reviews: gig.reviews
-        }
+        gig: gig
     })
 }
 

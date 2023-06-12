@@ -6,11 +6,11 @@ import CreateGig from './CreateGig';
 import ReviewsCard from '../ReviewCard/ReviewCard';
 import ProfileCard from '../ProfileCard';
 
-import './UserDisplay.css';
+import './SessionUserDisplay.css';
 
 import { fetchUserGigs, deleteGig } from '../../store/gigs';
 
-function UserDisplay() {
+function SessionUserDisplay() {
 
     const dispatch = useDispatch();
     const sessionUserId = useSelector(state => state.session.user.id)
@@ -47,7 +47,7 @@ function UserDisplay() {
                     <p>{gig.description}</p>
                     <p>Seller ID: {gig.seller_id}</p>
                     <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button>
-                    <hr />
+                    <hr/>
                 </div>
             ))}
             </div>
@@ -55,4 +55,4 @@ function UserDisplay() {
     )
 }
 
-export default UserDisplay;
+export default SessionUserDisplay;

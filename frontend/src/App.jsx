@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Splash from './components/Splash';
-import UserDisplay from './components/UserDisplay';
+import UserDisplay from './components/SessionUserDisplay';
 import GigShow from './components/GigShow';
 import './reset.css'
 import NewNav from './components/NewNav';
