@@ -15,7 +15,7 @@ function ViewUser() {
     dispatch(fetchUserGigs(userId))
   }, [dispatch, userId])
 
-  const { fname, lname, email } = useSelector(state => state.users)
+  const { fname, lname, email, photoUrl } = useSelector(state => state.users)
   const gigs = useSelector(state => state.gigs)
 
   return (
@@ -23,6 +23,7 @@ function ViewUser() {
       <h1>This is the view User display</h1>
       <h1>{fname} {lname}</h1>
       <h1>{email}</h1>
+      <img alt="profile">{photoUrl}</img>
       <hr/>
       {Object.values(gigs).map(gig => (
         <div key={gig.id}>
