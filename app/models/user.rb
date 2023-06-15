@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  before_validation :ensure_session_token
+
   validates :username, :email, :session_token, presence: true, uniqueness: true
   validates :username, length: { in: 3..30 }
   validates :email, length: { in: 3..255 }
@@ -10,10 +12,10 @@ class User < ApplicationRecord
   validates :fname, length: { minimum: 1 }, allow_nil: true
   validates :lname, length: { minimum: 1 }, allow_nil: true
 
-  before_validation :ensure_session_token
-  has_one_attached :photo
   has_many :reviews, foreign_key: :reviewer_id, class_name: :Review, dependent: :destroy
   has_many :gigs, class_name: :Gig, foreign_key: :seller_id
+  
+  has_one_attached :photo
 
   def self.find_by_credentials(credential, password)
     if URI::MailTo::EMAIL_REGEXP.match?(credential)
@@ -51,4 +53,10 @@ class User < ApplicationRecord
   def ensure_session_token
     self.session_token ||= generate_unique_session_token
   end
+
+  #modified
+  def photo_url
+    photo.attached? ? photo.url : nil
+  end
+
 end

@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
     def show
 
         @user = User.find(params[:id])
-        render json: @user, include: :gigs
+        render json: @user, include: [:gigs, :photo]
         
     end
     
@@ -41,6 +41,6 @@ class Api::UsersController < ApplicationController
     private
   
     def user_params
-        params.require(:user).permit(:email, :username, :password, :fname, :lname)
+        params.require(:user).permit(:email, :username, :password, :fname, :lname, :photoUrl)
     end
 end
