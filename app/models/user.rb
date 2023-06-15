@@ -54,8 +54,9 @@ class User < ApplicationRecord
     self.session_token ||= generate_unique_session_token
   end
 
+  #modified
   def photo_url
     photo.attached? ? photo.url : nil
   end
-  
+
 end
