@@ -19,8 +19,8 @@ function App() {
         {/* <Route path="/gigs/:gigId" component={GigShow} /> */}
         <Route path="/gigs/:gigId">
           <GigShow />
-          <hr />
-          <NewGigDisplay />
+          {/* <hr /> */}
+          {/* <NewGigDisplay /> */}
         </Route> 
       </Switch>
     </>
