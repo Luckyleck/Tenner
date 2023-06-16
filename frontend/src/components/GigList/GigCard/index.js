@@ -17,7 +17,7 @@ function GigCard({ gig }) {
 
             <div className="seller-info">
                 <div className="seller-profile-bubble" style={{ backgroundColor: randomColor }}>
-                    <h1>{gig.seller.username[0]}</h1>
+                    <h1>{gig?.seller?.username[0]}</h1>
                 </div>
                 <div className="seller-name">
                     <Link

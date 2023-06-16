@@ -6,18 +6,22 @@ import CreateGig from './CreateGig';
 import ReviewsCard from '../ReviewCard/ReviewCard';
 import ProfileCard from '../ProfileCard';
 
+import { fetchUserGigs, deleteGig } from '../../store/gigs';
+import { removeUser } from '../../store/users';
+
 import './SessionUserDisplay.css';
 
-import { fetchUserGigs, deleteGig } from '../../store/gigs';
 
 function SessionUserDisplay() {
 
     const dispatch = useDispatch();
+    const { user } = useSelector(state => state.session)
     const sessionUserId = useSelector(state => state.session.user.id)
     const userGigs = useSelector(state => state.gigs)
 
     useEffect(() => {
         dispatch(fetchUserGigs(sessionUserId));
+        dispatch(removeUser())
     }, [dispatch, sessionUserId])
 
     // possibly include userGigs in the useEffect
@@ -34,7 +38,7 @@ function SessionUserDisplay() {
             <div className="main-wrapper">
 
                 <div className="card-and-reviews">
-                    <ProfileCard />
+                    <ProfileCard user={user} />
                     <ReviewsCard />
                 </div>
             </div>

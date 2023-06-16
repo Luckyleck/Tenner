@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 
 export const RECEIVE_USERS = "SET_USERS";
 export const RECEIVE_USER = "SET_USER";
+export const REMOVE_USER ="REMOVE_USER";
 
 function receiveUsers (users) {
     return ({
@@ -16,6 +17,12 @@ function receiveUser (user) {
     return ({
         type: RECEIVE_USER,
         user: user
+    })
+}
+
+export function removeUser() {
+    return ({
+        type: REMOVE_USER
     })
 }
 
@@ -47,7 +54,9 @@ function usersReducer(state = {}, action) {
         case RECEIVE_USERS:
             return { ...action.users };
         case RECEIVE_USER:
-            return { ...action.user }
+            return { user: action.user };
+        case REMOVE_USER:
+            return {}
         default: 
             return state;
     }

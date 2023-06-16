@@ -5,6 +5,11 @@ import { useParams } from 'react-router-dom';
 import { fetchUserGigs } from '../../store/gigs'
 import { fetchUser } from '../../store/users'
 
+import ProfileCard from '../ProfileCard';
+import GigCard from '../GigList/GigCard';
+
+import './ViewUserStyles.css'
+
 
 function ViewUser() {
   const dispatch = useDispatch();
@@ -15,23 +20,21 @@ function ViewUser() {
     dispatch(fetchUserGigs(userId))
   }, [dispatch, userId])
 
-  const { fname, lname, email, photoUrl } = useSelector(state => state.users)
+  const { user } = useSelector(state => state.users);
   const gigs = useSelector(state => state.gigs)
+
+  if (!user) {
+    return null
+  }
+  const { fname, lname, email, photoUrl } = user
 
   return (
     <div>
-      <h1>This is the view User display</h1>
-      <h1>{fname} {lname}</h1>
-      <h1>{email}</h1>
+      <ProfileCard user={user} />
       <img alt="profile">{photoUrl}</img>
       <hr/>
       {Object.values(gigs).map(gig => (
-        <div key={gig.id}>
-          <h2>{gig.title}</h2>
-          <p>{gig.description}</p>
-          <p>Seller ID: {gig.seller_id}</p>
-          <hr />
-        </div>
+        <GigCard key={gig.id} gig={gig} />
       ))}
 
 

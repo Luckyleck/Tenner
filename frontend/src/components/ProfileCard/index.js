@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './ProfileCardStyles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import * as modalActions from '../../store/modals.js'
@@ -6,9 +6,8 @@ import EditNameModal from "./EditNameModal";
 
 
 
-function ProfileCard() {
+function ProfileCard({ user }) {
     const dispatch = useDispatch();
-    const { user } = useSelector(state => state.session)
     const editNameModal = useSelector(state => state.modal.editModal)
 
     function handleEdit() {
