@@ -16,7 +16,7 @@ function GigReviews({ gig }) {
     // }
 
     console.log(reviews)
-    console.log(gig)
+    // console.log(gig)
 
     return (
         <div>

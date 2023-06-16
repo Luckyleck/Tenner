@@ -26,12 +26,11 @@ function ViewUser() {
   if (!user) {
     return null
   }
-  const { fname, lname, email, photoUrl } = user
 
   return (
     <div>
       <ProfileCard user={user} />
-      <img alt="profile">{photoUrl}</img>
+      {/* <img alt="profile">{photoUrl}</img> */}
       <hr/>
       {Object.values(gigs).map(gig => (
         <GigCard key={gig.id} gig={gig} />

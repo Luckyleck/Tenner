@@ -13,7 +13,8 @@ class Api::UsersController < ApplicationController
         render json: @user, include: {
             gigs: {
                 include: {
-                    seller: { except: [:password_digest, :session_token] }
+                    seller: { except: [:password_digest, :session_token] },
+                    reviews: {}
                 }
             },
             photo: {},
