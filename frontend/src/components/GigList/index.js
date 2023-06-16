@@ -18,6 +18,10 @@ function GigsList() {
         }
     }, [dispatch, search]);
 
+    if (!gigs) {
+        return null
+    }
+
     return (
         <div className="gig-card-container">
             {gigs.length === 0 && <h1>No Services Found For Your Search</h1>}
