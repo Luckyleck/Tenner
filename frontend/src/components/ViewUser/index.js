@@ -7,6 +7,7 @@ import { fetchUser } from '../../store/users'
 
 import ProfileCard from '../ProfileCard';
 import GigCard from '../GigList/GigCard';
+import ReviewCard from '../ReviewCard/ReviewCard';
 
 import './ViewUserStyles.css'
 
@@ -14,6 +15,7 @@ import './ViewUserStyles.css'
 function ViewUser() {
   const dispatch = useDispatch();
   const { userId } = useParams();
+  const reviews = []
 
   useEffect(() => {
     dispatch(fetchUser(userId))
@@ -23,6 +25,11 @@ function ViewUser() {
   const { user } = useSelector(state => state.users);
   const gigs = useSelector(state => state.gigs)
 
+  Object.values(gigs).forEach((gig) => {
+    if (gig.reviews && gig.reviews.length > 0) {
+      reviews.push(...gig.reviews);
+    }
+  })
   if (!user) {
     return null
   }
@@ -30,6 +37,7 @@ function ViewUser() {
   return (
     <div>
       <ProfileCard user={user} />
+      <ReviewCard reviews={reviews} />
       {/* <img alt="profile">{photoUrl}</img> */}
       <hr/>
       {Object.values(gigs).map(gig => (

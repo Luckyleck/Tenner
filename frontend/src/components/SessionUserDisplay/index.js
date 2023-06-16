@@ -15,23 +15,33 @@ function SessionUserDisplay() {
     const { user } = useSelector((state) => state.session);
     const sessionUserId = useSelector((state) => state.session.user.id);
     const userGigs = useSelector((state) => state.gigs);
+    const reviews = []
+    
 
     useEffect(() => {
         dispatch(fetchUserGigs(sessionUserId));
         dispatch(removeUser());
     }, [dispatch, sessionUserId]);
 
+    Object.values(userGigs).forEach((gig) => {
+        if (gig.reviews && gig.reviews.length > 0) {
+            reviews.push(...gig.reviews);
+        }
+    });
+
     function handleDeleteGig(gigId) {
         dispatch(deleteGig(gigId));
         dispatch(fetchUserGigs(sessionUserId));
     }
     
+    console.log(reviews);
+
     return (
         <>
             <div className="main-wrapper">
                 <div className="card-and-reviews">
                     <ProfileCard user={user} />
-                    <ReviewsCard />
+                    <ReviewsCard reviews={reviews}/>
                 </div>
             </div>
             <hr />
