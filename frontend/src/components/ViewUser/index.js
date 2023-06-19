@@ -6,7 +6,7 @@ import { fetchUserGigs } from '../../store/gigs'
 import { fetchUser } from '../../store/users'
 
 import ProfileCard from '../ProfileCard';
-import GigCard from '../GigList/GigCard';
+import GigCard from '../Splash/GigList/GigCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
 import './ViewUserStyles.css'

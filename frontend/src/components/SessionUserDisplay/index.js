@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CreateGig from './CreateGig';
 import ReviewsCard from '../ReviewCard/ReviewCard';
 import ProfileCard from '../ProfileCard';
-import GigCard from '../GigList/GigCard';
+import GigCard from '../Splash/GigList/GigCard';
 
 import { fetchUserGigs, deleteGig } from '../../store/gigs';
 import { removeUser } from '../../store/users';
