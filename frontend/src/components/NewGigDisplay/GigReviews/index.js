@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './GigReviewsStyles.css'
 import ShowReview from '../../GigShow/GigShowcase/ShowReview';
-import CreateReview from '../../CreateReview';
+import CreateReview from '../../Modals/CreateReview';
 import NewCreateReview from '../NewCreateReview';
 
 function GigReviews({ gig }) {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import './EditReviewStyles.css'
-import * as modalActions from '../../store/modals'
-import { updateReview } from '../../store/reviews'
+import * as modalActions from '../../../store/modals'
+import { updateReview } from '../../../store/reviews'
 
 
 function EditReview({ gig, review }) {

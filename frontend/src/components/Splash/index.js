@@ -1,7 +1,7 @@
 import React from 'react';
 import './SplashStyles.css';
 import { useSelector } from 'react-redux';
-import GigsList from '../GigList';
+import GigsList from './GigList';
 import GTAvideo from '../../assets/GTA_loading_screens.mp4'
 
 function Splash() {

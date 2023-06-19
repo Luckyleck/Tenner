@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
 import ShowReview from './ShowReview';
-import CreateReview from '../../CreateReview';
+import CreateReview from '../../Modals/CreateReview';
 
 import * as modalActions from '../../../store/modals';
 

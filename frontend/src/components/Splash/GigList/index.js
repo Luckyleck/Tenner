@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GigCard from "./GigCard";
-import { fetchGigs, searchGigs } from "../../store/gigs";
+import { fetchGigs, searchGigs } from "../../../store/gigs"
 import './GigListStyles.css'
 
 function GigsList() {
