@@ -12,13 +12,13 @@
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.5);
     padding-top: 2%;
 }
 
 #logo {
     width: 35%;
     height: 70%;
+    text-decoration: none;
 }
 
 #logo-clicked {
