@@ -1,18 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './ProfileCardStyles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import * as modalActions from '../../store/modals.js'
 import EditNameModal from "./EditNameModal";
-
-
+import { ipStackKey } from "../../assets/apiKey";
 
 function ProfileCard({ user }) {
     const dispatch = useDispatch();
     const editNameModal = useSelector(state => state.modal.editModal)
+    const [country, setCountry] = useState(null);
 
     function handleEdit() {
         dispatch(modalActions.showEditModal())
     }
+
+    function fetchCountry(setCountry) {
+        fetch(`http://api.ipstack.com/check?access_key=${ipStackKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const { country_name } = data;
+                setCountry(country_name);
+            })
+            .catch(error => console.log(error));
+    };
+
+
+    useEffect(() => {
+        fetchCountry(setCountry);
+    }, []);
+
+    console.log(country)
+
 
     return (
         <>
@@ -28,6 +46,7 @@ function ProfileCard({ user }) {
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
+                    {country && <h2>{country}</h2>}
                 </div>
             </div>
             {editNameModal && <EditNameModal user={user} />}
