@@ -21,9 +21,11 @@ function GigShowcase({ gig }) {
 
     return (
         <div className="gig-show-container">
+
             <div className="gig-show-title">
                 <h1>I will be your {gig.title}</h1>
             </div>
+
             <div className="gig-show-top-user-info">
                 <div className="gig-showcase-bubble-profile">
                     <Link
@@ -43,13 +45,17 @@ function GigShowcase({ gig }) {
                     <p>@{gig.seller.username}</p>
                 </Link>
             </div>
+
             <img id="gig-show-img" src={gig.image} />
+
             <div className="gig-description">
                 <h1>About this gig</h1>
                 <p>{gig.description}</p>
             </div>
             <hr id="gig-showcase-hr" />
+            
             <h2>About the seller</h2>
+
             <div className="about-seller">
                 <div className="about-seller-profile-icon">
                     <Link
@@ -73,22 +79,19 @@ function GigShowcase({ gig }) {
                     </div>
                 </div>
             </div>
-            <div className="more-seller-info">
-                {/* MAKE SELLER BOX*/}
-            </div>
-            <div className="more-seller-info">
-                {/* MAKE REVIEW STAR BOX*/}
-            </div>
             <hr id="gig-showcase-hr" />
+
             <div className="reviews-header">
                 <h2>Reviews</h2>
                 <button onClick={handleCreateReview}>Create Review</button>
             </div>
+
             <div className="gig-reviews">
                 {reviews.map((review) => {
                     return <ShowReview key={review.id} review={review} gig={gig} />;
                 })}
             </div>
+            
             {createReviewModal && <CreateReview gig={gig} onCreateReview={handleCreateReview} />}
         </div>
 

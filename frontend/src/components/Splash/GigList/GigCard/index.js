@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './GigCardStyles.css'
 
-
 function GigCard({ gig }) {
     const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb', '#ff9f43', '#6ab04c'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];

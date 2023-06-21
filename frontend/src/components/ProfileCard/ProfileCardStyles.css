@@ -81,6 +81,6 @@
 }
 
 .place p:last-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
 }

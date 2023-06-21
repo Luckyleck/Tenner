@@ -9,7 +9,7 @@ import ProfileCard from '../ProfileCard';
 import GigCard from '../Splash/GigList/GigCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
-import './ViewUserStyles.css'
+//styles in SessionUserDisplay.css
 
 
 function ViewUser() {
@@ -35,18 +35,25 @@ function ViewUser() {
   }
 
   return (
-    <div>
-      <ProfileCard user={user} />
-      <ReviewCard reviews={reviews} />
-      {/* <img alt="profile">{photoUrl}</img> */}
-      <hr/>
-      {Object.values(gigs).map(gig => (
-        <GigCard key={gig.id} gig={gig} />
-      ))}
-
-
-    </div>
-  )
+    <div className="main-wrapper">
+      <div className="profileCard">
+        <ProfileCard user={user} />
+      </div>
+      <div className="reviews-and-gigs">
+        <ReviewCard reviews={reviews} />
+        <div className="gig-list">
+          <hr />
+          <div>
+            {Object.values(gigs).map((gig) => (
+              <div key={gig.id}>
+                <GigCard gig={gig} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div >
+  );
 }
 
 export default ViewUser;

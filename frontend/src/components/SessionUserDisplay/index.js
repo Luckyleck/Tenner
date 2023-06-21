@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CreateGig from './CreateGig';
-import ReviewsCard from '../ReviewCard/ReviewCard';
+import ReviewCard from '../ReviewCard/ReviewCard';
 import ProfileCard from '../ProfileCard';
 import GigCard from '../Splash/GigList/GigCard';
 
@@ -42,7 +42,7 @@ function SessionUserDisplay() {
                         <ProfileCard user={user} />
                     </div>
                     <div className="reviews-and-gigs">
-                        <ReviewsCard reviews={reviews} />
+                        <ReviewCard reviews={reviews} />
                         <div className="gig-list">
                             <CreateGig />
                             <hr/>

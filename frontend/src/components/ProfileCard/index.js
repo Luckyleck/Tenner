@@ -5,6 +5,8 @@ import * as modalActions from '../../store/modals.js'
 import EditNameModal from "./EditNameModal";
 import { ipStackKey } from "../../assets/apiKey";
 
+const pencilIcon = "https://gcdnb.pbrd.co/images/OJG00LyY6Eev.png?o=1"
+
 function ProfileCard({ user }) {
     const dispatch = useDispatch();
     const editNameModal = useSelector(state => state.modal.editModal)
@@ -40,7 +42,7 @@ function ProfileCard({ user }) {
                 <div className="profile-info-text">
                     <div className="top-row">
                         <h1>{user.fname} {user.lname}</h1>
-                        <img id="edit-icon" onClick={handleEdit} src='https://gcdnb.pbrd.co/images/OJG00LyY6Eev.png?o=1' alt="edit" />
+                        <img id="edit-icon" onClick={handleEdit} src={pencilIcon} alt="edit" />
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
