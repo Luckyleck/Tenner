@@ -7,6 +7,7 @@ import CreateReview from '../../Modals/CreateReview';
 import * as modalActions from '../../../store/modals';
 
 import './GigShowcaseStyles.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function GigShowcase({ gig }) {
     const dispatch = useDispatch();
@@ -25,10 +26,22 @@ function GigShowcase({ gig }) {
             </div>
             <div className="gig-show-top-user-info">
                 <div className="gig-showcase-bubble-profile">
-                    <h1>{gig.seller.username[0]}</h1>
+                    <Link
+                        to={`/users/${gig.seller.id}`}
+                        className="seller-profile-link"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                        <h1>{gig.seller.username[0]}</h1>
+                    </Link>
                 </div>
                 <h3>{gig.seller.fname} {gig.seller.lname}</h3>
-                <p>@{gig.seller.username}</p>
+                <Link
+                    to={`/users/${gig.seller.id}`}
+                    className="seller-profile-link"
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                    <p>@{gig.seller.username}</p>
+                </Link>
             </div>
             <img id="gig-show-img" src={gig.image} />
             <div className="gig-description">
@@ -39,12 +52,24 @@ function GigShowcase({ gig }) {
             <h2>About the seller</h2>
             <div className="about-seller">
                 <div className="about-seller-profile-icon">
+                    <Link
+                        to={`/users/${gig.seller.id}`}
+                        className="seller-profile-link"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
                     <h1>{gig.seller.username[0]}</h1>
+                    </Link>
                 </div>
                 <div className="about-seller-profile-right-column">
                     <div className="about-seller-name-username">
                         <h1>{gig.seller.fname} {gig.seller.lname}</h1>
-                        <p>@{gig.seller.username}</p>
+                        <Link
+                            to={`/users/${gig.seller.id}`}
+                            className="seller-profile-link"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                        >
+                            <p>@{gig.seller.username}</p>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -24,13 +24,11 @@ function ProfileCard({ user }) {
             .catch(error => console.log(error));
     };
 
-
     useEffect(() => {
         fetchCountry(setCountry);
     }, []);
 
     console.log(country)
-
 
     return (
         <>
@@ -46,7 +44,13 @@ function ProfileCard({ user }) {
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
-                    {country && <h2>{country}</h2>}
+                    <hr id="user-card-hr"/>
+                    <div className="place-member-since">
+                        <div className="place">
+                            <p>From</p>
+                            {country && <p>{country}</p>}
+                        </div>
+                    </div>
                 </div>
             </div>
             {editNameModal && <EditNameModal user={user} />}
