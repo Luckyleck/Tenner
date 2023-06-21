@@ -12,20 +12,9 @@ function ReviewCard({ reviews }) {
         <div className="reviews-container">
             <h1>Reviews as seller</h1>
             <div className="gig-reviews">
-                {reviews.map((review) => (
-                    <>
-                    <div className="review-container">
-                        <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                            <h1>{review.reviewer.username[0]}</h1>
-                        </div>
-                        <div className="review-content">
-                            <h3>{review.reviewer.username}</h3>
-                            <p>{review.body}</p>
-                        </div>
-                        </div>
-                        <hr/>
-                    </>
-                ))}
+                {reviews.map((review) => {
+                    return <ShowReview key={review.id} review={review} />;
+                })}
             </div>
         </div>
 
