@@ -39,15 +39,15 @@ const initialState = {
 export const SET_SEARCH = "SET_SEARCH"
 
 export function receiveSearchResults (searchResults) {
-    return ({
+    return {
         type: SET_SEARCH,
         searchResults: searchResults
-    })
+    }
 }
 
 export function fetchSearchResults (query) { 
     return (async (dispatch) => {
-        const response = await fetch(`/api/gigs/search?gigs=${query}`);
+        const response = await fetch(`/api/gigs/search?query=${query}`);
         
         if (response.ok) {
             const data = await response.json();
@@ -60,11 +60,7 @@ function searchReducer(state = initialState, action) {
     switch (action.type) {
         case SET_SEARCH:
             return {
-                search: action.searchResults
-            }
-        case REMOVE_SEARCH:
-            return {
-                search: null
+                gigs: action.searchResults
             }
         default:
             return state

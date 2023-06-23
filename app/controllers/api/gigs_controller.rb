@@ -62,8 +62,12 @@ class Api::GigsController < ApplicationController
     end
 
     def search
-        @gigs = Gigs.where("title ILIKE ?", "%#{params[:gigs]}")
-        # @gigs. params[:gigs]
+        @gigs = Gig.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+        render json: @gigs.to_json(include: {
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+        })
     end
 
     private

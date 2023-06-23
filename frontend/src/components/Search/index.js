@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as searchActions from '../../store/search';
+import { useHistory } from 'react-router-dom';
+import { fetchSearchResults } from '../../store/search';
+// import * as searchActions from '../../store/search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 // faSearch is imported alone
@@ -8,8 +10,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 function SearchBar() {
     const dispatch = useDispatch();
-    const searchValue = useSelector((state) => state.search.search) || '';
-    const [inputValue, setInputValue] = useState(searchValue);
+    const history = useHistory();
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
@@ -17,7 +19,11 @@ function SearchBar() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(searchActions.setSearch(inputValue));
+        if (!!inputValue) {
+            dispatch(fetchSearchResults(inputValue));
+            history.push(`/search`)
+            setInputValue('')
+        }
     };
 
     return (
