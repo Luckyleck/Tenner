@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GigCard from "./GigCard";
-import { fetchGigs, searchGigs } from "../../store/gigs";
+import { fetchGigs, searchGigs } from "../../../store/gigs"
 import './GigListStyles.css'
 
 function GigsList() {
@@ -18,8 +18,13 @@ function GigsList() {
         }
     }, [dispatch, search]);
 
+    if (!gigs) {
+        return null
+    }
+
     return (
         <div className="gig-card-container">
+            <h2>Our Best Gigs</h2>
             {gigs.length === 0 && <h1>No Services Found For Your Search</h1>}
             {search && <h1>Results for {search}</h1>}
             {gigs.map((gig) => (

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
 
-import TennerIcon from '../../static_code/TennerIcon';
+import TennerIcon from '../TennerIcon/TennerIcon.jsx'
 import SearchBar from '../Search';
 import SigninModal from '../Modals/SigninModal'
 import JoinModalOne from '../Modals/JoinModal';

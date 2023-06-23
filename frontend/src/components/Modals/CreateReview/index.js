@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import './CreateReviewStyles.css'
-import * as modalActions from '../../store/modals'
-import { createReview } from '../../store/reviews';
+import * as modalActions from '../../../store/modals'
+import { createReview } from '../../../store/reviews';
 
 function CreateReview({ gig }) {
 

@@ -9,10 +9,22 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-
         @user = User.find(params[:id])
-        render json: @user, include: [:gigs, :photo]
-        
+            render json: @user,
+            include: {
+                gigs: {
+                    include: {
+                        seller: { except: [:password_digest, :session_token] },
+                        reviews: {
+                            include: {
+                                reviewer: { except: [:password_digest, :session_token] }
+                            }
+                        }
+                    }
+                },
+                photo: {}
+            },
+            except: [:password_digest, :session_token]
     end
     
     def create

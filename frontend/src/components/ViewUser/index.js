@@ -5,38 +5,55 @@ import { useParams } from 'react-router-dom';
 import { fetchUserGigs } from '../../store/gigs'
 import { fetchUser } from '../../store/users'
 
+import ProfileCard from '../ProfileCard';
+import GigCard from '../Splash/GigList/GigCard';
+import ReviewCard from '../ReviewCard/ReviewCard';
+
+//styles in SessionUserDisplay.css
+
 
 function ViewUser() {
   const dispatch = useDispatch();
   const { userId } = useParams();
+  const reviews = []
 
   useEffect(() => {
     dispatch(fetchUser(userId))
     dispatch(fetchUserGigs(userId))
   }, [dispatch, userId])
 
-  const { fname, lname, email, photoUrl } = useSelector(state => state.users)
+  const { user } = useSelector(state => state.users);
   const gigs = useSelector(state => state.gigs)
 
+  Object.values(gigs).forEach((gig) => {
+    if (gig.reviews && gig.reviews.length > 0) {
+      reviews.push(...gig.reviews);
+    }
+  })
+  if (!user) {
+    return null
+  }
+
   return (
-    <div>
-      <h1>This is the view User display</h1>
-      <h1>{fname} {lname}</h1>
-      <h1>{email}</h1>
-      <img alt="profile">{photoUrl}</img>
-      <hr/>
-      {Object.values(gigs).map(gig => (
-        <div key={gig.id}>
-          <h2>{gig.title}</h2>
-          <p>{gig.description}</p>
-          <p>Seller ID: {gig.seller_id}</p>
+    <div className="main-wrapper">
+      <div className="profileCard">
+        <ProfileCard user={user} />
+      </div>
+      <div className="reviews-and-gigs">
+        <ReviewCard reviews={reviews} />
+        <div className="gig-list">
           <hr />
+          <div>
+            {Object.values(gigs).map((gig) => (
+              <div key={gig.id}>
+                <GigCard gig={gig} />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-
-
-    </div>
-  )
+      </div>
+    </div >
+  );
 }
 
 export default ViewUser;
