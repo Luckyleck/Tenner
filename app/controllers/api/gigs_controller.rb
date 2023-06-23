@@ -61,6 +61,11 @@ class Api::GigsController < ApplicationController
         @gig.destroy
     end
 
+    def search
+        @gigs = Gigs.where("title ILIKE ?", "%#{params[:gigs]}")
+        # @gigs. params[:gigs]
+    end
+
     private
 
     def set_gig
