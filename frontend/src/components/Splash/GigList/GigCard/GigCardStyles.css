@@ -2,7 +2,7 @@
     background-color: white;
     width: 22%;
     height: 22%;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
