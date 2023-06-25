@@ -7,5 +7,6 @@ class Gig < ApplicationRecord
     belongs_to :seller, class_name: "User"
     has_many :reviews
     has_many :likes
+    has_many_attached :photos
 
 end

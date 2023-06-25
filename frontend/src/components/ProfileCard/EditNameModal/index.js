@@ -7,12 +7,13 @@ import './EditNameModalStyles.css'
 
 function EditNameModal({ user }) {
     const dispatch = useDispatch();
+    const [profilePicture, setProfilePicture] = useState(null);
+
     const [formData, setFormData] = useState({
         fname: user.fname,
         lname: user.lname,
         username: user.username,
         email: user.email,
-        profileUrl: user.profileUrl
     });
 
     function handleChange(e) {
@@ -24,31 +25,27 @@ function EditNameModal({ user }) {
     };
 
     function handleFileChange(e) {
-        const photoFile = e.target.files[0];
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            profileUrl: photoFile
-        }));
+        const file = e.target.files[0];
+        setProfilePicture(file)
+        // setFormData(prevFormData => ({
+        //     ...prevFormData,
+        //     profileUrl: photoFile
+        // }));
     }
 
     function handleSave() {
-        dispatch(sessionActions.updateUser(user.id, formData));
+        const newData = new FormData();
+        newData.append('fname', formData.fname);
+        newData.append('lname', formData.lname);
+        newData.append('username', formData.username);
+        newData.append('email', formData.email);
+        if (profilePicture) {
+            newData.append('photo', profilePicture);
+        }
+
+        dispatch(sessionActions.updateUser(user.id, newData));
         dispatch(modalActions.hideEditModal());
     };
-
-    // function handleSave() {
-    //     const updatedFormData = new FormData();
-    //     updatedFormData.append('user[fname]', formData.fname);
-    //     updatedFormData.append('user[lname]', formData.lname);
-    //     updatedFormData.append('user[username]', formData.username);
-    //     updatedFormData.append('user[email]', formData.email);
-    //     if (formData.profileUrl) {
-    //         updatedFormData.append('user[photo]', formData.profileUrl);
-    //     }
-
-    //     dispatch(sessionActions.updateUser(user.id, updatedFormData));
-    //     dispatch(modalActions.hideEditModal());
-    // }
 
     function overlayClick() {
         dispatch(modalActions.hideEditModal());
@@ -104,3 +101,17 @@ function EditNameModal({ user }) {
 }
 
 export default EditNameModal;
+
+// function handleSave() {
+    //     const updatedFormData = new FormData();
+    //     updatedFormData.append('user[fname]', formData.fname);
+    //     updatedFormData.append('user[lname]', formData.lname);
+    //     updatedFormData.append('user[username]', formData.username);
+    //     updatedFormData.append('user[email]', formData.email);
+    //     if (formData.profileUrl) {
+    //         updatedFormData.append('user[photo]', formData.profileUrl);
+    //     }
+
+    //     dispatch(sessionActions.updateUser(user.id, updatedFormData));
+    //     dispatch(modalActions.hideEditModal());
+    // }

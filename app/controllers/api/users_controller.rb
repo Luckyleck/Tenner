@@ -43,7 +43,11 @@ class Api::UsersController < ApplicationController
         
         @user = current_user
 
-        if @user.update(user_params)
+        if user_params[:photo]
+            @user.photo.attach(user_params[:photo])
+        end
+
+        if @user.update(user_params.except(:photo))
             render :show
         else
             render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
@@ -53,6 +57,7 @@ class Api::UsersController < ApplicationController
     private
   
     def user_params
-        params.require(:user).permit(:email, :username, :password, :fname, :lname, :photoUrl)
+        params.require(:user).permit(:email, :username, :password, :fname, :lname, :photo)
     end
+
 end
