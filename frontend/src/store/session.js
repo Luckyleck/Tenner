@@ -127,6 +127,27 @@ export function updateUser(userId, userData) {
     };
 }
 
+// export function updateUser(userId, userData) {
+//     return async function (dispatch) {
+//         try {
+//             const response = await csrfFetch(`/api/users/${userId}`, {
+//                 method: 'PATCH',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                 },
+//                 body: JSON.stringify({ user: userData }), // Ensure the payload has the 'user' key
+//             });
+
+//             const data = await response.json();
+
+//             storeCurrentUser(data.user);
+//             dispatch(setCurrentUser(data.user));
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     };
+// }
+
 const initialState = {
     user: JSON.parse(sessionStorage.getItem("currentUser"))
 };

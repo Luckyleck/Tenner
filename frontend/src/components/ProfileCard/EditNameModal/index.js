@@ -7,7 +7,7 @@ import './EditNameModalStyles.css'
 
 function EditNameModal({ user }) {
     const dispatch = useDispatch();
-    const [profilePicture, setProfilePicture] = useState(null);
+    const [photo, setPhoto] = useState(null);
 
     const [formData, setFormData] = useState({
         fname: user.fname,
@@ -26,7 +26,7 @@ function EditNameModal({ user }) {
 
     function handleFileChange(e) {
         const file = e.target.files[0];
-        setProfilePicture(file)
+        setPhoto(file)
         // setFormData(prevFormData => ({
         //     ...prevFormData,
         //     profileUrl: photoFile
@@ -35,13 +35,14 @@ function EditNameModal({ user }) {
 
     function handleSave() {
         const newData = new FormData();
-        newData.append('fname', formData.fname);
-        newData.append('lname', formData.lname);
-        newData.append('username', formData.username);
-        newData.append('email', formData.email);
-        if (profilePicture) {
-            newData.append('photo', profilePicture);
+        newData.append('user[fname]', formData.fname);
+        newData.append('user[lname]', formData.lname);
+        newData.append('user[username]', formData.username);
+        newData.append('user[email]', formData.email);
+        if (photo) {
+            newData.append('user[photo]', photo);
         }
+        console.log(newData)
 
         dispatch(sessionActions.updateUser(user.id, newData));
         dispatch(modalActions.hideEditModal());
