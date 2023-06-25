@@ -43,9 +43,9 @@ class Api::UsersController < ApplicationController
         
         @user = current_user
 
-        if user_params[:photo]
-            @user.photo.attach(user_params[:photo])
-        end
+        # if user_params[:photo]
+        #     @user.photo.attach(user_params[:photo])
+        # end
 
         if @user.update(user_params.except(:photo))
             render :show

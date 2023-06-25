@@ -38,7 +38,7 @@ function ProfileCard({ user }) {
                 <div className="profile-img">
                     <h1>{user.username[0]}</h1>
                 </div>
-                <img>{user.photoUrl}</img>
+                <img src={user.photoUrl} alt="profilepicture"></img>
                 <div className="profile-info-text">
                     <div className="top-row">
                         <h1>{user.fname} {user.lname}</h1>
