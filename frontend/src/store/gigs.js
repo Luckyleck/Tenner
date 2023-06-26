@@ -98,13 +98,12 @@ export function createGig(gig) {
     return (async (dispatch) => {
         const response = await csrfFetch(`/api/gigs`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(gig)
+            // headers: { 'Content-Type': 'application/json'},
+            // body: JSON.stringify(gig)
+            body: gig
         })
 
         if (response.ok) {
-            // const data = await response.json()
-            // dispatch(receiveGig(data))
             console.log('Gig created')
         }
     })

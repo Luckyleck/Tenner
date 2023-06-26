@@ -36,7 +36,8 @@ class Api::GigsController < ApplicationController
                 except: [:password_digest, :session_token]
             }
         },
-        except: [:seller_id]
+        except: [:seller_id],
+        methods: [:image_urls]
     end
 
     def create
@@ -77,7 +78,7 @@ class Api::GigsController < ApplicationController
     end
 
     def gig_params
-        params.require(:gig).permit(:title, :description, :base_price, :seller_id, :image, :photos)
+        params.require(:gig).permit(:title, :description, :base_price, :seller_id, images: [])
     end
 
 end

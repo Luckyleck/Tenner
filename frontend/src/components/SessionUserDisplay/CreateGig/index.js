@@ -9,13 +9,19 @@ function CreateGig() {
     const sessionUserId = useSelector(state => state.session.user.id)
     const [error, setError] = useState('');
     const [showCreateGig, setShowCreateGig] = useState(false);
+    const [newGigImages, setNewGigImages] = useState(null);
     const [gigData, setGigData] = useState({
         title: '',
         description: '',
         base_price: '',
-        image: '',
         seller_id: sessionUserId
     })
+
+    function handleFileChange(e) {
+        //.files is a 'FileList' object, does not have slice method
+        const files = [...e.target.files].slice(0, 4);
+        setNewGigImages(files)
+    }
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -32,7 +38,17 @@ function CreateGig() {
     }
 
     function handleSave() {
-        dispatch(createGig(gigData));
+        const newGigData = new FormData();
+        newGigData.append('gig[title]', gigData.title)
+        newGigData.append('gig[description]', gigData.description)
+        newGigData.append('gig[base_price]', gigData.base_price)
+        if (newGigImages.length) {
+            newGigImages.forEach(image => {
+                newGigData.append('gig[images][]', image)
+            })
+        }
+
+        dispatch(createGig(newGigData));
         setShowCreateGig(!showCreateGig);
     }
 
@@ -76,15 +92,9 @@ function CreateGig() {
                         placeholder={gigData.base_price}
                         onChange={handleChange}
                     />
-                    <p className="giginfo-p">url to image of your gig</p>
-                    <input
-                        type='text'
-                        className='modal-input'
-                        name='image'
-                        value={gigData.image}
-                        placeholder={gigData.image}
-                        onChange={handleChange}
-                    />
+                    <p className="giginfo-p">images of your gig. <span style={{ color: "grey" }}>Max 4</span></p>
+                    <input type="file" onChange={handleFileChange} multiple />
+                    {error && <p className="errors">{error}</p>}
                     <button className='modal-button' onClick={handleSave}>Save</button>
                 </div>
             </>

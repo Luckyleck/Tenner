@@ -27,10 +27,6 @@ function EditNameModal({ user }) {
     function handleFileChange(e) {
         const file = e.target.files[0];
         setPhoto(file)
-        // setFormData(prevFormData => ({
-        //     ...prevFormData,
-        //     profileUrl: photoFile
-        // }));
     }
 
     function handleSave() {
