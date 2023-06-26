@@ -11,6 +11,19 @@ function ProfileCard({ user }) {
     const dispatch = useDispatch();
     const editNameModal = useSelector(state => state.modal.editModal)
     const [country, setCountry] = useState(null);
+    const hasPhoto = user.photoUrl
+
+    function profilePic(hasPhoto) {
+        if (hasPhoto) {
+            return (
+                <img src={user.photoUrl} alt="profilepicture" />
+            )
+        } else {
+            return (
+                <h1>{user.username[0]}</h1>
+            )
+        }
+    }
 
     function handleEdit() {
         dispatch(modalActions.showEditModal())
@@ -31,14 +44,19 @@ function ProfileCard({ user }) {
     }, []);
 
     console.log(country)
+    console.log(user.photoUrl)
 
     return (
         <>
             <div className="profile-info-container">
                 <div className="profile-img">
-                    <h1>{user.username[0]}</h1>
+                    {hasPhoto ? (
+                        <img src={user.photoUrl} alt="profilepicture" />
+                    ) : (
+                        <h1>{user.username[0]}</h1>
+                    )}
                 </div>
-                <img src={user.photoUrl} alt="profilepicture"></img>
+
                 <div className="profile-info-text">
                     <div className="top-row">
                         <h1>{user.fname} {user.lname}</h1>
@@ -46,7 +64,7 @@ function ProfileCard({ user }) {
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
-                    <hr id="user-card-hr"/>
+                    <hr id="user-card-hr" />
                     <div className="place-member-since">
                         <div className="place">
                             <p>From</p>
