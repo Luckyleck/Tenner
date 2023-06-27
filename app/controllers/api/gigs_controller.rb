@@ -36,8 +36,7 @@ class Api::GigsController < ApplicationController
                 except: [:password_digest, :session_token]
             }
         },
-        except: [:seller_id],
-        methods: [:image_urls]
+        except: [:seller_id]
     end
 
     def create

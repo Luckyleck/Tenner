@@ -1,5 +1,8 @@
 class Gig < ApplicationRecord
 
+    # include ActiveStorage::UrlHelpers
+    # ActiveStorage::Blob
+
     # validate :at_least_one_photo_attached
     
     validates :title, presence: true, length: { in: 5..25, message: "title must be between 5 and 25 characters long" }
@@ -15,11 +18,15 @@ class Gig < ApplicationRecord
     #     images.map { |image| Rails.application.routes.url_helpers.url_for(image)}
     # end
 
+    # def image_urls
+    #     images.map { |image| url_for(image) }
+    # end
+
     def image_urls
-        images.map { |image| url_for(image) }
+        images.map { |image| image.url }
     end
 
-    private
+    # private
 
     # def at_least_one_photo_attached
     #     unless photos.attached?
