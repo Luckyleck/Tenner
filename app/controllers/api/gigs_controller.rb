@@ -3,7 +3,7 @@ class Api::GigsController < ApplicationController
     before_action :set_gig, only: [:show, :update, :destroy]
 
     def index
-        @gigs = Gig.all.map { |gig| format_gig_json(gig, include_reviews: false) }
+        @gigs = Gig.all.map { |gig| format_gig_json(gig) }
   
         render json: @gigs
     end
@@ -53,27 +53,61 @@ class Api::GigsController < ApplicationController
         params.require(:gig).permit(:title, :description, :base_price, :seller_id, images: [])
     end
 
+    # def format_gig_json(gig, include_reviews: false)
+    #     puts "include_reviews: #{include_reviews}"
+    #     gig.as_json(
+    #         include: {
+
+    #             include_reviews ? {
+    #                 only: [:id, :body, :gig_id, :reviewer_id],
+    #                 include: {
+    #                     reviewer: {
+    #                         only: [:id, :username, :fname, :lname, :email]
+    #                     }
+    #                 }
+    #             } : nil,
+
+    #             # reviews: include_reviews ? {
+    #             #     only: [:id, :body, :gig_id, :reviewer_id],
+    #             #     include: {
+    #             #         reviewer: {
+    #             #             only: [:id, :username, :fname, :lname, :email]
+    #             #         }
+    #             #     }
+    #             # } : nil,
+
+    #             seller: {
+    #                 except: [:password_digest, :session_token]
+    #             }
+
+    #         },
+    #         methods: [:image_urls],
+    #         except: [:seller_id]
+    #     )
+    # end
+
     def format_gig_json(gig, include_reviews: false)
-        puts "include_reviews: #{include_reviews}"
-        gig.as_json(
-            include: {
+        associations = {
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+        }
 
-                reviews: include_reviews ? {
-                    only: [:id, :body, :gig_id, :reviewer_id],
-                    include: {
-                        reviewer: {
-                            only: [:id, :username, :fname, :lname, :email]
-                        }
+        if include_reviews
+            associations[:reviews] = {
+                only: [:id, :body, :gig_id, :reviewer_id],
+                include: {
+                    reviewer: {
+                        only: [:id, :username, :fname, :lname, :email]
                     }
-                } : nil,
-
-                seller: {
-                    except: [:password_digest, :session_token]
                 }
+            }
+        end
 
-            },
-            methods: [:image_urls],
-            except: [:seller_id]
+        gig.as_json(
+            include: associations,
+                methods: [:image_urls],
+                except: [:seller_id]
         )
     end
 
