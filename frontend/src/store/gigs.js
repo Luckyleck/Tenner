@@ -76,24 +76,6 @@ export function fetchUserGigs(userId) {
     })
 }
 
-
-export function searchGigs(searchTerm) {
-    return async (dispatch) => {
-        const response = await csrfFetch(`/api/gigs`);
-
-        if (response.ok) {
-            const data = await response.json();
-            const filteredGigs = data.filter((gig) => {
-                const title = gig.title.toLowerCase();
-                const description = gig.description.toLowerCase();
-                const search = searchTerm.toLowerCase();
-                return title.includes(search) || description.includes(search);
-            });
-            dispatch(updateSearchedGigs(filteredGigs));
-        }
-    };
-}
-
 export function createGig(gig) {
     return (async (dispatch) => {
         const response = await csrfFetch(`/api/gigs`, {

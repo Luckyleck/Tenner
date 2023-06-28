@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GigCard from "./GigCard";
-import { fetchGigs, searchGigs } from "../../../store/gigs"
+import { fetchGigs } from "../../../store/gigs"
 import './GigListStyles.css'
 
 function GigsList() {
@@ -11,12 +11,8 @@ function GigsList() {
 
     
     useEffect(() => {
-        if (search) {
-            dispatch(searchGigs(search));
-        } else {
             dispatch(fetchGigs());
-        }
-    }, [dispatch, search]);
+    }, [dispatch]);
 
     if (!gigs) {
         return null

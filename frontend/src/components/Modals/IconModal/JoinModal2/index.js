@@ -34,7 +34,6 @@ function SecondModal({ formData, setFormData }) {
                 if (data?.errors) {
                     setErrors(data.errors);
                     setFormData({ ...formData, password: '' })
-                    // console.log(data.errors);
                 } else if (data) {
                     setErrors([data]);
                     console.log(data);
