@@ -7,6 +7,7 @@ import './reset.css'
 import NewNav from './components/NewNav';
 import NewGigDisplay from './components/NewGigDisplay/NewGigDisplay';
 import ViewUser from './components/ViewUser';
+import SearchResultsIndex from './components/Search/SearchResultsIndex';
 
 function App() {
   return (
@@ -16,12 +17,8 @@ function App() {
         <Route exact path="/" component={Splash} />
         <Route exact path="/profile" component={SessionUserDisplay} />
         <Route exact path="/users/:userId" component={ViewUser} />
-        {/* <Route path="/gigs/:gigId" component={GigShow} /> */}
-        <Route path="/gigs/:gigId">
-          <GigShow />
-          {/* <hr /> */}
-          {/* <NewGigDisplay /> */}
-        </Route> 
+        <Route path="/gigs/:gigId" component={GigShow} />
+        <Route path="/search" component={SearchResultsIndex}/>
       </Switch>
     </>
   );

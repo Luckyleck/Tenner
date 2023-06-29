@@ -35,7 +35,6 @@ function JoinModal({ formData, setFormData }) {
 
     dispatch(modalActions.hideJoinOne())
     dispatch(modalActions.showJoinTwo())
-    // console.log(formData.email) 
   }
 
   return (

@@ -3,40 +3,13 @@ class Api::GigsController < ApplicationController
     before_action :set_gig, only: [:show, :update, :destroy]
 
     def index
-        @gigs = Gig.all.map do |gig|
-            gig.as_json(include: {
-                reviews: {
-                    only: [:id, :body, :gig_id, :reviewer_id],
-                    include: {
-                        reviewer: {
-                            only: [:id, :username, :fname, :lname, :email]
-                        }
-                    }
-                },
-                seller: {
-                    except: [:password_digest, :session_token]
-                }
-            })
-        end
-      
+        @gigs = Gig.all.map { |gig| format_gig_json(gig) }
+  
         render json: @gigs
     end
 
     def show
-        render json: @gig, include: {
-            reviews: {
-                only: [:id, :body, :gig_id, :reviewer_id],
-                include: {
-                    reviewer: {
-                        only: [:id, :username, :fname, :lname, :email]
-                    }
-                }
-            },
-            seller: {
-                except: [:password_digest, :session_token]
-            }
-        },
-        except: [:seller_id]
+        render json: format_gig_json(@gig, include_reviews: true)
     end
 
     def create
@@ -61,6 +34,15 @@ class Api::GigsController < ApplicationController
         @gig.destroy
     end
 
+    def search
+        @gigs = Gig.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+        render json: @gigs.to_json(include: {
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+        })
+    end
+
     private
 
     def set_gig
@@ -68,7 +50,65 @@ class Api::GigsController < ApplicationController
     end
 
     def gig_params
-        params.require(:gig).permit(:title, :description, :base_price, :seller_id, :image)
+        params.require(:gig).permit(:title, :description, :base_price, :seller_id, images: [])
+    end
+
+    # def format_gig_json(gig, include_reviews: false)
+    #     puts "include_reviews: #{include_reviews}"
+    #     gig.as_json(
+    #         include: {
+
+    #             include_reviews ? {
+    #                 only: [:id, :body, :gig_id, :reviewer_id],
+    #                 include: {
+    #                     reviewer: {
+    #                         only: [:id, :username, :fname, :lname, :email]
+    #                     }
+    #                 }
+    #             } : nil,
+
+    #             # reviews: include_reviews ? {
+    #             #     only: [:id, :body, :gig_id, :reviewer_id],
+    #             #     include: {
+    #             #         reviewer: {
+    #             #             only: [:id, :username, :fname, :lname, :email]
+    #             #         }
+    #             #     }
+    #             # } : nil,
+
+    #             seller: {
+    #                 except: [:password_digest, :session_token]
+    #             }
+
+    #         },
+    #         methods: [:image_urls],
+    #         except: [:seller_id]
+    #     )
+    # end
+
+    def format_gig_json(gig, include_reviews: false)
+        associations = {
+            seller: {
+                except: [:password_digest, :session_token]
+            }
+        }
+
+        if include_reviews
+            associations[:reviews] = {
+                only: [:id, :body, :gig_id, :reviewer_id],
+                include: {
+                    reviewer: {
+                        only: [:id, :username, :fname, :lname, :email]
+                    }
+                }
+            }
+        end
+
+        gig.as_json(
+            include: associations,
+                methods: [:image_urls],
+                except: [:seller_id]
+        )
     end
 
 end

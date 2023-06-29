@@ -11,7 +11,7 @@ function TennerIcon() {
 
     function handleClick() {
         dispatch(fetchGigs());
-        dispatch(removeSearch());
+        // dispatch(removeSearch());
     }
 
     return (

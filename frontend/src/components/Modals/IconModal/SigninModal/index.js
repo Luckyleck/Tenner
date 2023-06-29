@@ -42,7 +42,6 @@ function SigninModal() {
                 if (data?.errors) {
                     setErrors(data.errors);
                     setPassword('')
-                    // console.log(data.errors);
                 } else if (data) {
                     setErrors([data]);
                     console.log(data);

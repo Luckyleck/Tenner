@@ -88,15 +88,12 @@ export function restoreSession() {
     })
 }
 
-
-
 export function updateUser(userId, userData) {
     return async function (dispatch) {
         try {
             const response = await csrfFetch(`/api/users/${userId}`, {
                 method: 'PATCH',
-                body: JSON.stringify(userData),
-                headers: { 'Content-Type': 'application/json' },
+                body: userData
             });
 
             const data = await response.json();

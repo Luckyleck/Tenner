@@ -7,12 +7,13 @@ import './EditNameModalStyles.css'
 
 function EditNameModal({ user }) {
     const dispatch = useDispatch();
+    const [photo, setPhoto] = useState(null);
+
     const [formData, setFormData] = useState({
         fname: user.fname,
         lname: user.lname,
         username: user.username,
         email: user.email,
-        profileUrl: user.profileUrl
     });
 
     function handleChange(e) {
@@ -24,31 +25,24 @@ function EditNameModal({ user }) {
     };
 
     function handleFileChange(e) {
-        const photoFile = e.target.files[0];
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            profileUrl: photoFile
-        }));
+        const file = e.target.files[0];
+        setPhoto(file)
     }
 
     function handleSave() {
-        dispatch(sessionActions.updateUser(user.id, formData));
+        const newData = new FormData();
+        newData.append('user[fname]', formData.fname);
+        newData.append('user[lname]', formData.lname);
+        newData.append('user[username]', formData.username);
+        newData.append('user[email]', formData.email);
+        if (photo) {
+            newData.append('user[photo]', photo);
+        }
+        console.log(newData)
+
+        dispatch(sessionActions.updateUser(user.id, newData));
         dispatch(modalActions.hideEditModal());
     };
-
-    // function handleSave() {
-    //     const updatedFormData = new FormData();
-    //     updatedFormData.append('user[fname]', formData.fname);
-    //     updatedFormData.append('user[lname]', formData.lname);
-    //     updatedFormData.append('user[username]', formData.username);
-    //     updatedFormData.append('user[email]', formData.email);
-    //     if (formData.profileUrl) {
-    //         updatedFormData.append('user[photo]', formData.profileUrl);
-    //     }
-
-    //     dispatch(sessionActions.updateUser(user.id, updatedFormData));
-    //     dispatch(modalActions.hideEditModal());
-    // }
 
     function overlayClick() {
         dispatch(modalActions.hideEditModal());
@@ -104,3 +98,17 @@ function EditNameModal({ user }) {
 }
 
 export default EditNameModal;
+
+// function handleSave() {
+    //     const updatedFormData = new FormData();
+    //     updatedFormData.append('user[fname]', formData.fname);
+    //     updatedFormData.append('user[lname]', formData.lname);
+    //     updatedFormData.append('user[username]', formData.username);
+    //     updatedFormData.append('user[email]', formData.email);
+    //     if (formData.profileUrl) {
+    //         updatedFormData.append('user[photo]', formData.profileUrl);
+    //     }
+
+    //     dispatch(sessionActions.updateUser(user.id, updatedFormData));
+    //     dispatch(modalActions.hideEditModal());
+    // }

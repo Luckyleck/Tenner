@@ -10,14 +10,7 @@ function GigReviews({ gig }) {
     function updateReviews(newReview) {
         setReviews((prevReviews) => [...prevReviews, newReview]);
     };
-
-    // if (!gig) {
-    //     return <div>Loading...</div>;
-    // }
-
-    // console.log(reviews)
-    // console.log(gig)
-
+    
     return (
         <div>
             <h1>Gig Reviews</h1>
