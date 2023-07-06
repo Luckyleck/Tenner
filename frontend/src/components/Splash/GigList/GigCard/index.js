@@ -8,12 +8,24 @@ function GigCard({ gig }) {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     // const [images, setImages] = useSelector = gig
 
+    function whichImage() {
+        if (!gig.image) {
+            return gig.image_urls[1]
+        } else {
+            return gig.image
+        }
+    }
+
+    if (!gig.image) {
+
+    }
+
     return (
 
         <div className="gig-card">
 
             <Link to={`/gigs/${gig.id}`}>
-                <img id="gig-image" src={gig.image} />
+                <img id="gig-image" src={whichImage()} />
             </Link>
 
             <div className="seller-info">
@@ -26,20 +38,19 @@ function GigCard({ gig }) {
                         className="seller-profile-link"
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
-                        <p>{gig.seller.username}</p>
+                        <h2>{gig.seller.username}</h2>
                     </Link>
                 </div>
             </div>
 
             <Link to={`/gigs/${gig.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className="gig-title">
-                    <p>I will be a {gig.title.toLowerCase()} for you</p>
+                    <h2>I will be a {gig.title.toLowerCase()} for you</h2>
                 </div>
             </Link>
 
             <div className="base-price">
-                <p>STARTING AT</p>
-                <h2>${Math.floor(gig.base_price / 5) * 5}</h2>
+                <h1>From&nbsp;${Math.floor(gig.base_price / 5) * 5}</h1>
             </div>
 
         </div>
