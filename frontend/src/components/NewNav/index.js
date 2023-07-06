@@ -46,7 +46,10 @@ function NewNav() {
             {
                 sessionUser ?
                     <div className="signed-in-nav">
-                        <TennerIcon />
+                        <div className="logo">
+                            <h1>Tenner</h1>
+                            <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
+                        </div>
                         <SearchBar />
                         <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
                             {sessionUser.username[0]}
@@ -66,7 +69,11 @@ function NewNav() {
                     </div>
                     :
                     <div className="signed-out-nav">
-                        <TennerIcon />
+                        <div className="logo">
+                            <h1>Tenner</h1>
+                            <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
+                        </div>
+                        {/* <TennerIcon /> */}
                         <div className="signed-out-buttons">
 
                             <button onClick={() => dispatch(modalActions.showSignin())}>
