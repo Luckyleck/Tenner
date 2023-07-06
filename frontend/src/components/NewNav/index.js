@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
 import { fetchGigs } from '../../store/gigs';
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-import TennerIcon from '../TennerIcon/TennerIcon.jsx'
+
 import SearchBar from '../Search';
 import SigninModal from '../Modals/SigninModal'
 import JoinModalOne from '../Modals/JoinModal';
@@ -58,9 +59,17 @@ function NewNav() {
                             <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
                         <SearchBar />
-                        <div className="dropdown-container">
-                            <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                                {sessionUser.username[0]}
+
+                        <div className="social-icons">
+                            <a href="https://www.linkedin.com/in/alexthelecky1875273" target="_blank" rel="noopener noreferrer">
+                                <FaLinkedin className="social-icon" />
+                            </a>
+                            <a href="https://github.com/luckyleck" target="_blank" rel="noopener noreferrer">
+                                <FaGithub className="social-icon" />
+                            </a>
+                            <button id="profile-icon-button" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
+                                {sessionUser.photoUrl ? <img alt='user' src={sessionUser.photoUrl}></img> :
+                                sessionUser.username[0]>sessionUser.username[0]}
                             </button>
                             {showDropDownMenu && (
                                 <div className="menu-container">
@@ -75,7 +84,8 @@ function NewNav() {
                                 </div>
                             )}
                         </div>
-                    </div >
+                    </div>
+
                     :
                     <div className="signed-out-nav">
                         <div className="logo">
