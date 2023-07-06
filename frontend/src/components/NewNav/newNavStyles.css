@@ -4,7 +4,7 @@
     max-height: 7vh;
     display: flex;
     justify-content: space-between;
-    padding: 2% 2.5% 0 2.5%;
+    padding: 2% 2% 0 2.5%;
 }
 
 
@@ -77,15 +77,29 @@
 /* Fix modal buttons */
 
 .menu-container {
-    margin-top: 50%;
-    margin-right: 90%;
     position: absolute;
-    width: 150px;
-    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 14.5vw;
+    left: 85vw;
     background-color: white;
-    z-index: 600;
+    z-index: 9999;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-option {
+    /* font-family: Arial, sans-serif; */
+    /* font-size: 16px; */
+    /* font-weight: lighter; */
+    /* color: #74767e; */
+    /* background-color: transparent; */
+    /* border: none; */
+    /* cursor: pointer; */
+    /* outline: none; */
+    /* padding-left: 10px; */
+    /* width: 100%; */
+    /* text-align: left; */
 }
 
 

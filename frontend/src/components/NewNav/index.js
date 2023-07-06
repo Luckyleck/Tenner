@@ -58,21 +58,23 @@ function NewNav() {
                             <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
                         <SearchBar />
-                        <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                            {sessionUser.username[0]}
-                        </button>
-                        {showDropDownMenu && (
-                            <div className="menu-container">
+                        <div className="dropdown-container">
+                            <button onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
+                                {sessionUser.username[0]}
+                            </button>
+                            {showDropDownMenu && (
+                                <div className="menu-container">
 
-                                <button onClick={() => handleDropDownClick('profile')}>
-                                    Profile
-                                </button>
-                                <button onClick={() => handleDropDownClick('logout')}>
-                                    Logout
-                                </button>
+                                    <button className="menu-option" onClick={() => handleDropDownClick('profile')}>
+                                        Profile
+                                    </button>
+                                    <button className="menu-option" onClick={() => handleDropDownClick('logout')}>
+                                        Logout
+                                    </button>
 
-                            </div>
-                        )}
+                                </div>
+                            )}
+                        </div>
                     </div >
                     :
                     <div className="signed-out-nav">
