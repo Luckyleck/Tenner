@@ -11,7 +11,7 @@ function GigsList() {
 
     
     useEffect(() => {
-            dispatch(fetchGigs());
+            dispatch(fetchGigs())
     }, [dispatch]);
 
     if (!gigs) {

@@ -35,7 +35,7 @@
     color: black;
     letter-spacing: -0.05em;
     font-stretch: expanded;
-    align-self: h1;
+    align-self: center;
 }
 
 .logo {
@@ -50,12 +50,17 @@
     position: relative;
     right: 13%;
     top: 20%;
-    /* background-color: blue; */
 }
 
 .signed-out-nav .logo svg {
     top: 9%;
 }
+
+.signed-in-nav .logo a {
+    text-decoration: none;
+    align-self: center;
+}
+
 
 /* #logo {
     width: 35%;
@@ -70,6 +75,18 @@
 } */
 
 /* Fix modal buttons */
+
+.menu-container {
+    margin-top: 50%;
+    margin-right: 90%;
+    position: absolute;
+    width: 150px;
+    right: 0;
+    background-color: white;
+    z-index: 600;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
 
 

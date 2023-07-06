@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as modalActions from '../../store/modals';
 import * as sessionActions from '../../store/session';
+import { fetchGigs } from '../../store/gigs';
 
 import TennerIcon from '../TennerIcon/TennerIcon.jsx'
 import SearchBar from '../Search';
@@ -41,13 +42,19 @@ function NewNav() {
 
     }
 
+    function handleClick() {
+        dispatch(fetchGigs());
+    }
+
     return (
         <>
             {
                 sessionUser ?
                     <div className="signed-in-nav">
                         <div className="logo">
-                            <h1>Tenner</h1>
+                            <Link to="/" onClick={handleClick}>
+                                <h1>Tenner</h1>
+                            </Link>
                             <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
                         <SearchBar />
@@ -55,7 +62,7 @@ function NewNav() {
                             {sessionUser.username[0]}
                         </button>
                         {showDropDownMenu && (
-                            <div className="dropdown-container">
+                            <div className="menu-container">
 
                                 <button onClick={() => handleDropDownClick('profile')}>
                                     Profile
@@ -66,14 +73,13 @@ function NewNav() {
 
                             </div>
                         )}
-                    </div>
+                    </div >
                     :
                     <div className="signed-out-nav">
                         <div className="logo">
                             <h1>Tenner</h1>
                             <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
-                        {/* <TennerIcon /> */}
                         <div className="signed-out-buttons">
 
                             <button onClick={() => dispatch(modalActions.showSignin())}>
@@ -91,13 +97,15 @@ function NewNav() {
             {/* Render active modals (true)*/}
 
             {modals.signinModal && <SigninModal />}
-            {modals.joinModal1 &&
+            {
+                modals.joinModal1 &&
                 <JoinModalOne
                     formData={formData}
                     setFormData={setFormData}
                 />
             }
-            {modals.joinModal2 &&
+            {
+                modals.joinModal2 &&
                 <JoinModalTwo
                     formData={formData}
                     setFormData={setFormData}

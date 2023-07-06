@@ -19,7 +19,7 @@ function GigShow() {
     }, [dispatch, gigId]);
 
     if (!gig) {
-        return <div>No gig</div>;
+        return null;
     }
 
     return (
