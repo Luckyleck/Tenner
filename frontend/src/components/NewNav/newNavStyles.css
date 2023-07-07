@@ -176,10 +176,32 @@ button {
 }
 
 .search-bar-container {
+    position: relative;
     width: 50%;
+    height: 100%;
+    background-color: blue;
+    align-self: center;
+    right: 10%;
 }
 
-.search-form {
+.search-bar-container form {
+    height: 90%;
+}
+
+.search-form input {
+    height: 100%;
+    background-color:aquamarine;
+} */
+
+.search-form button {
+    width: 7.5%;
+}
+
+/* .search-form {
+    display: flex;
+} */
+
+/* .search-form {
     display: flex;
     gap: 0px;
     width: 100%;
@@ -187,21 +209,23 @@ button {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-style: solid;
-}
+} */
 
-.search-form label {
+/* .search-form label {
     display: inherit;
     height: 100%;
     width: 92.5%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-}
+} */
 
-.search-form input {
+/* .search-form input {
     width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-}
+} */
+
+
 
 .search-form button {
     margin-left: -1px;
@@ -237,4 +261,10 @@ button {
     justify-content: space-between;
     align-self: center;
     width: 30%;
+}
+
+#user-profile-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
 }

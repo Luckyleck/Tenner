@@ -68,8 +68,12 @@ function NewNav() {
                                 <FaGithub className="social-icon" />
                             </a>
                             <button id="profile-icon-button" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                                {sessionUser.photoUrl ? <img alt='user' src={sessionUser.photoUrl}></img> :
-                                sessionUser.username[0]>sessionUser.username[0]}
+                                {sessionUser.photoUrl ?
+                                    <img alt='user'
+                                    id="user-profile-icon" src={sessionUser?.photoUrl}></img>
+                                    :
+                                    sessionUser.username[0] > sessionUser.username[0]
+                                }
                             </button>
                             {showDropDownMenu && (
                                 <div className="menu-container">
