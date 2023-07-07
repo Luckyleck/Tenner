@@ -4,7 +4,7 @@
     max-height: 7vh;
     display: flex;
     justify-content: space-between;
-    padding: 2% 2% 0 2.5%;
+    padding: 2% 2% 2% 2.5%;
 }
 
 
@@ -78,8 +78,8 @@
 
 .menu-container {
     position: absolute;
-    top: 4rem;
-    left: .5rem;
+    top: 5rem;
+    left: -2.8rem;
     display: flex;
     flex-direction: column;
     width: 14.5vw;
@@ -176,64 +176,60 @@ button {
 }
 
 .search-bar-container {
+    display: flex;
     position: relative;
-    width: 50%;
-    height: 100%;
-    background-color: blue;
-    align-self: center;
     right: 10%;
 }
 
 .search-bar-container form {
-    height: 90%;
+    display: flex;
 }
 
 .search-form input {
-    height: 100%;
-    background-color:aquamarine;
-} */
-
-.search-form button {
-    width: 7.5%;
+    height: 90%;
+    width: 47vw;
+    border-top: 1px solid #62646a;
+    border-left: 1px solid #62646a;
+    border-bottom: 1px solid #62646a;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding-top: 1%;
+    text-indent: 1rem;
+    /* To center the place holder text*/
 }
 
-/* .search-form {
-    display: flex;
-} */
+.search-form input::placeholder {
+    /* padding-left: 2%; */
+    font-size: 25px;
+    color: #62646a;
+}
 
-/* .search-form {
-    display: flex;
-    gap: 0px;
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-style: solid;
-} */
+.search-form input:focus {
+    /* padding-left: 2%; */
+    outline: none;
+    font-size: 25px;
+    color: #62646a;
+    
+}
 
-/* .search-form label {
-    display: inherit;
-    height: 100%;
-    width: 92.5%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-} */
+.search-form input:not(:placeholder-shown) {
+    font-size: 25px;
+    color: #62646a;
+}
 
-/* .search-form input {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-} */
-
+/* .search-form input: */
 
 
 .search-form button {
     margin-left: -1px;
-    width: 7.5%;
+    width: 3.9vw;
+    height: 109%;
     background-color: #222325;
     color: white;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 .search-form button:hover {
@@ -244,9 +240,9 @@ button {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 50%;
+    gap: 30%;
     width: fit-content;
-    right: 8.4%;
+    right: 4.9%;
 }
 
 .social-icon {
