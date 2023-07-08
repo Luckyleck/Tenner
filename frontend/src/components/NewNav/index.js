@@ -56,7 +56,7 @@ function NewNav() {
                             <Link to="/" onClick={handleClick}>
                                 <h1>Tenner</h1>
                             </Link>
-                            <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
+                            <svg className="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
                         <SearchBar />
 
@@ -94,7 +94,7 @@ function NewNav() {
                     <div className="signed-out-nav">
                         <div className="logo">
                             <h1>Tenner</h1>
-                            <svg class="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
+                            <svg className="logo-period" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1" /></svg>
                         </div>
                         <div className="signed-out-buttons">
 

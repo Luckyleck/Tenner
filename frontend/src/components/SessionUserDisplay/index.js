@@ -37,26 +37,24 @@ function SessionUserDisplay() {
     console.log(reviews);
 
     return (
-                <div className="main-wrapper">
-                    <div className="profileCard">
-                        <ProfileCard user={user} />
-                    </div>
-                    <div className="reviews-and-gigs">
-                        <ReviewCard reviews={reviews} />
-                        <div className="gig-list">
-                            <CreateGig />
-                            <hr/>
-                            <div>
-                                {Object.values(userGigs).map((gig) => (
-                                    <div key={gig.id}>
-                                        <GigCard gig={gig} />
-                                        <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button>
-                                    </div>
-                                ))}
-                            </div>
+        <div className="main-wrapper">
+            <div className="profileCard">
+                <ProfileCard user={user} />
+            </div>
+            <div className="reviews-and-gigs">
+                <ReviewCard reviews={reviews} />
+                <CreateGig />
+                <h1 id="your-gigs">Your gigs</h1>
+                <div className="gig-list-user">
+                    {Object.values(userGigs).map((gig) => (
+                        <div key={gig.id}>
+                            <GigCard gig={gig} />
+                            {/* <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button> */}
                         </div>
-                    </div>
-                </div >
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 }
 
