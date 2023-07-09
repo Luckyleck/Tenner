@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux'
 import GigCard from '../Splash/GigList/GigCard'
 
 function SearchResultsIndex() {
-    const { gigs } = useSelector(state => state.search)
+    const { gigs } = useSelector(state => state.search.gigs)
+    const query = useSelector(state => state.search.gigs.query);
 
     if (!gigs) {
         return <h1>Loading..</h1>
@@ -11,7 +12,7 @@ function SearchResultsIndex() {
 
     return (
         <div>
-            <h1>Search Results Index</h1>
+            <h1>Results for {query}</h1>
             <div className="gig-card-container">
             {gigs.map((gig) => (
                 <GigCard key={gig.id} gig={gig} />
