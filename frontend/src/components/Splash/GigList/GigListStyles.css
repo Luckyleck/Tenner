@@ -26,3 +26,7 @@
     padding: 1% 0 1% 0;
     align-self: flex-start;
 }
+
+.gig-list-container h4 span {
+    font-weight: bold;
+}
