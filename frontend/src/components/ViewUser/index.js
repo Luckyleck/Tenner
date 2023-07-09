@@ -41,15 +41,14 @@ function ViewUser() {
       </div>
       <div className="reviews-and-gigs">
         <ReviewCard reviews={reviews} />
-        <div className="gig-list">
-          <hr />
-          <div>
+        <br/>
+        <h1 id="your-gigs">{user.username}'s gigs</h1>
+        <div className="gig-list-user">
             {Object.values(gigs).map((gig) => (
               <div key={gig.id}>
                 <GigCard gig={gig} />
               </div>
             ))}
-          </div>
         </div>
       </div>
     </div >
