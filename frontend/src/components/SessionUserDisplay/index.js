@@ -42,7 +42,10 @@ function SessionUserDisplay() {
                 <ProfileCard user={user} />
             </div>
             <div className="reviews-and-gigs">
-                <ReviewCard reviews={reviews} />
+                <div className="user-page-reviews">
+                    <ReviewCard reviews={reviews} />
+                </div>
+                <br />
                 <CreateGig />
                 <h1 id="your-gigs">Your gigs</h1>
                 <div className="gig-list-user">

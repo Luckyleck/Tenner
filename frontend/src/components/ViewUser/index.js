@@ -40,8 +40,10 @@ function ViewUser() {
         <ProfileCard user={user} />
       </div>
       <div className="reviews-and-gigs">
-        <ReviewCard reviews={reviews} />
-        <br/>
+        <div className="user-page-reviews">
+          <ReviewCard reviews={reviews} />
+        </div>
+        <br />
         <h1 id="your-gigs">{user.username}'s gigs</h1>
         <div className="gig-list-user">
             {Object.values(gigs).map((gig) => (

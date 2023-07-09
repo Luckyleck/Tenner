@@ -43,8 +43,7 @@ function ProfileCard({ user }) {
         fetchCountry(setCountry);
     }, []);
 
-    console.log(country)
-    console.log(user.photoUrl)
+    const isProfilePage = window.location.pathname === '/profile';
 
     return (
         <>
@@ -60,7 +59,7 @@ function ProfileCard({ user }) {
                 <div className="profile-info-text">
                     <div className="top-row">
                         <h1>{user.fname} {user.lname}</h1>
-                        <img id="edit-icon" onClick={handleEdit} src={pencilIcon} alt="edit" />
+                        {isProfilePage && <img id="edit-icon" onClick={handleEdit} src={pencilIcon} alt="edit" />}
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
