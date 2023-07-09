@@ -39,6 +39,10 @@ function ProfileCard({ user }) {
             .catch(error => console.log(error));
     };
 
+    function memberSince(created_at) {
+        return new Date(created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
+    }
+
     useEffect(() => {
         fetchCountry(setCountry);
     }, []);
@@ -69,6 +73,7 @@ function ProfileCard({ user }) {
                             <p>From</p>
                             {country && <p>{country}</p>}
                         </div>
+                        <h3>Member since {memberSince(isProfilePage ? user.createdAt :user.created_at)}</h3>
                     </div>
                 </div>
             </div>
