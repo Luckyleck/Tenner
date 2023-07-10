@@ -46,13 +46,16 @@ function SessionUserDisplay() {
                     <ReviewCard reviews={reviews} />
                 </div>
                 <br />
-                <CreateGig />
+
                 <h1 id="your-gigs">Your gigs</h1>
+                <div className="create-gig-session-profile">
+                    <CreateGig />
+                </div>
                 <div className="gig-list-user">
                     {Object.values(userGigs).map((gig) => (
                         <div key={gig.id}>
-                            <GigCard gig={gig} />
-                            {/* <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button> */}
+                            <GigCard gig={gig} handleDeleteGig={handleDeleteGig}/>
+                            <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button>
                         </div>
                     ))}
                 </div>

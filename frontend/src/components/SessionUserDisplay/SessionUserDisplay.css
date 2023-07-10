@@ -42,13 +42,6 @@
   border-width: 1px 1px 0 1px;
 }
 
-/* @media (min-width: 768px) {
-  .card-and-reviews {
-    justify-content: center;
-    padding: 20px;
-  }
-} */
-
 .reviews-and-gigs .reviews-container .gig-reviews:last-child {
   margin-bottom: 0;
 }
@@ -85,4 +78,15 @@
   margin-bottom: 0;
   border-width: 0;
 }
+
+.create-gig-session-profile {
+  background-color: white; 
+  border-left: 1px solid #dadbdd;
+  border-right: 1px solid #dadbdd;
+  padding-top: 1.5%;
+  padding-left: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+
 

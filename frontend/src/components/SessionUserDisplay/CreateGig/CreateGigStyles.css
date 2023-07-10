@@ -27,3 +27,17 @@
     font-size: large;
     font-weight: 500;
 }
+
+.create-gig-session-profile button {
+    color: #404145;
+    padding: 1%;
+    cursor: pointer;
+    background-color: #cdcecd;
+}
+
+.create-gig-session-profile button:hover {
+    color: #171717;
+    padding: 1%;
+    cursor: pointer;
+    background-color: #8a8a8a;
+}
