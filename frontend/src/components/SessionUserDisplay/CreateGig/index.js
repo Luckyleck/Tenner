@@ -93,7 +93,7 @@ function CreateGig() {
                         onChange={handleChange}
                     />
                     <p className="giginfo-p">images of your gig. <span style={{ color: "grey" }}>Max 4</span></p>
-                    <input type="file" onChange={handleFileChange} multiple />
+                    <input className="add-gig-files" type="file" onChange={handleFileChange} multiple />
                     {error && <p className="errors">{error}</p>}
                     <button className='modal-button' onClick={handleSave}>Save</button>
                 </div>

@@ -70,10 +70,10 @@ function ProfileCard({ user }) {
                     <hr id="user-card-hr" />
                     <div className="place-member-since">
                         <div className="place">
-                            <p>From</p>
-                            {country && <p>{country}</p>}
+                            <p>Member since</p>
+                            <p>{memberSince(isProfilePage ? user.createdAt : user.created_at)}</p>
                         </div>
-                        <h3>Member since {memberSince(isProfilePage ? user.createdAt :user.created_at)}</h3>
+                        <h3> </h3>
                     </div>
                 </div>
             </div>

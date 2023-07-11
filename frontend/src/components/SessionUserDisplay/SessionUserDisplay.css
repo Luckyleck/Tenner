@@ -54,7 +54,7 @@
   box-shadow: 0px 0px 0px 1px #dadbdd;
 }
 
-.user-page-reviews .reviews-container { 
+.user-page-reviews .reviews-container {
   border: none;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .create-gig-session-profile {
-  background-color: white; 
+  background-color: white;
   border-left: 1px solid #dadbdd;
   border-right: 1px solid #dadbdd;
   padding-top: 1.5%;
@@ -88,5 +88,19 @@
   padding-bottom: 1.5%;
 }
 
+.gig-list-user button {
+  position: relative;
+  bottom: 11.4%;
+  left: 65%;
+  scale: calc(0.8);
+  color: #404145;
+  cursor: pointer;
+  background-color: #cdcecd;
+  padding-bottom: 2px;
+}
 
-
+.gig-list-user button:hover {
+  color: #171717;
+  cursor: pointer;
+  background-color: #8a8a8a;
+}

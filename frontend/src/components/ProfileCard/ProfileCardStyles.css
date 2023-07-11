@@ -84,14 +84,16 @@
 }
 
 .place p:first-child {
-    overflow: hidden;
+    /* overflow: hidden;
     width: 73px;
-    /* text-overflow:ellipsis; */
+    text-overflow:ellipsis; */
+    padding-left: 2%;
 }
 
 .place p:last-child {
     /* overflow: hidden;
     text-overflow: ellipsis; */
+    padding-right: 2%;
 }
 
 #user-card-hr {
