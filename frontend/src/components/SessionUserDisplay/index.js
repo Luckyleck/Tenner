@@ -34,8 +34,6 @@ function SessionUserDisplay() {
         dispatch(fetchUserGigs(sessionUserId));
     }
 
-    console.log(reviews);
-
     return (
         <div className="main-wrapper">
             <div className="profileCard">
@@ -54,7 +52,7 @@ function SessionUserDisplay() {
                 <div className="gig-list-user">
                     {Object.values(userGigs).map((gig) => (
                         <div key={gig.id}>
-                            <GigCard gig={gig} handleDeleteGig={handleDeleteGig}/>
+                            <GigCard gig={gig}/>
                             <button onClick={() => handleDeleteGig(gig.id)}>Delete Gig</button>
                         </div>
                     ))}
