@@ -46,7 +46,7 @@ function GigShowcase({ gig }) {
                 </Link>
             </div>
 
-            <img id="gig-show-img" src={gig.image} />
+            <img id="gig-show-img" src={gig.image || gig.image_urls[0]} />
 
             <div className="gig-description">
                 <h1>About this gig</h1>

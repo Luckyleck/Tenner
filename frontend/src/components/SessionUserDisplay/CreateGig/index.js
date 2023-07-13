@@ -50,7 +50,9 @@ function CreateGig() {
     }
 
     function overlayClick() {
-        setShowCreateGig(!showCreateGig)
+        setShowCreateGig(!showCreateGig);
+        setNewGigImages(null)
+        setImagePreviews([])
     }
 
     function handleSave() {

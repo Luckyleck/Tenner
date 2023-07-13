@@ -28,6 +28,8 @@
 
 #gig-show-img {
     width: 100%;
+    height: auto;
+    max-height: 618px;
 }
 
 .gig-description h1 {
