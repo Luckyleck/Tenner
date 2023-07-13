@@ -27,3 +27,48 @@
     font-size: large;
     font-weight: 500;
 }
+
+.create-gig-session-profile button {
+    color: #404145;
+    padding: 1%;
+    cursor: pointer;
+    background-color: #cdcecd;
+}
+
+.create-gig-session-profile button:hover {
+    color: #171717;
+    padding: 1%;
+    cursor: pointer;
+    background-color: #8a8a8a;
+}
+
+.add-gig-files {
+    margin-bottom: 4%;
+}
+
+.gig-images-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.gig-image-preview {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.gig-image-preview-container {
+    position: relative;
+}
+
+.gig-image-preview-container .delete-image-button {
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    width: 50%;
+    color: black;
+    cursor: pointer;
+    scale: calc(0.5);
+    background-color: red;
+}

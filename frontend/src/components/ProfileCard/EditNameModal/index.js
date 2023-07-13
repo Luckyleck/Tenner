@@ -90,7 +90,7 @@ function EditNameModal({ user }) {
                     onChange={handleChange}
                 />
                 <label className="userinfo-p">Upload a profile image</label>
-                <input type="file" onChange={handleFileChange} />
+                <input className="add-gig-files" type="file" onChange={handleFileChange} />
                 <button className='modal-button' onClick={handleSave}>Save</button>
             </div>
         </>

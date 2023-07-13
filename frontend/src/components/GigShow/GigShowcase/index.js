@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import ShowReview from './ShowReview';
 import CreateReview from '../../Modals/CreateReview';
@@ -13,6 +15,30 @@ function GigShowcase({ gig }) {
     const dispatch = useDispatch();
     const createReviewModal = useSelector(state => state.modal.createReviewModal)
     const [reviews, setReviews] = useState(gig.reviews);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [gigImageHovered, setGigImageHovered] = useState(false);
+
+    function whichImage() {
+        if (!gig.image) {
+            return gig.image_urls[currentImageIndex]
+        } else {
+            return gig.image
+        }
+    }
+
+    function handleImageCycle(direction) {
+        setCurrentImageIndex((prevIndex) => {
+            const maxIndex = gig.image_urls.length - 1;
+
+            if (direction === 1 && prevIndex === maxIndex) {
+                return 0;
+            } else if (direction === -1 && prevIndex === 0) {
+                return maxIndex;
+            } else {
+                return prevIndex + direction;
+            }
+        });
+    }
 
     function handleCreateReview(review) {
         setReviews(prevReviews => [...prevReviews, review]);
@@ -46,7 +72,15 @@ function GigShowcase({ gig }) {
                 </Link>
             </div>
 
-            <img id="gig-show-img" src={gig.image} />
+            <div className="gig-showcase-image-container">
+                {gig.image_urls.length > 0 && <button className="image-cycle-button left" onClick={() => handleImageCycle(-1)}>
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                </button>}
+                <img id="gig-show-img" src={whichImage()} />
+                {gig.image_urls.length > 0 && <button className="image-cycle-button right" onClick={() => handleImageCycle(1)}>
+                    <FontAwesomeIcon icon={faChevronRight} />
+                </button>}
+            </div>
 
             <div className="gig-description">
                 <h1>About this gig</h1>

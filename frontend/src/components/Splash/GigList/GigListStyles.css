@@ -1,23 +1,32 @@
+.gig-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .gig-card-container {
     font-family: system-ui, -apple-system, BlinkMacSystemFont;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding-left: 3%;
-    padding-right: 3%;
+    margin-left: 0.9%;
+    width: 95%;
     gap: 3.7%;
 }
 
-.gig-card-container h2:first-child {
-    flex: 0 0 100%; /* grow, shrink, basis */
-    font-size: xx-large;
+.gig-list-container h4 {
+    margin-left: 3%;
+    flex: 0 0 100%;
+    /* grow, shrink, basis */
+    font-size: 36px;
+    font-weight: 600;
+    color: #404145;
+    line-height: 130%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 1% 0 1% 0;
+    align-self: flex-start;
 }
 
-
-
-
-
-
-
+.gig-list-container h4 span {
+    font-weight: bold;
+}

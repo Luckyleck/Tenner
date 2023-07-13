@@ -33,6 +33,7 @@
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .review-modal-button {

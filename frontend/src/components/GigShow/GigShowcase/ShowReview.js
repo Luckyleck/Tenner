@@ -1,35 +1,39 @@
 import React from 'react';
-import './ShowReviewStyles.css'
+import './ShowReviewStyles.css';
 import { useSelector, useDispatch } from 'react-redux';
 import EditReview from '../../Modals/EditReview';
-import * as modalActions from '../../../store/modals'
+import * as modalActions from '../../../store/modals';
 import { deleteReview } from '../../../store/reviews';
 
 function ShowReview({ review }) {
     const dispatch = useDispatch();
     const colors = ['#1dbf73', '#ff6b6b', '#feca57', '#48dbfb', '#ff9f43', '#6ab04c'];
     const editReviewModal = useSelector(state => state.modal.editReviewModal);
-    const { gig } = useSelector(state => state.gigs)
-    const randomColor = colors[Math.floor(Math.random() * colors.length)]
-    const sessionUser = useSelector(state => state.session.user)
+    const { gig } = useSelector(state => state.gigs);
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const sessionUser = useSelector(state => state.session.user);
 
     function handleEditReview() {
-        dispatch(modalActions.showEditReview())
+        dispatch(modalActions.showEditReview());
     }
 
     function handleDeleteReview() {
         dispatch(deleteReview(review.id));
     }
-    
-    if (window.location.pathname !== '/profile') { // if it's gig showcase
+
+    const currentPath = window.location.pathname;
+    const isProfilePage = currentPath === '/profile';
+    const isUserProfilePage = currentPath.includes('/users/');
+
+    if (!isProfilePage && !isUserProfilePage) { // if it's gig showcase
         return (
             <>
                 <div className="review-container">
                     <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                        <h1>{review.reviewer.username[0]}</h1>
+                        <h1>{review?.reviewer?.username[0]}</h1>
                     </div>
                     <div className="review-content">
-                        <h3>{review.reviewer.username}</h3>
+                        <h3>{review?.reviewer?.username}</h3>
                         <p>{review.body}</p>
                         {review.reviewer?.id === sessionUser.id && (
                             <div className="edit-delete-review">
@@ -42,24 +46,22 @@ function ShowReview({ review }) {
                 {editReviewModal && <EditReview gig={gig} review={review} />}
                 <hr id="review-showcase-hr" />
             </>
-        )
+        );
     } else {
         return (
             <>
-            <div className="review-container">
-                <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                    <h1>{review.reviewer.username[0]}</h1>
+                <div className="review-container">
+                    <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
+                        <h1>{review?.reviewer?.username[0]}</h1>
+                    </div>
+                    <div className="review-content">
+                        <h3>{review?.reviewer?.username}</h3>
+                        <p>{review?.body}</p>
+                    </div>
                 </div>
-                <div className="review-content">
-                    <h3>{review.reviewer.username}</h3>
-                    <p>{review.body}</p>
-                </div>
-                
-            </div>
-            <hr id="review-showcase-hr" />
+                <hr id="review-showcase-hr-profile" />
             </>
-        )
-        
+        );
     }
 }
 

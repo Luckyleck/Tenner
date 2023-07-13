@@ -16,16 +16,32 @@ function CreateGig() {
         base_price: '',
         seller_id: sessionUserId
     })
+    const [imagePreviews, setImagePreviews] = useState([]);
 
     function handleFileChange(e) {
-        //.files is a 'FileList' object, does not have slice method
+        //.files is a 'FileList' object, does not have slice method so we must first copy it into an array
         const files = [...e.target.files].slice(0, 4);
-        setNewGigImages(files)
+        setNewGigImages(files);
+
+        const filePreviews = [];
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = (event) => {
+                filePreviews.push(event.target.result);
+                if (filePreviews.length === files.length) {
+                    setImagePreviews(filePreviews);
+                }
+            };
+
+            reader.readAsDataURL(file);
+        }
     }
 
     function handleChange(e) {
         const { name, value } = e.target;
-        const updatedValue = name === 'base_price' ? Number(value) : value;
+        const updatedValue = name === 'base_price' ? Number(value.replace(/\D/g, '')) : value;
 
         setGigData(prevGigData => ({
             ...prevGigData,
@@ -34,7 +50,9 @@ function CreateGig() {
     }
 
     function overlayClick() {
-        setShowCreateGig(!showCreateGig)
+        setShowCreateGig(!showCreateGig);
+        setNewGigImages(null)
+        setImagePreviews([])
     }
 
     function handleSave() {
@@ -50,6 +68,17 @@ function CreateGig() {
 
         dispatch(createGig(newGigData));
         setShowCreateGig(!showCreateGig);
+    }
+
+    function handleDeleteImage(index) {
+        const updatedImages = [...newGigImages];
+        const updatedPreviews = [...imagePreviews];
+
+        updatedImages.splice(index, 1);
+        updatedPreviews.splice(index, 1);
+
+        setNewGigImages(updatedImages);
+        setImagePreviews(updatedPreviews);
     }
 
 
@@ -71,7 +100,7 @@ function CreateGig() {
                         type='text'
                         name='title'
                         value={gigData.title}
-                        placeholder={gigData.title}
+                        placeholder={gigData.title || "I will..."}
                         onChange={handleChange}
                     />
                     <p className="giginfo-p">description</p>
@@ -80,7 +109,7 @@ function CreateGig() {
                         className='modal-input'
                         name='description'
                         value={gigData.description}
-                        placeholder={gigData.description}
+                        placeholder={gigData.description || "Tell us about your service, be descriptive"}
                         onChange={handleChange}
                     />
                     <p className="giginfo-p">price of your gig</p>
@@ -89,11 +118,28 @@ function CreateGig() {
                         className='modal-input'
                         name='base_price'
                         value={gigData.base_price}
-                        placeholder={gigData.base_price}
+                        placeholder={gigData.base_price || "rounded to the nearest '5' ex. 60, 65..."}
                         onChange={handleChange}
                     />
                     <p className="giginfo-p">images of your gig. <span style={{ color: "grey" }}>Max 4</span></p>
-                    <input type="file" onChange={handleFileChange} multiple />
+                    <input className="add-gig-files" type="file" onChange={handleFileChange} multiple />
+                    <div className="gig-images-container">
+                        {imagePreviews.map((preview, index) => (
+                            <div key={index} className="gig-image-preview-container">
+                                <img
+                                    src={preview}
+                                    alt={`Preview ${index + 1}`}
+                                    className="gig-image-preview"
+                                />
+                                <button
+                                    className="delete-image-button"
+                                    onClick={() => handleDeleteImage(index)}
+                                >
+                                    X
+                                </button>
+                            </div>
+                        ))}
+                    </div>
                     {error && <p className="errors">{error}</p>}
                     <button className='modal-button' onClick={handleSave}>Save</button>
                 </div>

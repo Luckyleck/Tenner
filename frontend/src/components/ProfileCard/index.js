@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as modalActions from '../../store/modals.js'
 import EditNameModal from "./EditNameModal";
 import { ipStackKey } from "../../assets/apiKey";
-
-const pencilIcon = "https://gcdnb.pbrd.co/images/OJG00LyY6Eev.png?o=1"
+import pencilIcon from '../../assets/pencil-bw-removebg-preview.png'
 
 function ProfileCard({ user }) {
     const dispatch = useDispatch();
@@ -39,12 +38,15 @@ function ProfileCard({ user }) {
             .catch(error => console.log(error));
     };
 
+    function memberSince(created_at) {
+        return new Date(created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
+    }
+
     useEffect(() => {
         fetchCountry(setCountry);
     }, []);
 
-    console.log(country)
-    console.log(user.photoUrl)
+    const isProfilePage = window.location.pathname === '/profile';
 
     return (
         <>
@@ -60,16 +62,17 @@ function ProfileCard({ user }) {
                 <div className="profile-info-text">
                     <div className="top-row">
                         <h1>{user.fname} {user.lname}</h1>
-                        <img id="edit-icon" onClick={handleEdit} src={pencilIcon} alt="edit" />
+                        {isProfilePage && <img id="edit-icon" onClick={handleEdit} src={pencilIcon} alt="edit" />}
                     </div>
                     <h2>@{user.username}</h2>
                     <h2 style={{ paddingBottom: '10%' }}>{user.email}</h2>
                     <hr id="user-card-hr" />
                     <div className="place-member-since">
                         <div className="place">
-                            <p>From</p>
-                            {country && <p>{country}</p>}
+                            <p>Member since</p>
+                            <p>{memberSince(isProfilePage ? user.createdAt : user.created_at)}</p>
                         </div>
+                        <h3> </h3>
                     </div>
                 </div>
             </div>
