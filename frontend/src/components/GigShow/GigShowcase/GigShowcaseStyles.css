@@ -1,7 +1,6 @@
 .gig-show-container {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 58%;
-
 }
 
 .gig-show-title {
@@ -26,10 +25,45 @@
     align-self: flex-start;
 }
 
+.gig-showcase-image-container {
+    display: flex;
+}
+
 #gig-show-img {
     width: 100%;
-    height: auto;
-    max-height: 618px;
+    height: 600px;
+}
+
+.image-cycle-button.left {
+    position: absolute;
+    height: 8vh;
+    width: 4vw;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+    background-color: white;
+    border-radius: 50%;
+    left: 6vw;
+    color: #62646a
+}
+
+.image-cycle-button.left:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.image-cycle-button.right {
+    position: absolute;
+    height: 8vh;
+    align-self: center;
+    width: 4vw;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+    background-color: white;
+    border-radius: 50%;
+    color: #62646a;
+    left: 54.1vw;
+}
+
+.image-cycle-button.right:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .gig-description h1 {
