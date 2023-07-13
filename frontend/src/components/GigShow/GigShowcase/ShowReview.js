@@ -30,10 +30,10 @@ function ShowReview({ review }) {
             <>
                 <div className="review-container">
                     <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                        <h1>{review.reviewer.username[0]}</h1>
+                        <h1>{review?.reviewer?.username[0]}</h1>
                     </div>
                     <div className="review-content">
-                        <h3>{review.reviewer.username}</h3>
+                        <h3>{review?.reviewer?.username}</h3>
                         <p>{review.body}</p>
                         {review.reviewer?.id === sessionUser.id && (
                             <div className="edit-delete-review">
@@ -52,11 +52,11 @@ function ShowReview({ review }) {
             <>
                 <div className="review-container">
                     <div className="reviewer-profile-bubble" style={{ backgroundColor: randomColor }}>
-                        <h1>{review.reviewer.username[0]}</h1>
+                        <h1>{review?.reviewer?.username[0]}</h1>
                     </div>
                     <div className="review-content">
-                        <h3>{review.reviewer.username}</h3>
-                        <p>{review.body}</p>
+                        <h3>{review?.reviewer?.username}</h3>
+                        <p>{review?.body}</p>
                     </div>
                 </div>
                 <hr id="review-showcase-hr-profile" />
