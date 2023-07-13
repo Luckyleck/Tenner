@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as modalActions from '../../store/modals.js'
 import EditNameModal from "./EditNameModal";
 import { ipStackKey } from "../../assets/apiKey";
-
-const pencilIcon = "https://gcdnb.pbrd.co/images/OJG00LyY6Eev.png?o=1"
+import pencilIcon from '../../assets/pencil-bw-removebg-preview.png'
 
 function ProfileCard({ user }) {
     const dispatch = useDispatch();
