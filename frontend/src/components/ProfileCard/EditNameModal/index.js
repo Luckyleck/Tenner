@@ -17,7 +17,6 @@ function EditNameModal({ user }) {
     });
 
     function handleChange(e) {
-        console.log(e)
         setFormData(prevFormData => ({
             ...prevFormData,
             [e.target.name]: e.target.value
@@ -38,7 +37,7 @@ function EditNameModal({ user }) {
         if (photo) {
             newData.append('user[photo]', photo);
         }
-        console.log(newData)
+        // console.log(newData)
 
         dispatch(sessionActions.updateUser(user.id, newData));
         dispatch(modalActions.hideEditModal());

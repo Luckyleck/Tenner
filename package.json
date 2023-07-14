@@ -1,0 +1,25 @@
+{
+  "name": "tenner",
+  "version": "1.0.0",
+  "description": "### Made by Alex L [Github Link](https://github.com/Luckyleck)",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luckyleck/Tenner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luckyleck/Tenner/issues"
+  },
+  "homepage": "https://github.com/Luckyleck/Tenner#readme",
+  "engines": {
+    "node": "16.x"
+  }
+}

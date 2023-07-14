@@ -44,7 +44,7 @@ function SigninModal() {
                     setPassword('')
                 } else if (data) {
                     setErrors([data]);
-                    console.log(data);
+            
                 } else {
                     setErrors([res.statusText]);
                 }

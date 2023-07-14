@@ -86,7 +86,7 @@ export function createGig(gig) {
         })
 
         if (response.ok) {
-            console.log('Gig created')
+            // console.log('Gig created')
         }
     })
 }

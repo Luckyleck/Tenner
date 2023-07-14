@@ -37,7 +37,7 @@ function NewCreateReview({ gig, updateReviews }) {
         }
     }
 
-    console.log(showCreate)
+    // console.log(showCreate)
 
     if (showCreate === false) {
         return (

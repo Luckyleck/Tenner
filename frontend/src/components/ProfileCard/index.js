@@ -28,23 +28,23 @@ function ProfileCard({ user }) {
         dispatch(modalActions.showEditModal())
     }
 
-    function fetchCountry(setCountry) {
-        fetch(`http://api.ipstack.com/check?access_key=${ipStackKey}`)
-            .then(response => response.json())
-            .then(data => {
-                const { country_name } = data;
-                setCountry(country_name);
-            })
-            .catch(error => console.log(error));
-    };
+    // function fetchCountry(setCountry) {
+    //     fetch(`http://api.ipstack.com/check?access_key=${ipStackKey}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             const { country_name } = data;
+    //             setCountry(country_name);
+    //         })
+    //         .catch(error => console.log(error));
+    // };
 
     function memberSince(created_at) {
         return new Date(created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
     }
 
-    useEffect(() => {
-        fetchCountry(setCountry);
-    }, []);
+    // useEffect(() => {
+    //     fetchCountry(setCountry);
+    // }, []);
 
     const isProfilePage = window.location.pathname === '/profile';
 
