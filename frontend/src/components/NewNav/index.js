@@ -72,7 +72,7 @@ function NewNav() {
                                     <img alt='user'
                                     id="user-profile-icon" src={sessionUser?.photoUrl}></img>
                                     :
-                                    sessionUser.username[0] > sessionUser.username[0]
+                                    sessionUser.username[0]
                                 }
                             </button>
                             {showDropDownMenu && (
