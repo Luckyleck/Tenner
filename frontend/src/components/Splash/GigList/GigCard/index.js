@@ -45,7 +45,7 @@ function GigCard({ gig }) {
                     <img id="gig-image" src={whichImage()} />
 
                 </Link>
-                {gig.image_urls.length > 1 && gigImageHovered && (
+                {gig.image_urls?.length > 1 && gigImageHovered && (
                     <div className="gig-card-left-right">
                         <button className="image-cycle-button" onClick={() => handleImageCycle(-1)}>
                             <FontAwesomeIcon icon={faChevronLeft} />
