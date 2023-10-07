@@ -79,7 +79,7 @@ export function login({ credential, password }) {
 
 The frontend dynamically pulls the gigs from the database and displays them in a nice 'gig-card' component. Upon clicking the title of the gig or of image, you will be redirected to the gigs show page. On fiverr the format of the title is "I will...". "I will" is required to be at the start, this allows for uniformity amongst sellers. 
 
-<img src="/app/assets/images/Tenner/TennerUserGigs.PNG" height=400 width=auto>
+<img src="/app/assets/images/Tenner/TennerGigsList.png" height=400 width=auto>
 
 ```
 ...
