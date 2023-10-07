@@ -125,8 +125,7 @@ This is the main display of a gig on Tenner. It contains all the information tha
 
 Each review is rendered underneath the gig's display page. The reviews for the gig are mapped and sent as prop to a component that formats and renders the review. A user is able to create a review of a gig and also able to delete or edit their reviews. Soon features wil include the star rating fuctionality the fiverr includes. 
 
-<img src="/app/assets/images/Tenner/TennerUserCardAndUpdate.png"  height=600 width=auto> 
-<img src="/app/assets/images/Tenner/TennerOtherUserPage.png"  height=600 width=auto>   
+<img src="/app/assets/images/Tenner/TennerGigReviews.png" height=400 width=auto>
 
 ```
 ...
@@ -157,7 +156,8 @@ return (
 
 The user profile is place to see information about the user. Currently the user profile is bare bones, but soon, displays will include the user's reviews as a seller and more information about the user like country, language, buyer status, etc. 
 
-<img src="https://gcdnb.pbrd.co/images/HtmZqUZZAtov.png?o=1" height=400 width=auto>
+<img src="/app/assets/images/Tenner/TennerUserCardAndUpdate.png"  height=400 width=auto> 
+<img src="/app/assets/images/Tenner/TennerOtherUserPage.png"  height=400 width=auto> 
 
 ```
 import React from 'react';
