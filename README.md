@@ -36,7 +36,7 @@ Hosting:
 
 A user is able to sign up and login. In both of these options there is the appropriate error handling such as a field being left blank or incorrectly filled out. The error will display under the text field in red text. My application also uses CSRF protection to ensure the user and server's security.
 
-<img src="https://gcdnb.pbrd.co/images/3zzdBe4esTXn.png?o=1" height=400 width=auto>  
+<img src="/app/assets/images/Tenner/TennerSign-in.png" height=400 width=auto>  
 
 ```
 const removeCurrentUser = () => {
@@ -79,7 +79,7 @@ export function login({ credential, password }) {
 
 The frontend dynamically pulls the gigs from the database and displays them in a nice 'gig-card' component. Upon clicking the title of the gig or of image, you will be redirected to the gigs show page. On fiverr the format of the title is "I will...". "I will" is required to be at the start, this allows for uniformity amongst sellers. 
 
-<img src="https://gcdnb.pbrd.co/images/yKnAnZHsPvYI.png?o=1" height=400 width=auto>
+<img src="/app/assets/images/Tenner/TennerGigsList.png" height=400 width=auto>
 
 ```
 ...
@@ -119,13 +119,13 @@ return (
 
 This is the main display of a gig on Tenner. It contains all the information that a user could require before purchasing a gig. One important feature of this page is the reviews section. Typically a seller becomes successful once they get their first order and review. 
 
-<img src="https://gcdnb.pbrd.co/images/r5jokwDX5cn7.png?o=1" height=400 width=auto>
+<img src="/app/assets/images/Tenner/TennerGigShowCase.png" height=400 width=auto>
 
 ## Gig Reviews
 
 Each review is rendered underneath the gig's display page. The reviews for the gig are mapped and sent as prop to a component that formats and renders the review. A user is able to create a review of a gig and also able to delete or edit their reviews. Soon features wil include the star rating fuctionality the fiverr includes. 
 
-<img src="https://gcdnb.pbrd.co/images/g8zSTf8M6GU2.png?o=1"  height=600 width=auto>  
+<img src="/app/assets/images/Tenner/TennerGigReviews.png" height=400 width=auto>
 
 ```
 ...
@@ -156,7 +156,8 @@ return (
 
 The user profile is place to see information about the user. Currently the user profile is bare bones, but soon, displays will include the user's reviews as a seller and more information about the user like country, language, buyer status, etc. 
 
-<img src="https://gcdnb.pbrd.co/images/HtmZqUZZAtov.png?o=1" height=400 width=auto>
+<img src="/app/assets/images/Tenner/TennerUserCardAndUpdate.png"  height=400 width=auto> 
+<img src="/app/assets/images/Tenner/TennerOtherUserPage.png"  height=400 width=auto> 
 
 ```
 import React from 'react';
