@@ -67,14 +67,17 @@ function NewNav() {
                             <a href="https://github.com/luckyleck" target="_blank" rel="noopener noreferrer">
                                 <FaGithub className="social-icon" />
                             </a>
-                            <button id="profile-icon-button" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                                {sessionUser.photoUrl ?
+                            {sessionUser.photoUrl ? (
+                                <button id="user-profile-icon" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
                                     <img alt='user'
-                                    id="user-profile-icon" src={sessionUser?.photoUrl}></img>
-                                    :
+                                        id="user-profile-icon" src={sessionUser?.photoUrl}>
+                                    </img>
+                                </button>
+                            ) : (
+                                <button id="profile-icon-button" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
                                     sessionUser.username[0]
-                                }
-                            </button>
+                                </button>
+                            )}
                             {showDropDownMenu && (
                                 <div className="menu-container">
 
