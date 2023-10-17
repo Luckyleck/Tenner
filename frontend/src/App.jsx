@@ -5,7 +5,6 @@ import SessionUserDisplay from './components/SessionUserDisplay';
 import GigShow from './components/GigShow';
 import './reset.css'
 import NewNav from './components/NewNav';
-import NewGigDisplay from './components/NewGigDisplay/NewGigDisplay';
 import ViewUser from './components/ViewUser';
 import SearchResultsIndex from './components/Search/SearchResultsIndex';
 
