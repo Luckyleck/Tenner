@@ -75,7 +75,7 @@ function NewNav() {
                                 </button>
                             ) : (
                                 <button id="profile-icon-button" onClick={() => setShowDropDownMenu(!showDropDownMenu)}>
-                                    sessionUser.username[0]
+                                    {sessionUser.username[0]}
                                 </button>
                             )}
                             {showDropDownMenu && (
