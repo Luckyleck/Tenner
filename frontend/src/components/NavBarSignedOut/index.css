@@ -1,0 +1,19 @@
+.signed-out-new {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: red;
+    padding: 20px 13%;
+}
+
+.logo-new {
+    display: flex;
+    align-items: flex-end;
+}
+
+#logo-text {
+   font-family: impact;
+   font-size: 34px;
+   line-height: 34px
+}

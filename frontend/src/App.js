@@ -1,0 +1,40 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Splash from './components/Splash';
+import SessionUserDisplay from './components/SessionUserDisplay';
+import GigShow from './components/GigShow';
+import './reset.css';
+import NavBar from './components/NavBar';
+import ViewUser from './components/ViewUser';
+import SearchResultsIndex from './components/Search/SearchResultsIndex';
+import { useSelector } from 'react-redux';
+import NavBarSignedOut from './components/NavBarSignedOut';
+
+function App() {
+    const sessionUser = useSelector((state) => state.session.user);
+
+    if (!sessionUser) {
+        return <NavBarSignedOut />;
+    }
+
+    if (sessionUser) {
+        return (
+            <div>
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={Splash} />
+                    <Route
+                        exact
+                        path="/profile"
+                        component={SessionUserDisplay}
+                    />
+                    <Route exact path="/users/:userId" component={ViewUser} />
+                    <Route path="/gigs/:gigId" component={GigShow} />
+                    <Route path="/search" component={SearchResultsIndex} />
+                </Switch>
+            </div>
+        );
+    }
+}
+
+export default App;

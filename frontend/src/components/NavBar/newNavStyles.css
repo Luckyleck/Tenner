@@ -9,14 +9,23 @@
 
 
 .signed-out-nav {
-    position: fixed;
+    /* position: fixed;
     z-index: 9999;
     width: 95%;
     height: 7vh;
     max-height: 7vh;
     display: flex;
     justify-content: space-between;
-    padding: 2% 2.5% 0 2.5%;
+    padding: 2% 2.5% 0 2.5%; */
+}
+
+.signed-out-nav-new {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    background-color: red;
+    width: 100%;
+
 }
 
 .signed-in-nav h1 {
